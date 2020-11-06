@@ -1,6 +1,7 @@
 // hero block
 .heroBlock {
   position: relative;
+  margin-top: 50px;
 
   .v-window {
     @media only screen and (max-width: 599px) {
@@ -10,7 +11,7 @@
 
   .v-image__image {
     &:before {
-      content: '';
+      content: "";
       background: rgba(0, 0, 0, 0.3);
       position: absolute;
       top: 0;
@@ -34,6 +35,6 @@
   background: darken($white, 2%);
 
   .v-card__title {
-    background: rgba(0,0,0,0.3);
+    background: rgba(0, 0, 0, 0.3);
   }
 }
