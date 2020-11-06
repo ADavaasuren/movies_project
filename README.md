@@ -1,4 +1,4 @@
-# vue_crash_todolist
+# trending_movies_project
 
 ## Project setup
 ```
