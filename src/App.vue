@@ -1,40 +1,23 @@
 <template>
-  <v-app dark>
-      <v-app-bar
-        app
-        flat
-        >
-        <Header/>
-      </v-app-bar>
+  <v-app> 
+      <router-link :to="{name:'Home'}">
+      </router-link>
+      <router-link :to="{name:'Details'}">
+      </router-link>
+      <router-link :to="{name:'Randomizer'}">
+      </router-link>
 
-    <main>
-
-      <v-content>
-        <Home />
-      </v-content>
-    </main>    
+      <router-view></router-view>
   </v-app>
 </template>
 
 <script>
-import Header from './components/Header';
-import Home from './views/Home';
-
-
 
 export default {
-  name: 'App',
-
-  components: {
-    Header,
-    Home
-  },
-
-  data: () => ({
-    //
-  }),
-};
+   name: 'App',
+ };
 </script>
+
 
 <style>
 

@@ -1,6 +1,10 @@
 import VueRouter from 'vue-router';
 import Vue from 'vue'
 import Home from '../views/Home.vue'
+import Details from '../views/Details.vue'
+import Randomizer from '../views/Randomizer.vue'
+
+
 
 Vue.use(VueRouter)
 
@@ -13,12 +17,12 @@ const routes = [
   {
     path: '/details',
     name: 'Details',
-    component: () => import('../views/Details.vue')
+    component: Details
   },
   {
     path: '/randomizer',
     name: 'Randomizer',
-    component: () => import('../views/Randomizer.vue')
+    component: Randomizer
   }
 ]
 
