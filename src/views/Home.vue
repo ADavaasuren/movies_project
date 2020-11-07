@@ -37,60 +37,27 @@
           >
             <v-card>
               <v-card-title class="subheading font-weight-bold">
-                {{ item.name }}
+                {{ item.original_title }}
               </v-card-title>
 
               <v-divider></v-divider>
 
               <v-list dense>
                 <v-list-item>
-                  <v-list-item-content>Calories:</v-list-item-content>
+                  <v-list-item-content>Release date:</v-list-item-content>
                   <v-list-item-content class="align-end">
-                    {{ item.calories }}
+                    {{ item.release_date }}
                   </v-list-item-content>
                 </v-list-item>
 
                 <v-list-item>
-                  <v-list-item-content>Fat:</v-list-item-content>
+                  <v-list-item-content>Popularity:</v-list-item-content>
                   <v-list-item-content class="align-end">
-                    {{ item.fat }}
+                    {{ item.popularity }}
                   </v-list-item-content>
                 </v-list-item>
 
-                <v-list-item>
-                  <v-list-item-content>Carbs:</v-list-item-content>
-                  <v-list-item-content class="align-end">
-                    {{ item.carbs }}
-                  </v-list-item-content>
-                </v-list-item>
 
-                <v-list-item>
-                  <v-list-item-content>Protein:</v-list-item-content>
-                  <v-list-item-content class="align-end">
-                    {{ item.protein }}
-                  </v-list-item-content>
-                </v-list-item>
-
-                <v-list-item>
-                  <v-list-item-content>Sodium:</v-list-item-content>
-                  <v-list-item-content class="align-end">
-                    {{ item.sodium }}
-                  </v-list-item-content>
-                </v-list-item>
-
-                <v-list-item>
-                  <v-list-item-content>Calcium:</v-list-item-content>
-                  <v-list-item-content class="align-end">
-                    {{ item.calcium }}
-                  </v-list-item-content>
-                </v-list-item>
-
-                <v-list-item>
-                  <v-list-item-content>Iron:</v-list-item-content>
-                  <v-list-item-content class="align-end">
-                    {{ item.iron }}
-                  </v-list-item-content>
-                </v-list-item>
               </v-list>
             </v-card>
           </v-col>
@@ -114,53 +81,24 @@
 </template>
 
 <script>
+import Vue from 'vue';
+import axios from 'axios';
+import VueAxios from 'vue-axios';
+
+Vue.use(VueAxios,axios)
 
 export default {
     data: () => ({
-      itemsPerPage: 4,
-      items: [
-        {
-          name: 'Frozen Yogurt',
-          calories: 159,
-          fat: 6.0,
-          carbs: 24,
-          protein: 4.0,
-          sodium: 87,
-          calcium: '14%',
-          iron: '1%',
-        },
-        {
-          name: 'Ice cream sandwich',
-          calories: 237,
-          fat: 9.0,
-          carbs: 37,
-          protein: 4.3,
-          sodium: 129,
-          calcium: '8%',
-          iron: '1%',
-        },
-        {
-          name: 'Eclair',
-          calories: 262,
-          fat: 16.0,
-          carbs: 23,
-          protein: 6.0,
-          sodium: 337,
-          calcium: '6%',
-          iron: '7%',
-        },
-        {
-          name: 'Cupcake',
-          calories: 305,
-          fat: 3.7,
-          carbs: 67,
-          protein: 4.3,
-          sodium: 413,
-          calcium: '3%',
-          iron: '8%',
-        },
-      ],
+     itemsPerPage: 10,
+     items: [],
     }),
+    mounted() {
+      Vue.axios.get('https://api.themoviedb.org/3/trending/movie/day?api_key=b33ac6661da0977b3c9d8014bf3e1d4d')
+        .then(response => {
+        this.items=response.data.results;
+        console.warn(response)
+      })
+    },
   }
 
 // 'https://api.themoviedb.org/3/trending/movie/day?api_key=b33ac6661da0977b3c9d8014bf3e1d4d')
