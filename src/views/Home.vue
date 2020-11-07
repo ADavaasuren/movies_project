@@ -11,6 +11,7 @@
           color="indigo darken-5"
           dark
           flat
+          fixed
         >
       <router-link :to="{name:'Home'}">
            <v-btn text>Home</v-btn>
@@ -89,7 +90,7 @@ Vue.use(VueAxios,axios)
 
 export default {
     data: () => ({
-     itemsPerPage: 10,
+     itemsPerPage: 20,
      items: [],
     }),
     mounted() {
