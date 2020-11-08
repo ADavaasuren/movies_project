@@ -7,11 +7,10 @@
     >
       <template v-slot:header>
         <v-toolbar
-          class="mb-2"
+          class="mb-15"
           color="indigo darken-5"
           dark
           flat
-          fixed
         >
       <router-link :to="{name:'Home'}">
            <v-btn text>Home</v-btn>
@@ -27,32 +26,30 @@
       </template>
 
       <template v-slot:default="props">
-          <v-row
-            v-for="item in props.items"
-            :key="item.name"
-            cols="12"
-            sm="6"
-            md="4"
-            lg="3"
-          >
-            <v-card flat>
-              <v-layout row wrap>
-                <v-flex>
-                  <div>Title</div>
-                  <div>{{ item.original_title }}</div>
+            <v-card v-for="item in props.items" :key="item.name" class="pa-3">
+              <v-layout row wrap class="cards">
+                <v-flex xs12 md6>
+                  <v-chip>{{ item.original_title }}</v-chip>
+                </v-flex>
+                <v-flex xs6 sm4 md2>
                   <div>Release date:</div>
                   <div>{{ item.release_date }}</div>
-                  <div>Popularity:<div>
+                </v-flex>
+                <v-flex xs6 sm4 md2>
+                  <div>Popularity:</div>
                   <div>{{ item.popularity }}</div>
+                </v-flex>
+                <v-flex xs2 sm4 md2>
+                  <div>Votes:</div>
+                  <div>{{ item.vote_count }}</div>
                 </v-flex>
               </v-layout>
             </v-card>
-          </v-row>
       </template>
 
       <template v-slot:footer>
         <v-toolbar
-          class="mt-2"
+          class="mt-15"
           color="indigo"
           dark
           flat
@@ -62,6 +59,7 @@
           </v-toolbar-title>
         </v-toolbar>
       </template>
+
     </v-data-iterator>
   </v-container>
 </template>
@@ -75,7 +73,7 @@ Vue.use(VueAxios,axios)
 
 export default {
     data: () => ({
-     itemsPerPage: 20,
+     itemsPerPage: 10,
      items: [],
     }),
     mounted() {
@@ -94,15 +92,8 @@ export default {
 
 <style scoped>
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.4;
+.cards {
+  border-bottom: 2px solid black;
 }
 
 .btn {
