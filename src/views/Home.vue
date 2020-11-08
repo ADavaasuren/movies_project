@@ -27,8 +27,7 @@
       </template>
 
       <template v-slot:default="props">
-        <v-row>
-          <v-col
+          <v-row
             v-for="item in props.items"
             :key="item.name"
             cols="12"
@@ -36,33 +35,19 @@
             md="4"
             lg="3"
           >
-            <v-card>
-              <v-card-title class="subheading font-weight-bold">
-                {{ item.original_title }}
-              </v-card-title>
-
-              <v-divider></v-divider>
-
-              <v-list dense>
-                <v-list-item>
-                  <v-list-item-content>Release date:</v-list-item-content>
-                  <v-list-item-content class="align-end">
-                    {{ item.release_date }}
-                  </v-list-item-content>
-                </v-list-item>
-
-                <v-list-item>
-                  <v-list-item-content>Popularity:</v-list-item-content>
-                  <v-list-item-content class="align-end">
-                    {{ item.popularity }}
-                  </v-list-item-content>
-                </v-list-item>
-
-
-              </v-list>
+            <v-card flat>
+              <v-layout row wrap>
+                <v-flex>
+                  <div>Title</div>
+                  <div>{{ item.original_title }}</div>
+                  <div>Release date:</div>
+                  <div>{{ item.release_date }}</div>
+                  <div>Popularity:<div>
+                  <div>{{ item.popularity }}</div>
+                </v-flex>
+              </v-layout>
             </v-card>
-          </v-col>
-        </v-row>
+          </v-row>
       </template>
 
       <template v-slot:footer>
