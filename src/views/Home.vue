@@ -13,15 +13,15 @@
           dark
           flat
         >
-      <router-link :to="{name:'Home'}">
-           <v-btn text>Home</v-btn>
-      </router-link>
-      <router-link :to="{name:'Details'}">
-          <v-btn text>Categories</v-btn>
-      </router-link>
-      <router-link :to="{name:'Randomizer'}">
-          <v-btn text>Random</v-btn>
-      </router-link>
+          <router-link :to="{name:'Home'}">
+              <v-btn text>Home</v-btn>
+          </router-link>
+          <router-link :to="{name:'Details'}">
+              <v-btn text>Categories</v-btn>
+          </router-link>
+          <router-link :to="{name:'Randomizer'}">
+              <v-btn text>Random</v-btn>
+          </router-link>
 
         </v-toolbar>
       </template>
@@ -30,8 +30,8 @@
 
             <v-layout row class="pa-8 mb-2">
               <v-btn small flat color="grey" @click="sortByAZ('original_title')">
-                <v-icon left small></v-icon>
-                <span class="text-lowercase">By movie title</span>
+                  <v-icon left small></v-icon>
+                  <span class="text-lowercase">By movie title</span>
               </v-btn>
               <v-btn small flat color="grey" @click="sortBy('release_date')">
                 <v-icon left small></v-icon>
@@ -126,7 +126,7 @@ export default {
 <style scoped>
 
 .cards {
-  border-bottom: 2px solid black;
+  border: 2px solid black;
   align-items: center;
 }
 

@@ -15,14 +15,15 @@ const routes = [
     component: Home
   },
   {
-    path: '/details',
+    path: '/details/:id',
     name: 'Details',
-    component: Details
+    component: Details,
+    params: true
   },
   {
     path: '/randomizer',
     name: 'Randomizer',
-    component: Randomizer
+    component: Randomizer    
   }
 ]
 
