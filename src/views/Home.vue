@@ -1,5 +1,6 @@
 <template>
   <v-container fluid>
+
     <v-data-iterator
       :items="items"
       :items-per-page.sync="itemsPerPage"
@@ -26,10 +27,35 @@
       </template>
 
       <template v-slot:default="props">
+
+            <v-layout row class="pa-8 mb-2">
+              <v-btn small flat color="grey" @click="sortByAZ('original_title')">
+                <v-icon left small></v-icon>
+                <span class="text-lowercase">By movie title</span>
+              </v-btn>
+              <v-btn small flat color="grey" @click="sortBy('release_date')">
+                <v-icon left small></v-icon>
+                <span class="text-lowercase">By release date</span>
+              </v-btn>
+              <v-btn small flat color="grey" @click="sortBy('popularity')">
+                <v-icon left small></v-icon>
+                <span class="text-lowercase">By popularity</span>
+              </v-btn>
+              <v-btn small flat color="grey" @click="sortBy('vote_count')">
+                <v-icon left small></v-icon>
+                <span class="text-lowercase">By votes</span>
+              </v-btn>
+
+
+            </v-layout>
+
+
             <v-card v-for="item in props.items" :key="item.name" class="pa-3">
               <v-layout row wrap class="cards">
-                <v-flex xs12 md6>
-                  <v-chip>{{ item.original_title }}</v-chip>
+                <v-flex xs12 md6 >
+                  <div class="chip">
+                    <v-chip x-large class="my-5 movie_titles">{{ item.original_title }}</v-chip>
+                  </div>
                 </v-flex>
                 <v-flex xs6 sm4 md2>
                   <div>Release date:</div>
@@ -83,8 +109,15 @@ export default {
         console.warn(response)
       })
     },
-  }
-
+    methods: {
+      sortBy(prop){
+        this.items.sort((b,a) => b[prop] < a[prop] ? 1 : -1)
+      },
+      sortByAZ(prop){
+        this.items.sort((a,b) => a[prop] < b[prop] ? -1 : 1)
+      }
+    }
+}
 // 'https://api.themoviedb.org/3/trending/movie/day?api_key=b33ac6661da0977b3c9d8014bf3e1d4d')
 
 
@@ -94,6 +127,16 @@ export default {
 
 .cards {
   border-bottom: 2px solid black;
+  align-items: center;
+}
+
+.chip {
+  margin-left: 10px;
+}
+
+.movie_titles {
+  font-weight: 700;
+  color: #000;
 }
 
 .btn {
