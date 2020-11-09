@@ -16,9 +16,9 @@ const routes = [
   },
   {
     path: '/details/:id',
-    name: 'Details',
+    name: 'details',
     component: Details,
-    params: true
+    props: true
   },
   {
     path: '/randomizer',

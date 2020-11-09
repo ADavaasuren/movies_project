@@ -1,5 +1,5 @@
 <template>
-  <v-container class="my-5">
+  <v-container>
       <v-toolbar
           class="mb-15"
           color="indigo darken-5"
@@ -18,24 +18,60 @@
         </router-link>
       </v-toolbar>
 
-    <h3>{{this.$route.params.id}}</h3>
+    <div>
+      <div>
+        <div class="card text-left">
+            <v-img max-height="500" max-width="500" src="https://img.republicworld.com/republic-prod/stories/promolarge/xxhdpi/lhfjaxldfojyg4bl_1603189227.jpeg?tr=w-812,h-464" alt>
+            </v-img>
+        </div>
+        <div class="card-body">
+            <h4 class="card-title">
+                <a href="#">Movie title</a>
+            </h4>
+            <strong>PG-13</strong>
+            <p class="card-text">Five young mutants, just discovering their abilities while held in a secret facility against their will, fight to escape their past sins and save themselves.</p>
+        </div>
+      </div>
+      <div>
+        <div class="card text-left">
+            <v-img max-height="500" max-width="500" src="https://img.republicworld.com/republic-prod/stories/promolarge/xxhdpi/lhfjaxldfojyg4bl_1603189227.jpeg?tr=w-812,h-464" alt>
+            </v-img>
+        </div>
+        <div class="card-body">
+            <h4 class="card-title">
+                <a href="#">Movie title</a>
+            </h4>
+            <strong>PG-13</strong>
+            <p class="card-text">Five young mutants, just discovering their abilities while held in a secret facility against their will, fight to escape their past sins and save themselves.</p>
+        </div>
+      </div>
+      <div>
+        <div class="card text-left">
+            <v-img max-height="500" max-width="500" src="https://img.republicworld.com/republic-prod/stories/promolarge/xxhdpi/lhfjaxldfojyg4bl_1603189227.jpeg?tr=w-812,h-464" alt>
+            </v-img>
+        </div>
+        <div class="card-body">
+            <h4 class="card-title">
+                <a href="#">Movie title</a>
+            </h4>
+            <strong>PG-13</strong>
+            <p class="card-text">Five young mutants, just discovering their abilities while held in a secret facility against their will, fight to escape their past sins and save themselves.</p>
+        </div>
+      </div>
+
+
+    </div>
+      
+      
 
   </v-container>
 </template>
 
 
 <script>
-import Vue from 'vue';
-import axios from 'axios';
-import VueAxios from 'vue-axios';
-
-Vue.use(VueAxios,axios)
-
 export default {
-    computed: {
-      details(){
-        return this.$items.state.details.find(detail => detail.original_title == this.$route.params.id)
-    }
-  }  
-}
+  props: ['id']
+
+};
+
 </script>

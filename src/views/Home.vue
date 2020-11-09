@@ -52,24 +52,24 @@
 
             <v-card v-for="item in props.items" :key="item.name" class="pa-3">
               <v-layout row wrap class="cards">
-                <v-flex xs12 md6 >
-                  <div class="chip">
-                    <v-chip x-large class="my-5 movie_titles">{{ item.original_title }}</v-chip>
-                  </div>
-                </v-flex>
-                <v-flex xs6 sm4 md2>
-                  <div>Release date:</div>
-                  <div>{{ item.release_date }}</div>
-                </v-flex>
-                <v-flex xs6 sm4 md2>
-                  <div>Popularity:</div>
-                  <div>{{ item.popularity }}</div>
-                </v-flex>
-                <v-flex xs2 sm4 md2>
-                  <div>Votes:</div>
-                  <div>{{ item.vote_count }}</div>
-                </v-flex>
-              </v-layout>
+                  <v-flex xs12 md6 >
+                      <div class="chip">
+                         <router-link :to="{name: 'details', params: {id: 340102}}" x-large class="my-5 movie_titles">{{ item.original_title }}</router-link>
+                      </div>
+                  </v-flex>
+                  <v-flex xs6 sm4 md2>
+                    <div>Release date:</div>
+                    <div>{{ item.release_date }}</div>
+                  </v-flex>
+                  <v-flex xs6 sm4 md2>
+                    <div>Popularity:</div>
+                    <div>{{ item.popularity }}</div>
+                  </v-flex>
+                  <v-flex xs2 sm4 md2>
+                    <div>Votes:</div>
+                    <div>{{ item.vote_count }}</div>
+                  </v-flex>
+                </v-layout>
             </v-card>
       </template>
 
