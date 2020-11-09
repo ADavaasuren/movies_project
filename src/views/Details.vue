@@ -19,17 +19,17 @@
       </v-toolbar>
 
     <div>
-      <div v-for="movie in movies" :key="movie.id" :movie="movie">
+      <div v-for="detail in details" :key="detail.id" :detail="detail">
         <div class="card text-left">
-            <v-img max-height="500" max-width="500" :src="movie.poster_path" alt>
+            <v-img max-height="500" max-width="500" :src="details.poster_path" alt>
             </v-img>
         </div>
         <div class="card-body">
             <h4 class="card-title">
-                <router-link :to="{name: 'movie', params: {id: movie.id}}">{{movie.original_title}}</router-link>
+                <router-link :to="{name: 'details', params: {details: details.id}}">{{details.original_title}}</router-link>
             </h4>
             <strong>{{original_language}}</strong>
-            <p class="card-text">{{ movie.overview }}</p>
+            <p class="card-text">{{ details.overview }}</p>
         </div>
       </div>
  
@@ -45,15 +45,15 @@
 
 <script>
 export default {
-  props: ['movie'],
+  props: ['id'],
 
   computed: {
-    movies() {
-      return this.$store.state.movies;
+    details() {
+      return this.$store.state.details;
     }
   },
   mounted() {
-    this.$store.dispatch('getMovies');
+    this.$store.dispatch('getDetails');
   }
 
 };
