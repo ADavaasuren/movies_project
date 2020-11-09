@@ -10,7 +10,7 @@
         <router-link :to="{name:'Home'}">
           <v-btn text>Home</v-btn>
         </router-link>
-        <router-link :to="{name:'Details'}">
+        <router-link :to="{name:'Movie'}">
           <v-btn text>Categories</v-btn>
         </router-link>
         <router-link :to="{name:'Randomizer'}">

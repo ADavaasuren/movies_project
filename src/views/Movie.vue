@@ -10,7 +10,7 @@
         <router-link :to="{name:'Home'}">
           <v-btn text>Home</v-btn>
         </router-link>
-        <router-link :to="{name:'Details'}">
+        <router-link :to="{name:'Movie'}">
           <v-btn text>Categories</v-btn>
         </router-link>
         <router-link :to="{name:'Randomizer'}">
@@ -19,17 +19,15 @@
       </v-toolbar>
 
     <div>
-      <div v-for="detail in details" :key="detail.id" :detail="detail">
+      <div v-if="Movie">
         <div class="card text-left">
-            <v-img max-height="500" max-width="500" :src="details.poster_path" alt>
+            <v-img max-height="500" max-width="500" :src="movie.posters" alt>
             </v-img>
         </div>
         <div class="card-body">
-            <h4 class="card-title">
-                <router-link :to="{name: 'details', params: {details: details.id}}">{{details.original_title}}</router-link>
-            </h4>
-            <strong>{{original_language}}</strong>
-            <p class="card-text">{{ details.overview }}</p>
+            <h1>{{ movie.original_title }}</h1>
+            <h3>{{ movie.original_language }}</h3>
+            <p class="card-text">{{ movie.overview }}</p>
         </div>
       </div>
  
@@ -48,12 +46,12 @@ export default {
   props: ['id'],
 
   computed: {
-    details() {
-      return this.$store.state.details;
+    movie() {
+      return this.$store.state.movie;
     }
   },
   mounted() {
-    this.$store.dispatch('getDetails');
+    this.$store.dispatch('getMovies', this.id);
   }
 
 };

@@ -2,7 +2,7 @@
   <v-app> 
       <router-link :to="{name:'Home'}">
       </router-link>
-      <router-link :to="{name:'Details'}">
+      <router-link :to="{name:'Movie'}">
       </router-link>
       <router-link :to="{name:'Randomizer'}">
       </router-link>

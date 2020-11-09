@@ -1,3 +1,3 @@
-export const SET_DETAILS = (state, details) => {
-    state.details = details;
+export const SET_MOVIES = (state, movie) => {
+    state.movie = movie;
 }

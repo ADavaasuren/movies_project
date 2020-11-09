@@ -16,7 +16,7 @@
           <router-link :to="{name:'Home'}">
               <v-btn text>Home</v-btn>
           </router-link>
-          <router-link :to="{name:'Details'}">
+          <router-link :to="{name:'Movie'}">
               <v-btn text>Categories</v-btn>
           </router-link>
           <router-link :to="{name:'Randomizer'}">
@@ -54,7 +54,7 @@
               <v-layout row wrap class="cards">
                   <v-flex xs12 md6 >
                       <div class="chip">
-                         <router-link :to="{name: 'details', params: {id: item.id}}" x-large class="my-5 movie_titles">{{ item.original_title }}</router-link>
+                         <router-link :to="{name: 'Movie', params: {id: movie_id}}" x-large class="my-5 movie_titles">{{ item.original_title }}</router-link>
                       </div>
                   </v-flex>
                   <v-flex xs6 sm4 md2>
