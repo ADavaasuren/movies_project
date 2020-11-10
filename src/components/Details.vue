@@ -3,10 +3,10 @@
 </template>
 
 <script>
-import MovieCard from './MovieCard';
+import Details from './Details';
 export default {
     components: {
-        MovieCard
+        Details
     }    
 };
 </script>
