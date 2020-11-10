@@ -1,8 +1,8 @@
 import VueRouter from 'vue-router';
 import Vue from 'vue'
 import Home from '../views/Home.vue'
-import Movie from '../views/Movie.vue'
 import Randomizer from '../views/Randomizer.vue'
+import Details from '../components/Details.vue'
 
 
 
@@ -15,10 +15,9 @@ const routes = [
     component: Home
   },
   {
-    path: '/3/movie/{movie_id}',
-    name: 'Movie',
-    component: Movie,
-    props: true
+    path: '/movie/{movie_id}',
+    name: 'Details',
+    component: Details
   },
   {
     path: '/randomizer',
