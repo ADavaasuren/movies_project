@@ -4,12 +4,9 @@
     <h3>Hello this is MoviesList.vue</h3>
 
     <ul>
-
         <li v-for="movie in movies" :key="movie.title">
           <router-link :to="{ name: 'Details', params: {id: movie.id}}">{{movie.title}}</router-link>
-
         </li>
-
     </ul>
 
 </div>
