@@ -1,7 +1,7 @@
 import VueRouter from 'vue-router';
 import Vue from 'vue'
 import Home from '../views/Home.vue'
-import Random from '../views/Random.vue'
+import Random from '../components/Random.vue'
 import Details from '../components/Details.vue'
 
 

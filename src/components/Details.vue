@@ -22,7 +22,7 @@ import {secret_key} from '../movies';
 import axios from 'axios';
 
 export default {
-    name: 'Details',
+    name: 'details',
 
     data() {
      return {
