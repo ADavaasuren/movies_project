@@ -1,7 +1,7 @@
 import VueRouter from 'vue-router';
 import Vue from 'vue'
 import Home from '../views/Home.vue'
-import Randomizer from '../views/Randomizer.vue'
+import Random from '../views/Random.vue'
 import Details from '../components/Details.vue'
 
 
@@ -20,9 +20,9 @@ const routes = [
     component: Details
   },
   {
-    path: '/randomizer',
-    name: 'Randomizer',
-    component: Randomizer    
+    path: '/random',
+    name: 'random',
+    component: Random    
   }
 ]
 

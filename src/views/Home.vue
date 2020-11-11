@@ -1,21 +1,23 @@
 <template>
     <div>
+      <Header />
       <MoviesList />
     </div>
 </template>
 
 <script>
 import MoviesList from '@/components/MoviesList.vue'
+import Header from '@/components/Header.vue'
 
 
 
 export default {
   name: 'home',
   components: {
-    MoviesList
+    MoviesList,
+    Header
   },
 } 
-// 'https://api.themoviedb.org/3/trending/movie/day?api_key=b33ac6661da0977b3c9d8014bf3e1d4d')
 
 </script>
 
