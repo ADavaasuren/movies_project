@@ -1,15 +1,13 @@
 <template>
     <div>     
-        <h3>Hello this is details.vu</h3>
 
         <p>{{ this.$route.params.id }}</p>
-
  
         <ul>
-        <li v-for="mov in movie" :key="mov.title">
-            {{mov.title}}
-            {{mov.overview}}
-        </li>
+            <li v-for="mov in movie" :key="mov.title">
+                {{mov.title}}
+                {{mov.overview}}
+            </li>
         </ul>
 
         <img :src="url" alt="">
@@ -36,7 +34,7 @@ export default {
      },
      methods: {
 
-         getDetails: function(){
+        getDetails: function(){
 
              var movieId = this.$route.params.id
 
@@ -50,7 +48,7 @@ export default {
 
                      console.log(this.url)
                      })
-         }
+        }
      }
 }
 

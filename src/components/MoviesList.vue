@@ -5,7 +5,7 @@
             :items-per-page.sync="itemsPerPage"
             hide-default-footer
         >
-            <!-- <v-layout row class="pa-8 mb-2">
+            <v-layout row class="pa-8 mb-2">
               <v-btn small flat color="grey" @click="sortByAZ('original_title')">
                   <v-icon left small></v-icon>
                   <span class="text-lowercase">By movie title</span>
@@ -27,8 +27,8 @@
             <v-card v-for="item in items" :key="item.title">
               <v-layout row wrap class="cards">
                   <v-flex xs12 md6 >
-                      <div>
-                         <router-link :to="{ name: 'details', params: {id: item.id}}">{{item.title}}</router-link> -->
+                      <div class="chip">
+                         <router-link :to="{ name: 'details', params: {id: item.id}}">{{item.title}}</router-link>
                       </div>
                   </v-flex>
                   <v-flex xs6 sm4 md2>
@@ -98,6 +98,7 @@ export default {
 .movie_titles {
   font-weight: 700;
   color: #000;
+  text-decoration: none;
 }
 .btn {
   display: inline-block;

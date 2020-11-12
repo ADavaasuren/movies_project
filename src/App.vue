@@ -29,9 +29,4 @@ export default {
 
 <style>
 
-body {
-  background-color: rgb(66, 66, 66);
-  color: white;
-}
-
 </style>
