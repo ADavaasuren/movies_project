@@ -2,15 +2,24 @@
     <div>     
 
         <p>{{ this.$route.params.id }}</p>
- 
+
         <ul>
             <li v-for="mov in movie" :key="mov.title">
                 {{mov.title}}
                 {{mov.overview}}
             </li>
+            <img :src="url" alt="">
         </ul>
 
-        <img :src="url" alt="">
+        <ul>
+            <li v-for="sim in computedSim" :key="sim.title">
+                    {{sim.title}}
+                    {{sim.overview}}
+            </li>
+
+            <!-- <img :src="similarURL" alt=""> -->
+        </ul>
+
 
     </div>    
 </template>
@@ -25,13 +34,23 @@ export default {
      data() {
       return {
          movie: [],
+         similar: [],
+         limit: 5,
          url: '',
+        //  similarURL: '',
          size: 'w300',
      }},
 
      mounted() {
          this.getDetails()
+         this.getSimilar()
      },
+     computed: {
+         computedSim(){
+             return this.limit ? this.similar.slice(0,this.limit) : this.similar
+         }
+     },
+
      methods: {
 
         getDetails: function(){
@@ -46,13 +65,32 @@ export default {
 
                      this.url = `https://image.tmdb.org/t/p/${this.size}/${result.data.poster_path}`
 
-                     console.log(this.url)
+                     console.log(this.url);
                      })
-        }
+        },
+        
+        getSimilar: function(){
+
+             var movieId = this.$route.params.id
+
+             axios.get(`https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${secret_key}`)
+            
+                 .then((result) => {
+                     console.log(result);
+                     this.similar = result.data.results; 
+
+                    //  this.similarURL = `https://image.tmdb.org/t/p/${this.size}/${result.data.poster_path}`
+
+                    //  console.log(this.similarURL);
+                  })
+        }             
      }
 }
 
+
 </script>
 
+
 <style scoped>
+
 </style>
