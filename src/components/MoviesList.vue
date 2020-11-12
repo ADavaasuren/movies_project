@@ -28,8 +28,7 @@
               <v-layout row wrap class="cards">
                   <v-flex xs12 md6 >
                       <div>
-                        {{item.title}}
-                         <!-- <router-link :to="{ name: 'details', params: {id: movie.id}}">{{movie.title}}</router-link> -->
+                         <router-link :to="{ name: 'details', params: {id: item.id}}">{{item.title}}</router-link> -->
                       </div>
                   </v-flex>
                   <v-flex xs6 sm4 md2>
@@ -63,7 +62,7 @@ export default {
     name: 'movieslist',
 
     data: () => ({
-          itemsPerPage: 5,
+          itemsPerPage: 5,      
           items: [],
     }),
     mounted() {
