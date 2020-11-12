@@ -1,6 +1,6 @@
 import VueRouter from 'vue-router';
 import Vue from 'vue'
-import Home from '../views/Home.vue'
+import MoviesList from '../components/MoviesList.vue'
 import Random from '../components/Random.vue'
 import Details from '../components/Details.vue'
 
@@ -11,8 +11,8 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: Home
+    name: 'movieslist',
+    component: MoviesList
   },
   {
     path: '/movie/:id',

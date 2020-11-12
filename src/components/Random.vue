@@ -1,5 +1,7 @@
 <template>
-    <div></div>
+    <div>
+        <h3>Hello this is random.vue</h3>
+    </div>
 </template>
 
 <script>

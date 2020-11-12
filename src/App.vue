@@ -1,22 +1,28 @@
 <template>
-    <div>
-      <Header />
-      <MoviesList />
-    </div>
+  <v-container>
+      <v-toolbar
+          class="mb-15"
+          color="indigo darken-5"
+          dark
+          flat
+          fixed
+      >
+        <router-link :to="{name:'movieslist'}">
+          <v-btn text>Home</v-btn>
+        </router-link>
+        <router-link :to="{name:'random'}">
+          <v-btn text>Random</v-btn>
+        </router-link>
+      </v-toolbar>
+      <router-view />
+  </v-container>    
 </template>
 
 <script>
-import MoviesList from './components/MoviesList.vue';
-import Header from './components/Header.vue';
-
 
 export default {
   name: 'App',
-  components: {
-    MoviesList,
-    Header,
   }
-} 
 
 </script>
 

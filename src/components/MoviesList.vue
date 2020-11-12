@@ -1,11 +1,11 @@
-<template v-slot:default="props">
+<template>
     <v-container fluid>
         <v-data-iterator
-            :movies="movies"
-            :movies-per-page.sync="moviesPerPage"
+            :items="items"
+            :items-per-page.sync="itemsPerPage"
             hide-default-footer
         >
-            <v-layout row class="pa-8 mb-2">
+            <!-- <v-layout row class="pa-8 mb-2">
               <v-btn small flat color="grey" @click="sortByAZ('original_title')">
                   <v-icon left small></v-icon>
                   <span class="text-lowercase">By movie title</span>
@@ -22,74 +22,67 @@
                 <v-icon left small></v-icon>
                 <span class="text-lowercase">By votes</span>
               </v-btn>
-            </v-layout>
+            </v-layout> -->
 
-            <v-card v-for="movie in movies" :key="movie.title" class="pa-3">
+            <v-card v-for="item in items" :key="item.title">
               <v-layout row wrap class="cards">
                   <v-flex xs12 md6 >
-                      <div class="chip">
-                         <router-link :to="{ name: 'details', params: {id: movie.id}}">{{movie.title}}</router-link>
+                      <div>
+                        {{item.title}}
+                         <!-- <router-link :to="{ name: 'details', params: {id: movie.id}}">{{movie.title}}</router-link> -->
                       </div>
                   </v-flex>
                   <v-flex xs6 sm4 md2>
                     <div>Release date:</div>
-                    <div>{{ movie.release_date }}</div>
+                    <div>{{ item.release_date }}</div>
                   </v-flex>
                   <v-flex xs6 sm4 md2>
                     <div>Popularity:</div>
-                    <div>{{ movie.popularity }}</div>
+                    <div>{{ item.popularity }}</div>
                   </v-flex>
                   <v-flex xs2 sm4 md2>
                     <div>Votes:</div>
-                    <div>{{ movie.vote_count }}</div>
+                    <div>{{ item.vote_count }}</div>
                   </v-flex>
-                </v-layout>
+              </v-layout>
             </v-card>
-
         </v-data-iterator>
     </v-container>
 </template>
 
 <script>
-
 import {secret_key } from '../movies';
 import axios from 'axios';
+import VueAxios from 'vue-axios';
+import Vue from 'vue';
+
+
+Vue.use(VueAxios,axios)
 
 export default {
-    name: 'MoviesList',
+    name: 'movieslist',
 
-    data() {
-      return {
-          moviesPerPage: 10,
-          movies: [],
-    }},
-
+    data: () => ({
+          itemsPerPage: 5,
+          items: [],
+    }),
     mounted() {
-        this.getMovies()
+      Vue.axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${secret_key}`)
+        .then(response => {
+        this.items=response.data.results;
+        console.log(response);
+      })
     },
-
     methods: {
-      getMovies: function(){
+      sortBy(prop) {
+      this.items.sort((b,a) => b[prop] < a[prop] ? 1 : -1)
+      },
 
-        axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${secret_key}`)
-        .then((result) => {
-            result.data.results.forEach((item) => {
-                console.log(item)
-                this.movies.push(item)
-            })
-        })
-        .catch((error) => {
-            console.log(error)
-        })
-      },
-      sortBy(prop){
-        this.movies.sort((b,a) => b[prop] < a[prop] ? 1 : -1)
-      },
       sortByAZ(prop){
-        this.movies.sort((a,b) => a[prop] < b[prop] ? -1 : 1)
-      },
-    }
-};
+      this.items.sort((a,b) => a[prop] < b[prop] ? -1 : 1)
+      }
+    },
+}
 </script>
 
 
