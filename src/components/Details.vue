@@ -15,9 +15,8 @@
             <li v-for="sim in computedSim" :key="sim.title">
                     {{sim.title}}
                     {{sim.overview}}
+                    <img :src="similarURL" alt="">
             </li>
-
-            <!-- <img :src="similarURL" alt=""> -->
         </ul>
 
 
@@ -35,9 +34,9 @@ export default {
       return {
          movie: [],
          similar: [],
-         limit: 5,
+         limit: 3,
          url: '',
-        //  similarURL: '',
+         similarURL: '',
          size: 'w300',
      }},
 
@@ -77,11 +76,11 @@ export default {
             
                  .then((result) => {
                      console.log(result);
-                     this.similar = result.data.results; 
+                     this.similar = result.data.results;
 
-                    //  this.similarURL = `https://image.tmdb.org/t/p/${this.size}/${result.data.poster_path}`
+                     this.similarURL = `https://image.tmdb.org/t/p/${this.size}/${result.data.results.poster_path}`
 
-                    //  console.log(this.similarURL);
+                     console.log(this.similarURL);
                   })
         }             
      }
