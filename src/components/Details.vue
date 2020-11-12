@@ -74,9 +74,9 @@ export default {
 
              axios.get(`https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${secret_key}`)
             
-                 .then((result) => {
-                     console.log(result);
-                     this.similar = result.data.results;
+                 .then((response) => {
+                     console.log(response);
+                     this.similar = response;
 
                      this.similarURL = `https://image.tmdb.org/t/p/${this.size}/${result.data.results.poster_path}`
 
