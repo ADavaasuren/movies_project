@@ -6,23 +6,23 @@
             hide-default-footer
         >
             <v-layout row class="pa-8 mb-2">
-              <v-btn small flat color="grey" @click="sortByAZ('original_title')">
+              <v-btn small text color="grey" @click="sortByAZ('original_title')">
                   <v-icon left small></v-icon>
                   <span class="text-lowercase">By movie title</span>
               </v-btn>
-              <v-btn small flat color="grey" @click="sortBy('release_date')">
+              <v-btn small text color="grey" @click="sortBy('release_date')">
                 <v-icon left small></v-icon>
                 <span class="text-lowercase">By release date</span>
               </v-btn>
-              <v-btn small flat color="grey" @click="sortBy('popularity')">
+              <v-btn small text color="grey" @click="sortBy('popularity')">
                 <v-icon left small></v-icon>
                 <span class="text-lowercase">By popularity</span>
               </v-btn>
-              <v-btn small flat color="grey" @click="sortBy('vote_count')">
+              <v-btn small text color="grey" @click="sortBy('vote_count')">
                 <v-icon left small></v-icon>
                 <span class="text-lowercase">By votes</span>
               </v-btn>
-            </v-layout> -->
+            </v-layout>
 
             <v-card v-for="item in items" :key="item.title">
               <v-layout row wrap class="cards">

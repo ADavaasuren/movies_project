@@ -1,5 +1,5 @@
 <template>
-    <div>     
+    <div>
 
         <p>{{ this.$route.params.id }}</p>
 
@@ -8,15 +8,15 @@
                 {{mov.title}}
                 {{mov.overview}}
             </li>
-            <img :src="url" alt="">
+            <img :src="imageURL + movie.poster_path" alt="">
         </ul>
 
         <ul>
             <li v-for="sim in computedSim" :key="sim.title">
                     {{sim.title}}
                     {{sim.overview}}
-                    <img :src="similarURL" alt="">
             </li>
+            <img :src="imageURL + similar.poster_path" alt="">
         </ul>
 
 
@@ -35,9 +35,7 @@ export default {
          movie: [],
          similar: [],
          limit: 3,
-         url: '',
-         similarURL: '',
-         size: 'w300',
+         imageURL: 'https://image.tmdb.org/t/p/w300',
      }},
 
      mounted() {
@@ -61,10 +59,6 @@ export default {
                  .then((result) => {
                      console.log(result);
                      this.movie = result; 
-
-                     this.url = `https://image.tmdb.org/t/p/${this.size}/${result.data.poster_path}`
-
-                     console.log(this.url);
                      })
         },
         
@@ -76,18 +70,15 @@ export default {
             
                  .then((response) => {
                      console.log(response);
-                     this.similar = response;
-
-                     this.similarURL = `https://image.tmdb.org/t/p/${this.size}/${result.data.results.poster_path}`
-
-                     console.log(this.similarURL);
-                  })
+                     this.similar = response.data.results;
+                    })
         }             
      }
 }
 
 
 </script>
+
 
 
 <style scoped>
