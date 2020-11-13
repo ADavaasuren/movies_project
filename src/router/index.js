@@ -20,7 +20,7 @@ const routes = [
     component: Details
   },
   {
-    path: '/random',
+    path: '/random/',
     name: 'random',
     component: Random    
   }

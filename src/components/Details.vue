@@ -8,7 +8,7 @@
                 {{mov.title}}
                 {{mov.overview}}
             </li>
-            <img :src="imageURL + movie.poster_path" alt="">
+            <img :src="imageURL + movieImage" alt="">
         </ul>
 
         <ul>
@@ -16,7 +16,7 @@
                     {{sim.title}}
                     {{sim.overview}}
             </li>
-            <img :src="imageURL + similar.poster_path" alt="">
+            <img :src="url" alt="">
         </ul>
 
 
@@ -33,9 +33,10 @@ export default {
      data() {
       return {
          movie: [],
+         movieImage: [],
+         imageURL: 'https://image.tmdb.org/t/p/w300',
          similar: [],
          limit: 3,
-         imageURL: 'https://image.tmdb.org/t/p/w300',
      }},
 
      mounted() {
@@ -46,6 +47,7 @@ export default {
          computedSim(){
              return this.limit ? this.similar.slice(0,this.limit) : this.similar
          }
+
      },
 
      methods: {
@@ -59,6 +61,7 @@ export default {
                  .then((result) => {
                      console.log(result);
                      this.movie = result; 
+                     this.movieImage = result.data.poster_path
                      })
         },
         
@@ -71,8 +74,8 @@ export default {
                  .then((response) => {
                      console.log(response);
                      this.similar = response.data.results;
-                    })
-        }             
+                        })
+        },
      }
 }
 
