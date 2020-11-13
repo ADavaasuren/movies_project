@@ -1,23 +1,14 @@
 <template>
     <div>
         <h3>Hello this is random.vue</h3>
-         <p>{{ this.$route.params.id }}</p>
 
         <ul>
-            <li id="movies" v-for="item in computedSim" :key="item.title">
-                {{item.title}}
-                {{item.overview}}
+            <li v-for="item in items" :key="item.title">
+                {{}}
             </li>
-            <img :src="imageURL + movieImage" alt="">
+            
         </ul>
 
-        <!-- <ul>
-            <li v-for="sim in computedSim" :key="sim.title">
-                    {{sim.title}}
-                    {{sim.overview}}
-            </li>
-            <img :src="url" alt="">
-        </ul> -->
 
     </div>
 </template>
@@ -29,6 +20,7 @@ import VueAxios from 'vue-axios';
 import Vue from 'vue';
 
 
+
 Vue.use(VueAxios,axios)
 
 export default {
@@ -36,37 +28,55 @@ export default {
 
     data: () => ({
         items: [],
-        movieImage: [],
-        imageURL: 'https://image.tmdb.org/t/p/w300',
-        limit: 1,
+        selectedItem: [],
+        // movieImage: [],
+        // imageURL: 'https://image.tmdb.org/t/p/w300',
+        // limit: 1,
     }),
 
-    mounted() {
-        this.getDetails()
-     },
-    computed: {
-        computedSim(){
-            return this.limit ? this.items.slice(0,this.limit) : this.items
-    }
+    // computed: {
+    //     computedSim(){
+    //         return this.limit ? this.items.slice(0,this.limit) : this.items
 
-},
-
+    created () {
+        var random = Math.floor(Math.random() * this.items.length);
+        this.selectedItem.push(this.items[random]);
+    },
 
     methods: {
-
         getDetails: function(){
+    
+                // var movieId = this.$route.params.id
 
-                var movieId = this.$route.params.id
-
-                axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${secret_key}`)
+                axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${secret_key}`)
                     .then(response => {
                     this.items=response.data.results;
                     console.log(response);
                     this.movieImage = response.data.results.poster_path
             })
         }
-    }
+    },
+    shuffle: function(items) {
+
+        var currentIndex = items.length, temporaryValue, randomIndex;
+        items='items';
+
+        while (0 !== currentIndex) {
+
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            temporaryValue = items[currentIndex];
+            items[currentIndex] = items[randomIndex];
+            items[randomIndex] = temporaryValue;
+        }
+        this.items({ results: this.shuffle(response.data.results) })
+        console.log(items);
 }
+}
+
+// https://api.themoviedb.org/3/movie/400160/videos?api_key=b33ac6661da0977b3c9d8014bf3e1d4d&language=en-US
+
 
 </script>
 
