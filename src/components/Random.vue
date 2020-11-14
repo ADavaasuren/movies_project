@@ -1,15 +1,16 @@
 <template>
     <div>
-        
+        <p>{{ this.$route.params.id }}</p>
+
         <ul>
             <li v-for="item in computedSim" :key="item.title">
                 {{item.title}}
                 {{item.overview}}
             </li>
-                <img :src="imageURL + items.backdrop_path" alt="" > 
+                <!-- <img :src="imageURL + items.backdrop_path" alt="" >  -->
         </ul>
 
-    <v-btn v-on:click="getPopular">More random</v-btn>
+    <v-btn block v-on:click="getPopular">More random</v-btn>
                 
     </div>
 </template>
@@ -43,20 +44,21 @@ export default {
 
     
     methods: {
-        getPopular: function(){
-    
-                axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${secret_key}`)
-                    .then(response => {
-                    const _ = require('lodash');
-                    let shuffled = _.shuffle(response.data.results);
-                    console.log(shuffled);
-                    this.items = shuffled;
-                })      
+        getPopular: function() {
+
+                Vue.axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${secret_key}`)
+            
+                    .then((response) => {
+                        const _ = require('lodash');
+                        let shuffled = _.shuffle(response.data.results);
+                        console.log(shuffled);
+                        this.items = shuffled;
+                    })
         },
 
     }
 }
-
+    
 
 </script>
 
