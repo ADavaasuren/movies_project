@@ -1,11 +1,10 @@
 <template>
     <div>
-        <p>{{ this.$route.params.id }}</p>
-
+        {{ this.$route.params.id }}
         <ul>
             <li v-for="item in computedSim" :key="item.title">
                 {{item.title}}
-                {{item.overview}}
+                {{item.overview}}        
             </li>
                 <!-- <img :src="imageURL + items.backdrop_path" alt="" >  -->
         </ul>

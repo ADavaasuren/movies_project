@@ -10,12 +10,12 @@
         <router-link :to="{name:'movieslist'}">
           <v-btn text>Home</v-btn>
         </router-link>
-        <router-link :to="{ name: 'random', params: {id: items.id}}" >
-          <v-btn text>Random</v-btn>
+        <router-link :to="`/random/${items.id}`">
+          <v-btn>Random</v-btn>
         </router-link>
       </v-toolbar>
       <router-view />
-  </v-container>    
+  </v-container>
 </template>
 
 <script>
@@ -49,8 +49,7 @@ export default {
                     console.log(shuffled);
                     this.items = shuffled;
                 })
-    },  
-  
+      }
   }
 }
 
