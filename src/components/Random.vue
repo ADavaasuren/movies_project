@@ -1,15 +1,16 @@
 <template>
     <div>
-        <h3>Hello this is random.vue</h3>
-
+        
         <ul>
-            <li v-for="item in items" :key="item.title">
-                {{}}
+            <li v-for="item in computedSim" :key="item.title">
+                {{item.title}}
+                {{item.overview}}
             </li>
-            
+                <img :src="imageURL + items.backdrop_path" alt="" > 
         </ul>
 
-
+    <v-btn v-on:click="getPopular">More random</v-btn>
+                
     </div>
 </template>
 
@@ -20,7 +21,6 @@ import VueAxios from 'vue-axios';
 import Vue from 'vue';
 
 
-
 Vue.use(VueAxios,axios)
 
 export default {
@@ -28,54 +28,34 @@ export default {
 
     data: () => ({
         items: [],
-        selectedItem: [],
-        // movieImage: [],
-        // imageURL: 'https://image.tmdb.org/t/p/w300',
-        // limit: 1,
+        imageURL: 'https://image.tmdb.org/t/p/w300',
+        limit: 1,
     }),
 
-    // computed: {
-    //     computedSim(){
-    //         return this.limit ? this.items.slice(0,this.limit) : this.items
-
-    created () {
-        var random = Math.floor(Math.random() * this.items.length);
-        this.selectedItem.push(this.items[random]);
+    mounted() {
+        this.getPopular();
     },
 
-    methods: {
-        getDetails: function(){
-    
-                // var movieId = this.$route.params.id
+    computed: {
+        computedSim(){
+        return this.limit ? this.items.slice(0,this.limit) : this.items
+    }},
 
+    
+    methods: {
+        getPopular: function(){
+    
                 axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${secret_key}`)
                     .then(response => {
-                    this.items=response.data.results;
-                    console.log(response);
-                    this.movieImage = response.data.results.poster_path
-            })
-        }
-    },
-    shuffle: function(items) {
+                    const _ = require('lodash');
+                    let shuffled = _.shuffle(response.data.results);
+                    console.log(shuffled);
+                    this.items = shuffled;
+                })      
+        },
 
-        var currentIndex = items.length, temporaryValue, randomIndex;
-        items='items';
-
-        while (0 !== currentIndex) {
-
-            randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex -= 1;
-
-            temporaryValue = items[currentIndex];
-            items[currentIndex] = items[randomIndex];
-            items[randomIndex] = temporaryValue;
-        }
-        this.items({ results: this.shuffle(response.data.results) })
-        console.log(items);
+    }
 }
-}
-
-// https://api.themoviedb.org/3/movie/400160/videos?api_key=b33ac6661da0977b3c9d8014bf3e1d4d&language=en-US
 
 
 </script>
