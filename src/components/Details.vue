@@ -1,20 +1,18 @@
-<template v-for="mov in movie" :key="mov.title">
-    <v-card class="mx-auto" max-width="400">
+<template >
+    <v-card class="mx-auto" width="200" >
 
-        <v-img class="white--text align-end" height="200px" src="imageURL + movieImage">
-            <v-card-title >{{mov.title}}</v-card-title>
-        </v-img>
+        <v-card-title>{{movie.title}}</v-card-title>
+
+        <v-img class="white--text align-end" height="300px" :src="imageURL + movieImage"></v-img>
 
         <v-card-subtitle class="pb-0"></v-card-subtitle>
 
-        <v-card-text class="text--primary">
-            <div>{{mov.overview}}</div>
-            <div></div>
+        <v-card-text v-for="mov in movie" :key="mov.title"  class="text--primary">
+            <div>{{movie.overview}}</div>
         </v-card-text>
 
         <v-card-actions>
             <v-btn color="orange" text></v-btn>
-
             <v-btn color="orange" text></v-btn>
         </v-card-actions>
 
@@ -46,9 +44,8 @@
             text
         ></v-btn>
      </v-card-actions> -->
+
   </v-card>
-
-
 </template>
 
 <script>
@@ -63,22 +60,22 @@ export default {
          movie: [],
          movieImage: [],
          imageURL: 'https://image.tmdb.org/t/p/w300',
-         similar: [],
-         limit: 3,
+        //  similar: [],
+        //  limit: 3,
      }},
 
      mounted() {
          this.getDetails()
-         this.getSimilar()
-     },
-     computed: {
-         computedSim(){
-             return this.limit ? this.similar.slice(0,this.limit) : this.similar
-         },
-         computedSimImage(){
-            return this.limit ? this.similarImage.slice(0,this.limit) : this.similarImage
-         }
-     },
+    //      this.getSimilar()
+    },
+    //  computed: {
+    //      computedSim(){
+    //          return this.limit ? this.similar.slice(0,this.limit) : this.similar
+    //      },
+    //      computedSimImage(){
+    //         return this.limit ? this.similarImage.slice(0,this.limit) : this.similarImage
+    //      }
+    //  },
 
      methods: {
 
@@ -95,17 +92,17 @@ export default {
                      })
         },
         
-        getSimilar: function(){
+        // getSimilar: function(){
 
-             var movieId = this.$route.params.id
+        //      var movieId = this.$route.params.id
 
-             axios.get(`https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${secret_key}`)
+        //      axios.get(`https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${secret_key}`)
             
-                 .then((response) => {
-                     console.log(response);
-                     this.similar = response.data.results
-                 })
-        },
+        //          .then((response) => {
+        //              console.log(response);
+        //              this.similar = response.data.results
+        //          })
+        // },
      }
 }
 
