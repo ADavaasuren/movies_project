@@ -1,51 +1,63 @@
 <template>
     <v-container fluid>
-        <v-data-iterator
-            :items="items"
-            :items-per-page.sync="itemsPerPage"
-            hide-default-footer
-        >
-            <v-layout row class="pa-8 mb-2">
-              <v-btn small text color="grey" @click="sortByAZ('original_title')">
+
+            <v-layout row class="mb-18">
+              <v-btn x-large text color="grey" @click="sortByAZ('original_title')">
                   <v-icon left small></v-icon>
                   <span class="text-lowercase">By movie title</span>
               </v-btn>
-              <v-btn small text color="grey" @click="sortBy('release_date')">
+              <v-btn x-large text color="grey" @click="sortBy('release_date')">
                 <v-icon left small></v-icon>
                 <span class="text-lowercase">By release date</span>
               </v-btn>
-              <v-btn small text color="grey" @click="sortBy('popularity')">
+              <v-btn x-large text color="grey" @click="sortBy('popularity')">
                 <v-icon left small></v-icon>
                 <span class="text-lowercase">By popularity</span>
               </v-btn>
-              <v-btn small text color="grey" @click="sortBy('vote_count')">
+              <v-btn x-large text color="grey" @click="sortBy('vote_count')">
                 <v-icon left small></v-icon>
                 <span class="text-lowercase">By votes</span>
               </v-btn>
             </v-layout>
 
-            <v-card v-for="item in items" :key="item.title">
-              <v-layout row wrap class="cards">
-                  <v-flex xs12 md6 >
-                      <div class="chip">
-                         <router-link :to="{ name: 'details', params: {id: item.id}}">{{item.title}}</router-link>
-                      </div>
-                  </v-flex>
-                  <v-flex xs6 sm4 md2>
-                    <div>Release date:</div>
-                    <div>{{ item.release_date }}</div>
-                  </v-flex>
-                  <v-flex xs6 sm4 md2>
-                    <div>Popularity:</div>
-                    <div>{{ item.popularity }}</div>
-                  </v-flex>
-                  <v-flex xs2 sm4 md2>
-                    <div>Votes:</div>
-                    <div>{{ item.vote_count }}</div>
-                  </v-flex>
-              </v-layout>
-            </v-card>
-            
+        <v-data-iterator
+            :items="items"
+            :items-per-page.sync="itemsPerPage"
+            hide-default-footer
+        >
+          <template v-slot:default="props">
+              <v-col
+                v-for="item in props.items"
+                :key="item.name"
+                cols="18"
+                sm="18"
+                md="18"
+                lg=""
+              >
+
+                <v-card>
+                  <v-layout row wrap class="cards">
+                      <v-flex xs12 md6 >
+                          <div class="chip">
+                            <router-link :to="{ name: 'details', params: {id: item.id}}">{{item.title}}</router-link>
+                          </div>
+                      </v-flex>
+                      <v-flex xs6 sm4 md2>
+                        <div>Release date:</div>
+                        <div>{{ item.release_date }}</div>
+                      </v-flex>
+                      <v-flex xs6 sm4 md2>
+                        <div>Popularity:</div>
+                        <div>{{ item.popularity }}</div>
+                      </v-flex>
+                      <v-flex xs2 sm4 md2>
+                        <div>Votes:</div>
+                        <div>{{ item.vote_count }}</div>
+                      </v-flex>
+                  </v-layout>
+                </v-card>
+              </v-col>
+          </template>   
         </v-data-iterator>
     </v-container>
 </template>
@@ -63,7 +75,7 @@ export default {
     name: 'movieslist',
 
     data: () => ({
-          itemsPerPage: 5,      
+          itemsPerPage: 10,
           items: [],
     }),
     mounted() {

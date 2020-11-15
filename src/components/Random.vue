@@ -4,9 +4,9 @@
         <ul>
             <li v-for="item in computedSim" :key="item.title">
                 {{item.title}}
-                {{item.overview}}        
+                {{item.overview}}
             </li>
-                <!-- <img :src="imageURL + items.backdrop_path" alt="" >  -->
+            <img :src="imageURL + images" alt="" > 
         </ul>
 
     <v-btn block v-on:click="getPopular">More random</v-btn>
@@ -28,8 +28,9 @@ export default {
 
     data: () => ({
         items: [],
+        limit:1,
         imageURL: 'https://image.tmdb.org/t/p/w300',
-        limit: 1,
+        images: []
     }),
 
     mounted() {
@@ -38,9 +39,8 @@ export default {
 
     computed: {
         computedSim(){
-        return this.limit ? this.items.slice(0,this.limit) : this.items
+         return this.limit ? this.items.slice(0,this.limit) : this.items
     }},
-
     
     methods: {
         getPopular: function() {
@@ -51,7 +51,7 @@ export default {
                         const _ = require('lodash');
                         let shuffled = _.shuffle(response.data.results);
                         console.log(shuffled);
-                        this.items = shuffled;
+                        this.items = response.data.results;
                     })
         },
 
