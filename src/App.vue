@@ -9,13 +9,13 @@
       >
         <v-spacer></v-spacer>
             <router-link :to="{name:'movieslist'}">
-              <v-btn text>Home</v-btn>
+              <v-btn x-large text>Home</v-btn>
             </router-link>
             <router-link :to="{ name: 'random', params: {id: computedSim.id}}" >
-              <v-btn>Random</v-btn>
+              <v-btn x-large text>Random</v-btn>
             </router-link>
             <router-link :to="{name:'categories', params: {id: computedSim.id}}" >
-              <v-btn>Categories</v-btn>
+              <v-btn x-large text>Categories</v-btn>
             </router-link>
         <v-spacer></v-spacer>
 
@@ -84,6 +84,10 @@ export default {
 
 
 
-<style>
+<style scoped>
+
+.btn {
+  text-decoration: none;
+}
 
 </style>

@@ -1,22 +1,18 @@
 <template>
-    <v-container fluid>
+    <v-container>
 
-            <v-layout row class="mb-18">
+            <v-layout row class="mb-15">
               <v-btn x-large text color="grey" @click="sortByAZ('original_title')">
-                  <v-icon left small></v-icon>
-                  <span class="text-lowercase">By movie title</span>
+                  <span class="text-lowercase">movie title</span>
               </v-btn>
               <v-btn x-large text color="grey" @click="sortBy('release_date')">
-                <v-icon left small></v-icon>
-                <span class="text-lowercase">By release date</span>
+                <span class="text-lowercase">release date</span>
               </v-btn>
               <v-btn x-large text color="grey" @click="sortBy('popularity')">
-                <v-icon left small></v-icon>
-                <span class="text-lowercase">By popularity</span>
+                <span class="text-lowercase">popularity</span>
               </v-btn>
               <v-btn x-large text color="grey" @click="sortBy('vote_count')">
-                <v-icon left small></v-icon>
-                <span class="text-lowercase">By votes</span>
+                <span class="text-lowercase">votes</span>
               </v-btn>
             </v-layout>
 
@@ -34,24 +30,20 @@
                 md="18"
                 lg=""
               >
-
                 <v-card>
                   <v-layout row wrap class="cards">
                       <v-flex xs12 md6 >
-                          <div class="chip">
-                            <router-link :to="{ name: 'details', params: {id: item.id}}">{{item.title}}</router-link>
-                          </div>
+                          <v-btn id="movie_btn">
+                            <router-link class="movie_titles" :to="{ name: 'details', params: {id: item.id}}">{{item.title}}</router-link>
+                          </v-btn>
                       </v-flex>
                       <v-flex xs6 sm4 md2>
-                        <div>Release date:</div>
                         <div>{{ item.release_date }}</div>
                       </v-flex>
                       <v-flex xs6 sm4 md2>
-                        <div>Popularity:</div>
                         <div>{{ item.popularity }}</div>
                       </v-flex>
                       <v-flex xs2 sm4 md2>
-                        <div>Votes:</div>
                         <div>{{ item.vote_count }}</div>
                       </v-flex>
                   </v-layout>
@@ -59,6 +51,7 @@
               </v-col>
           </template>   
         </v-data-iterator>
+
     </v-container>
 </template>
 
@@ -105,24 +98,21 @@ export default {
   border: 2px solid black;
   align-items: center;
 }
-.chip {
-  margin-left: 10px;
-}
 .movie_titles {
-  font-weight: 700;
+  font-weight: 900;
   color: #000;
   text-decoration: none;
 }
-.btn {
+#movie_btn {
   display: inline-block;
   border: none;
-  background: #555;
-  color: #fff;
-  padding: 7px 20px;
+  background: rgb(21, 149, 235);
+  color: rgb(255, 255, 255);
+  padding: 20px 50px;
   cursor: pointer;
 }
-.btn:hover {
-background: #666;
+#movie_btn:hover {
+background: rgb(5, 71, 60);
 }
 
 </style>

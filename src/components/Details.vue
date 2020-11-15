@@ -1,25 +1,54 @@
-<template>
-    <div>
+<template v-for="mov in movie" :key="mov.title">
+    <v-card class="mx-auto" max-width="400">
 
-        <p>{{ this.$route.params.id }}</p>
+        <v-img class="white--text align-end" height="200px" src="imageURL + movieImage">
+            <v-card-title >{{mov.title}}</v-card-title>
+        </v-img>
 
-        <ul>
-            <li v-for="mov in movie" :key="mov.title">
-                {{mov.title}}
-                {{mov.overview}}
-            </li>
-            <img :src="imageURL + movieImage" alt="">
-        </ul>
+        <v-card-subtitle class="pb-0"></v-card-subtitle>
 
-        <ul>
-            <li v-for="sim in computedSim" :key="sim.title">
-                    {{sim.title}}
-                    {{sim.overview}}
-            </li>
-        </ul>
+        <v-card-text class="text--primary">
+            <div>{{mov.overview}}</div>
+            <div></div>
+        </v-card-text>
+
+        <v-card-actions>
+            <v-btn color="orange" text></v-btn>
+
+            <v-btn color="orange" text></v-btn>
+        </v-card-actions>
+
+        <!-- <v-img
+        class="white--text align-end"
+        height="200px"
+        src="imageURL + movieImage"
+        >
+            <v-card-title v-for="sim in computedSim" :key="sim.title">{{sim.title}}</v-card-title>
+        </v-img>
+
+        <v-card-subtitle class="pb-0">
+        </v-card-subtitle>
+
+        <v-card-text class="text--primary">
+        <div>{{sim.overview}}</div>
+
+        <div></div>
+        </v-card-text>
+
+     <v-card-actions>
+        <v-btn
+            color="orange"
+            text
+        ></v-btn>
+
+        <v-btn
+            color="orange"
+            text
+        ></v-btn>
+     </v-card-actions> -->
+  </v-card>
 
 
-    </div>    
 </template>
 
 <script>
