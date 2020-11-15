@@ -14,8 +14,8 @@
             <router-link :to="{ name: 'random', params: {id: computedSim.id}}" >
               <v-btn>Random</v-btn>
             </router-link>
-            <router-link :to="{name:'trailers', params: {id: computedSim.id}}" >
-              <v-btn>Trailers</v-btn>
+            <router-link :to="{name:'categories', params: {id: computedSim.id}}" >
+              <v-btn>Categories</v-btn>
             </router-link>
         <v-spacer></v-spacer>
 

@@ -3,8 +3,8 @@ import Vue from 'vue'
 import MoviesList from '../components/MoviesList.vue'
 import Random from '../components/Random.vue'
 import Details from '../components/Details.vue'
-import Trailers from '../components/Trailers.vue'
-
+import Categories from '../components/Categories.vue'
+import DetailsByGenre from '../components/DetailsByGenre'
 
 
 Vue.use(VueRouter)
@@ -26,9 +26,14 @@ const routes = [
     component: Random    
   },
   {
-    path: '/trailers/:id',
-    name: 'trailers',
-    component: Trailers    
+    path: '/categories',
+    name: 'categories',
+    component: Categories    
+  },
+  {
+    path: '/genre/:name',
+    name: 'genres',
+    component: DetailsByGenre
   }
 ]
 
