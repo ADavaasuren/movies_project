@@ -3,6 +3,7 @@ import Vue from 'vue'
 import MoviesList from '../components/MoviesList.vue'
 import Random from '../components/Random.vue'
 import Details from '../components/Details.vue'
+import Trailers from '../components/Trailers.vue'
 
 
 
@@ -23,6 +24,11 @@ const routes = [
     path: '/random/:id',
     name: 'random',
     component: Random    
+  },
+  {
+    path: '/trailers/:id',
+    name: 'trailers',
+    component: Trailers    
   }
 ]
 

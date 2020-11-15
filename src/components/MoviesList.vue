@@ -29,6 +29,7 @@
                   <v-flex xs12 md6 >
                       <div class="chip">
                          <router-link :to="{ name: 'details', params: {id: item.id}}">{{item.title}}</router-link>
+                         <v-btn :to="{name:'trailers', params: {id: item.id}}" text>Trailer</v-btn>
                       </div>
                   </v-flex>
                   <v-flex xs6 sm4 md2>

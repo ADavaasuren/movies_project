@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container fluid>
       <v-toolbar
           class="mb-15"
           color="indigo darken-5"
@@ -7,53 +7,81 @@
           flat
           fixed
       >
-        <router-link :to="{name:'movieslist'}">
-          <v-btn text>Home</v-btn>
-        </router-link>
-        <router-link :to="`/random/${items.id}`">
-          <v-btn>Random</v-btn>
-        </router-link>
+        <v-spacer></v-spacer>
+            <router-link :to="{name:'movieslist'}">
+              <v-btn text>Home</v-btn>
+            </router-link>
+            <router-link :to="{ name: 'random', params: {id: computedSim.id}}" >
+              <v-btn>Random</v-btn>
+            </router-link>
+            <router-link :to="{name:'trailers', params: {id: computedSim.id}}" >
+              <v-btn>Trailers</v-btn>
+            </router-link>
+        <v-spacer></v-spacer>
+
       </v-toolbar>
       <router-view />
+
+      <v-toolbar
+          class="mt-15"
+          color="indigo"
+          dark
+          flat
+      >
+      <v-spacer></v-spacer>
+      <v-toolbar-title class="subheading">
+          This is a footer
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      </v-toolbar>
+
+
   </v-container>
 </template>
 
 <script>
-import {secret_key } from './movies';
-import axios from 'axios';
-import VueAxios from 'vue-axios';
-import Vue from 'vue';
+// import {secret_key } from './movies';
+// import axios from 'axios';
+// import VueAxios from 'vue-axios';
+// import Vue from 'vue';
 
 
-Vue.use(VueAxios,axios)
+// Vue.use(VueAxios,axios)
 
 export default {
   name: 'App',
 
   data: () => ({
         items: [],
+        computedSim: []
   }),
   
-  mounted() {
-        this.getPopular();
-  },
+  // methods: {
+  //   goRandom() {
+  //     this.$router.push(`/random/{{computedSim.id}}`)
+  //   }
+  // }
+  // mounted() {
+  //       this.getPopular();
+  // },
   
-  methods: {
-      getPopular: function(){
+  // methods: {
+  //     getPopular: function(){
     
-              Vue.axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${secret_key}`)
+  //             Vue.axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${secret_key}`)
             
-                .then((response) => {
-                    const _ = require('lodash');
-                    let shuffled = _.shuffle(response.data.results);
-                    console.log(shuffled);
-                    this.items = shuffled;
-                })
-      }
-  }
+  //               .then((response) => {
+  //                   const _ = require('lodash');
+  //                   let shuffled = _.shuffle(response.data.results);
+  //                   console.log(shuffled);
+  //                   this.items = shuffled;
+  //               })
+  //     }
+  // }
 }
 
 </script>
+
 
 
 <style>
