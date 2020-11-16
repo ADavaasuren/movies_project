@@ -16,6 +16,7 @@
                     {{sim.title}}
                     {{sim.overview}}
             </li>
+
         </ul>
 
 
@@ -47,12 +48,8 @@ export default {
     computed: {
       computedSim(){
           return this.limit ? this.similar.slice(0,this.limit) : this.similar
+      }
     },
-    // computedSimImage(){
-    //         return this.limit ? this.similarImage.slice(0,this.limit) : this.similarImage
-    //      }
-    },
-
     methods: {
 
         getDetails: function(){
@@ -76,7 +73,7 @@ export default {
             
                       .then((response) => {
                       console.log(response);
-                      this.similar = response.data.results
+                      this.similar = response.data.results;
                       })
         },
     }

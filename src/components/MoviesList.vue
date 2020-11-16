@@ -78,6 +78,7 @@ export default {
         console.log(response);
       })
     },
+
     methods: {
       sortBy(prop) {
       this.items.sort((b,a) => b[prop] < a[prop] ? 1 : -1)
@@ -86,7 +87,8 @@ export default {
       sortByAZ(prop){
       this.items.sort((a,b) => a[prop] < b[prop] ? -1 : 1)
       }
-    },
+    },  
+  
 }
 </script>
 

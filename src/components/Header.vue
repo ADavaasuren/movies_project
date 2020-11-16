@@ -15,10 +15,9 @@
 
 <script>
 import { secret_key } from '../movies';
-import axios from 'axios';
+import axios from 'axios'
 import VueAxios from 'vue-axios';
 import Vue from 'vue';
-
 
 Vue.use(VueAxios,axios)
 
@@ -26,31 +25,28 @@ export default {
 
   name: 'Header',
 
-
-  data: () => ({
-  
+    data: () => ({
         items: [],
-        computedSim: []
-  
-  }),
+        computedSim: [],
+    }),
 
-  mounted() {
-     this.getPopular();
-  },
-  
-  methods: {
-     getPopular: function(){
+    mounted() {
+      this.getPopular();
+    },
     
-             Vue.axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${secret_key}`)
+    methods: {
+      getPopular: function(){
+    
+              Vue.axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${secret_key}`)
             
-                 .then((response) => {
-                     const _ = require('lodash');
-                     let shuffled = _.shuffle(response.data.results);
-                     console.log(shuffled);
-                     this.items = shuffled;
-                 })
-     }
-  }
+                  .then((response) => {
+                      const _ = require('lodash');
+                      let shuffled = _.shuffle(response.data.results);
+                      console.log(shuffled);
+                      this.items = shuffled;
+                  })
+        }
+    }   
 }
 </script>
 

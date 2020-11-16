@@ -1,16 +1,16 @@
 <template>
     <div>
-        {{ this.$route.params.id }}
+
         <ul>
             <li v-for="item in computedSim" :key="item.title">
                 {{item.title}}
                 {{item.overview}}
             </li>
-            <img :src="imageURL + images" alt="" > 
+            <!-- <img src="" alt="" >  -->
         </ul>
 
     <v-btn block v-on:click="getPopular">More random</v-btn>
-                
+
     </div>
 </template>
 
@@ -25,16 +25,16 @@ Vue.use(VueAxios,axios)
 
 export default {
     name: 'random',
-
+  
     data: () => ({
         items: [],
-        limit:1,
-        imageURL: 'https://image.tmdb.org/t/p/w300',
-        images: []
+        limit: 1,
+        image: []
     }),
 
     mounted() {
-        this.getPopular();
+         this.getPopular();
+         this.display_image();
     },
 
     computed: {
@@ -43,21 +43,19 @@ export default {
     }},
     
     methods: {
-        getPopular: function() {
+         getPopular: function() {
 
-                Vue.axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${secret_key}`)
+                 Vue.axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${secret_key}`)
             
-                    .then((response) => {
-                        const _ = require('lodash');
-                        let shuffled = _.shuffle(response.data.results);
-                        console.log(shuffled);
-                        this.items = response.data.results;
+                     .then((response) => {
+                         const _ = require('lodash');
+                         let shuffled = _.shuffle(response.data.results);
+                         console.log(shuffled);
+                         this.items = shuffled;
                     })
-        },
-
+          },          
     }
 }
-    
 
 </script>
 
