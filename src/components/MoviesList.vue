@@ -110,7 +110,7 @@ export default {
   border: none;
   background: rgb(21, 149, 235);
   color: rgb(255, 255, 255);
-  padding: 20px 50px;
+  padding: 20px 10px;
   cursor: pointer;
 }
 #movie_btn:hover {
