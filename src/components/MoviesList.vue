@@ -24,7 +24,7 @@
           <template v-slot:default="props">
               <v-col
                 v-for="item in props.items"
-                :key="item.name"
+                :key="item.id"
                 cols="18"
                 sm="18"
                 md="18"
