@@ -1,15 +1,15 @@
 <template>
-    <div>
+    <v-toolbar class="mb-15" color="grey lighten-4" fixed>>
        <router-link :to="{name:'movieslist'}">
-              <v-btn id="btn" x-large text>Home</v-btn>
+              <v-btn x-large text>Home</v-btn>
        </router-link>
        <router-link :to="{ name: 'random', params: {id: computedSim.id}}" >
-              <v-btn id="btn" x-large text>Random</v-btn>
+              <v-btn x-large text>Random</v-btn>
        </router-link>
        <router-link :to="{name:'categories', params: {id: computedSim.id}}" >
-              <v-btn id="btn" x-large text>Categories</v-btn>
+              <v-btn x-large text>Categories</v-btn>
        </router-link>
-    </div>
+    </v-toolbar>
 </template>
 
 

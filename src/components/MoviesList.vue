@@ -1,7 +1,7 @@
 <template>
     <v-container>
 
-            <v-layout row class="mb-15">
+            <v-layout id="icons" row class="mb-15">
               <v-btn x-large text color="grey" @click="sortByAZ('original_title')">
                   <span class="text-lowercase">movie title</span>
               </v-btn>
@@ -30,20 +30,20 @@
                 md="18"
                 lg=""
               >
-                <v-card>
-                  <v-layout row wrap class="cards">
-                      <v-flex xs12 md6 >
+                <v-card hover>
+                  <v-layout row wrap id="cards">
+                      <v-flex xs3 sm8 md4>
                           <v-btn id="movie_btn">
                             <router-link class="movie_titles" :to="{ name: 'details', params: {id: item.id}}">{{item.title}}</router-link>
                           </v-btn>
                       </v-flex>
-                      <v-flex xs6 sm4 md2>
+                      <v-flex xs3 sm8 md3>
                         <div>{{ item.release_date }}</div>
                       </v-flex>
-                      <v-flex xs6 sm4 md2>
+                      <v-flex xs3 sm8 md3>
                         <div>{{ item.popularity }}</div>
                       </v-flex>
-                      <v-flex xs2 sm4 md2>
+                      <v-flex xs3 sm8 md2>
                         <div>{{ item.vote_count }}</div>
                       </v-flex>
                   </v-layout>
@@ -96,10 +96,10 @@ export default {
 
 <style scoped>
 
-.cards {
-  border: 2px solid black;
+#cards {
   align-items: center;
 }
+
 .movie_titles {
   font-weight: 900;
   color: #000;
@@ -114,7 +114,10 @@ export default {
   cursor: pointer;
 }
 #movie_btn:hover {
-background: rgb(5, 71, 60);
+  background: rgb(5, 71, 60);
 }
 
+#icons {
+  justify-content: space-evenly;
+}
 </style>

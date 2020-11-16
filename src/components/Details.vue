@@ -1,13 +1,15 @@
 <template>
   <div>
 
-        <v-card rounded="10" shaped >
+        <v-card elevation="24" rounded="10" shaped >
+
+            <v-img width="300" :src="imageURL + movieImage" alt="">
+            </v-img>
+
             <div v-for="mov in movie" :key="mov.title">
                 {{mov.title}}
                 {{mov.overview}}
             </div>
-            <v-img width="300" :src="imageURL + movieImage" alt="">
-            </v-img>
 
         </v-card>
 
