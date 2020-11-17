@@ -1,6 +1,6 @@
 <template>
     <nav>
-      <ul>
+      <!-- <ul>
         <li><router-link :to="{name:'home'}">
                 <v-btn class="btn" small >Home</v-btn>
         </router-link></li>
@@ -10,7 +10,7 @@
         <li><router-link :to="{name:'categories', params: {id: items.id}}" >
                 <v-btn small>Categories</v-btn>
         </router-link></li>
-      </ul>
+      </ul> -->
     </nav>
 </template>
 
@@ -18,38 +18,38 @@
 
 
 <script>
-import {PRIVATE_KEY} from '../key';
-import axios from 'axios'
-import VueAxios from 'vue-axios';
-import Vue from 'vue';
+// import {PRIVATE_KEY} from '../key';
+// import axios from 'axios'
+// import VueAxios from 'vue-axios';
+// import Vue from 'vue';
 
-Vue.use(VueAxios,axios)
+// Vue.use(VueAxios,axios)
 
 export default {
 
   name: 'menu',
 
-    data: () => ({
-      items: [],
-    }),
+    // data: () => ({
+    //   items: [],
+    // }),
 
-    mounted() {
-      this.getPopular();
-    },
+    // mounted() {
+    //   this.getPopular();
+    // },
     
-    methods: {
-      getPopular: function(){
+    // methods: {
+    //   getPopular: function(){
     
-              Vue.axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${PRIVATE_KEY}`)
+    //           Vue.axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${PRIVATE_KEY}`)
             
-                  .then((response) => {
-                      const _ = require('lodash');
-                      let shuffled = _.shuffle(response.data.results);
-                      console.log(shuffled);
-                      this.items = shuffled;
-                  })
-        }
-    }   
+    //               .then((response) => {
+    //                   const _ = require('lodash');
+    //                   let shuffled = _.shuffle(response.data.results);
+    //                   console.log(shuffled);
+    //                   this.items = shuffled;
+    //               })
+    //     }
+    // }   
 }
 </script>
 

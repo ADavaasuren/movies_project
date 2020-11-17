@@ -1,7 +1,24 @@
 <template>
-    <v-container>
-            <Header /> 
+  <div>
+      <!-- <Header /> -->
+      <h2>This is movieslist</h2>
+    <section class="restaurantinfo">
+      <div v-for="store in moviedata" :key="store.id">
+          <p>{{ store.total_results }}</p>
+      </div>
+      <div>
+          <div 
+          v-for="item in store.results"
+          :key="item.id"
+          :style="`background: url(${item.poster_path}) no-repeat center center`"
+          >
 
+          </div>
+      </div>
+          <!-- <p>Release date {{ movie.release_date }}</p>
+          <p>Popularity {{ movie.popularity }}</p> -->
+
+    </section>
                  <!-- sorting buttons -->
             <!-- <v-layout id="icons" row class="mb-15">
               <v-btn x-large text color="grey" @click="sortByAZ('original_title')">
@@ -18,7 +35,7 @@
               </v-btn>
             </v-layout> -->
         <!-- computing and displaying the relevant number of items -->
-        <v-data-iterator
+        <!-- <v-data-iterator
             :items="items"
             :items-per-page.sync="itemsPerPage"
             hide-default-footer
@@ -53,38 +70,41 @@
               </v-col>
           </template>   
         </v-data-iterator>
-        <Footer />
-    </v-container>
+        <Footer /> -->
 
+
+  </div>
 </template>
 
 <script>
-import { PRIVATE_KEY } from '../key';
-import axios from 'axios';
-import VueAxios from 'vue-axios';
-import Vue from 'vue';
-import Header from './Header';
+// import { PRIVATE_KEY } from '../key';
+// import axios from 'axios';
+// import VueAxios from 'vue-axios';
+// import Vue from 'vue';
+// import Header from './Header';
+import { mapState } from 'vuex';
 
-
-Vue.use(VueAxios,axios)
+// Vue.use(VueAxios,axios)
 
 export default {
     name: 'movieslist',
-    components: {
-        Header,
+    // components: {
+    //     Header,
+    // },
+    computed: {
+      ...mapState(["moviedata"]),
     },
-
-    data: () => ({
-          itemsPerPage: 10,
-          items: [],
-    }),
-    mounted() {
-      Vue.axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${PRIVATE_KEY}`)
-        .then(response => {
-        this.items=response.data.results;
-        console.log(response);
-      })
-    },
+    // data: () => ({
+    //       itemsPerPage: 10,
+    //       items: [],
+    // }),
+    // mounted() {
+    //   Vue.axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${PRIVATE_KEY}`)
+    //     .then(response => {
+    //     this.items=response.data.results;
+    //     console.log(response);
+    //   })
+    // },
 
     // methods: {
     //   sortBy(prop) {
