@@ -1,34 +1,31 @@
 <template>
   <div>
     <div class="content">
-        <Menu />
-        <Header />
-        <MoviesList />
-        <Footer />
+
+        <!-- <Menu /> -->
+        <!-- <MoviesList /> -->
+        <!-- <Footer /> -->
     </div>
   </div>
 </template>
 
 <script>
-import Footer from './components/Footer'
-import Header from './components/Header'
-import Menu from './components/Menu'
-import MoviesList from './components/MoviesList'
+// import Footer from './components/Footer';
+// import Menu from './components/Menu';
+// import MoviesList from './components/MoviesList';
 
 
 export default {
   name: 'App',
-  
-  data: () => ({
-    popular: []
-  }),
-  
   components: {
-    Footer,
-    Header,
-    Menu,
-    MoviesList
-  }, 
+    // Footer,
+    // Menu,
+    // MoviesList
+  },
+  data: () => ({
+        items: [],
+        computedSim: []
+  }), 
 }
 
 </script>
