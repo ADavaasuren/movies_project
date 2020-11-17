@@ -1,6 +1,8 @@
 <template>
     <v-container>
-            <!-- sorting buttons -->
+            <Header /> 
+
+                 <!-- sorting buttons -->
             <!-- <v-layout id="icons" row class="mb-15">
               <v-btn x-large text color="grey" @click="sortByAZ('original_title')">
                   <span class="text-lowercase">movie title</span>
@@ -51,8 +53,9 @@
               </v-col>
           </template>   
         </v-data-iterator>
-
+        <Footer />
     </v-container>
+
 </template>
 
 <script>
@@ -60,12 +63,16 @@ import { PRIVATE_KEY } from '../key';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 import Vue from 'vue';
+import Header from './Header';
 
 
 Vue.use(VueAxios,axios)
 
 export default {
     name: 'movieslist',
+    components: {
+        Header,
+    },
 
     data: () => ({
           itemsPerPage: 10,

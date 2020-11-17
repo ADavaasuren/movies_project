@@ -1,33 +1,26 @@
 <template>
   <div>
     <div class="content">
-
-        <!-- <Menu /> -->
-        <!-- <MoviesList /> -->
-        <!-- <Footer /> -->
+      <Menu />
+      <router-view/>
+      <Footer />
     </div>
   </div>
 </template>
 
 <script>
-// import Footer from './components/Footer';
-// import Menu from './components/Menu';
-// import MoviesList from './components/MoviesList';
+// import Header from './components/Header.vue';
+import Menu from './components/Menu.vue';
+import Footer from './components/Footer.vue';
 
 
 export default {
   name: 'App',
   components: {
-    // Footer,
-    // Menu,
-    // MoviesList
-  },
-  data: () => ({
-        items: [],
-        computedSim: []
-  }), 
+      Menu,
+      Footer
+  }
 }
-
 </script>
 
 

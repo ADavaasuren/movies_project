@@ -1,21 +1,19 @@
 <template>
     <div>
-        <Menu />
-<!-- MoviesList -->
-        <Footer />
+        <MoviesList />
     </div>
 </template>
 
 <script>
+import MoviesList from '../components/MoviesList.vue';
+
 
 export default {
     name: 'home',
     components: {
-       Footer,
-    Menu,
-    // MoviesList
+       MoviesList
     }
-    }
+}
 </script>
 
 <style scoped>

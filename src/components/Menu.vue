@@ -1,18 +1,18 @@
 <template>
     <nav>
       <ul>
-        <li><router-link :to="{name:'movieslist'}">
-                <v-btn class="btn" small text >Home</v-btn>
+        <li><router-link :to="{name:'home'}">
+                <v-btn class="btn" small >Home</v-btn>
         </router-link></li>
         <li><router-link :to="{ name: 'random', params: {id: items.id}}" >
-                <v-btn small text >Random</v-btn>
+                <v-btn small>Random</v-btn>
         </router-link></li>
         <li><router-link :to="{name:'categories', params: {id: items.id}}" >
-                <v-btn small text >Categories</v-btn>
+                <v-btn small>Categories</v-btn>
         </router-link></li>
       </ul>
     </nav>
-</template>     
+</template>
 
 
 
@@ -31,7 +31,6 @@ export default {
 
     data: () => ({
       items: [],
-      computedSim: [],
     }),
 
     mounted() {
