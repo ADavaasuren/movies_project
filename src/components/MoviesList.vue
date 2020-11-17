@@ -1,7 +1,7 @@
 <template>
     <v-container>
-
-            <v-layout id="icons" row class="mb-15">
+            <!-- sorting buttons -->
+            <!-- <v-layout id="icons" row class="mb-15">
               <v-btn x-large text color="grey" @click="sortByAZ('original_title')">
                   <span class="text-lowercase">movie title</span>
               </v-btn>
@@ -14,16 +14,16 @@
               <v-btn x-large text color="grey" @click="sortBy('vote_count')">
                 <span class="text-lowercase">votes</span>
               </v-btn>
-            </v-layout>
-
-        <v-data-iterator
+            </v-layout> -->
+        <!-- computing and displaying the relevant number of items -->
+        <!-- <v-data-iterator
             :items="items"
             :items-per-page.sync="itemsPerPage"
             hide-default-footer
-        >
+        > -->
           <template v-slot:default="props">
               <v-col
-                v-for="item in props.items"
+                v-for="item in props.popular"
                 :key="item.id"
                 cols="18"
                 sm="18"
@@ -34,7 +34,7 @@
                   <v-layout row wrap id="cards">
                       <v-flex xs3 sm8 md4>
                           <v-btn id="movie_btn">
-                            <router-link class="movie_titles" :to="{ name: 'details', params: {id: item.id}}">{{item.title}}</router-link>
+                            <router-link class="movie_titles" :to="{ name: 'details', params: {id: popular.id}}">{{item.title}}</router-link>
                           </v-btn>
                       </v-flex>
                       <v-flex xs3 sm8 md3>
@@ -50,44 +50,45 @@
                 </v-card>
               </v-col>
           </template>   
-        </v-data-iterator>
+        <!-- </v-data-iterator> -->
 
     </v-container>
 </template>
 
 <script>
-import {secret_key } from '../movies';
-import axios from 'axios';
-import VueAxios from 'vue-axios';
-import Vue from 'vue';
+// import {secret_key } from '../movies';
+// import axios from 'axios';
+// import VueAxios from 'vue-axios';
+// import Vue from 'vue';
 
 
-Vue.use(VueAxios,axios)
+// Vue.use(VueAxios,axios)
 
 export default {
     name: 'movieslist',
 
     data: () => ({
-          itemsPerPage: 10,
-          items: [],
+    // //       itemsPerPage: 10,
+    // //       items: [],
+              popular: []
     }),
-    mounted() {
-      Vue.axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${secret_key}`)
-        .then(response => {
-        this.items=response.data.results;
-        console.log(response);
-      })
-    },
+    // mounted() {
+    //   Vue.axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${secret_key}`)
+    //     .then(response => {
+    //     this.items=response.data.results;
+    //     console.log(response);
+    //   })
+    // },
 
-    methods: {
-      sortBy(prop) {
-      this.items.sort((b,a) => b[prop] < a[prop] ? 1 : -1)
-      },
+    // methods: {
+    //   sortBy(prop) {
+    //   this.items.sort((b,a) => b[prop] < a[prop] ? 1 : -1)
+    //   },
 
-      sortByAZ(prop){
-      this.items.sort((a,b) => a[prop] < b[prop] ? -1 : 1)
-      }
-    },  
+    //   sortByAZ(prop){
+    //   this.items.sort((a,b) => a[prop] < b[prop] ? -1 : 1)
+    //   }
+    // },  
   
 }
 </script>
@@ -101,10 +102,12 @@ export default {
 }
 
 .movie_titles {
-  font-weight: 900;
+  font-weight: 300;
   color: #000;
   text-decoration: none;
+  font-family: "Mulish", Arial, Helvetica, sans-serif;
 }
+
 #movie_btn {
   display: inline-block;
   border: none;

@@ -1,60 +1,42 @@
 <template>
-    <v-toolbar class="mb-15" color="grey lighten-4" fixed>>
-       <router-link :to="{name:'movieslist'}">
-              <v-btn x-large text>Home</v-btn>
-       </router-link>
-       <router-link :to="{ name: 'random', params: {id: computedSim.id}}" >
-              <v-btn x-large text>Random</v-btn>
-       </router-link>
-       <router-link :to="{name:'categories', params: {id: computedSim.id}}" >
-              <v-btn x-large text>Categories</v-btn>
-       </router-link>
-    </v-toolbar>
+    <div>
+    <section class="masthead" role="img" aria-label="Image Description">
+    <h1>
+        Popular Movies
+    </h1>
+        <button>
+        Movies list
+        </button>
+    </section>    
+    </div>
 </template>
 
-
 <script>
-import { secret_key } from '../movies';
-import axios from 'axios'
-import VueAxios from 'vue-axios';
-import Vue from 'vue';
-
-Vue.use(VueAxios,axios)
-
-export default {
-
-  name: 'Header',
-
-    data: () => ({
-        items: [],
-        computedSim: [],
-    }),
-
-    mounted() {
-      this.getPopular();
-    },
-    
-    methods: {
-      getPopular: function(){
-    
-              Vue.axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${secret_key}`)
-            
-                  .then((response) => {
-                      const _ = require('lodash');
-                      let shuffled = _.shuffle(response.data.results);
-                      console.log(shuffled);
-                      this.items = shuffled;
-                  })
-        }
-    }   
-}
+    export default {
+        name: 'header'
+    }
 </script>
 
 
-<style scoped>
 
-#btn {
-    text-decoration: none;
+<style scoped>
+.masthead {
+  width: 100%;
+  height: 80vh; 
+  padding: 40px;
+  overflow: hidden;
+  background-size: cover !important;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 72%, rgba(0,0,0,0.65) 100%), url(https://image.tmdb.org/t/p/w1280/sWgBv7LV2PRoQgkxwlibdGXKz1S.jpg) no-repeat center center scroll;
 }
 
+h1 {
+  font-style: normal;
+  font-weight: bold;
+  color: #eee;
+  font-size: 8vmin;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
+  margin-bottom: 146px;
+}
 </style>
