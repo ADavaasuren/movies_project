@@ -1,5 +1,8 @@
 <template>
     <div>
+<h4>This is random page</h4>
+
+<pre>{{ $data }}</pre>
 
         <ul>
             <!-- looping through mutated data -->

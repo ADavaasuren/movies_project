@@ -1,8 +1,8 @@
 import VueRouter from 'vue-router';
 import Vue from 'vue'
 import RandomPage from '../views/RandomPage.vue'
-import Details from '../components/Details.vue'
-import Categories from '../components/Categories.vue'
+import DetailsPage from '../views/DetailsPage.vue'
+import CategoriesPage from '../views/CategoriesPage.vue'
 import DetailsByGenre from '../components/DetailsByGenre'
 import HomePage from '../views/HomePage.vue'
 
@@ -17,18 +17,18 @@ const routes = [
   },
   {
     path: '/movie/:id',
-    name: 'details',
-    component: Details
+    name: 'detailspage',
+    component: DetailsPage
   },
   {
-    path: '/random',
-    name: 'random',
+    path: '/random/:id',
+    name: 'randompage',
     component: RandomPage    
   },
   {
     path: '/categories',
-    name: 'categories',
-    component: Categories    
+    name: 'categoriespage',
+    component: CategoriesPage    
   },
   {
     path: '/genre/:name',

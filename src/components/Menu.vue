@@ -4,7 +4,7 @@
         <li><router-link :to="{name: 'home'}">
                 <v-btn small >Home</v-btn>
         </router-link></li>
-        <li><router-link :to="{ name: 'random'}">
+        <li><router-link :to="`/random/${shuffled.id}`">
                 <v-btn small>Random</v-btn>
         </router-link></li>
         <li><router-link :to="{name:'categories'}"> 
@@ -34,6 +34,7 @@ export default {
 
   computed: {
       ...mapState(["moviedata"]),
+      ...mapState(["shuffled"]),
   },
 
   mounted() {

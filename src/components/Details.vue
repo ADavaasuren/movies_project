@@ -1,12 +1,32 @@
 <template>
   <div>
-    
-             <!-- <v-card elevation="24" rounded="10" shaped >
+    <pre>{{ $data }}</pre>
 
-            <v-img width="300" :src="imageURL + movieImage" alt="">
+    <h4>this details page</h4>
+
+    <main class="container" v-for="movie in computedMovie" :key="movie.title">
+
+        <!-- <section 
+            class="image"
+            :style="`background: url(https://image.tmdb.org/t/p/w300/${currentItem.poster_path} no repeat center center)`"
+        ></section> -->
+
+        <section class="details">
+            <h1>{{ movie.title }} </h1>
+
+        </section>
+
+    </main>
+        
+
+
+
+
+
+            <!-- <v-img width="300" :src="imageURL + movieImage" alt="">
             </v-img>
 
-            <div v-for="mov in movie" :key="mov.title">
+            <div >
                 {{mov.title}}
                 {{mov.overview}}
             </div>
@@ -17,9 +37,9 @@
             <li v-for="sim in computedSim" :key="sim.title">
                     {{sim.title}}
                     {{sim.overview}}
-            </li>
+            </li> -->
 
-        </ul> -->
+        
 <!-- Footer -->
   </div>    
 </template>
@@ -27,15 +47,68 @@
 <script>
 // import { PRIVATE_KEY } from '../key';
 // import axios from 'axios';
-        
+import { mapState } from "vuex";        
 
 export default {
     name: 'details',
 
+    props: ["id"],
+
+    data() {
+     return {
+            limit: 1,
+        };
+    },
+    computed: {
+      ...mapState(["details"]),
+         computedMovie(){
+            return this.limit ? this.details.slice(0,this.limit) : this.details
+        },
+    },
+  
+    // mounted() {
+    //   this.$store.dispatch('getShuffled');
+    // },
+
+    // },
+    // computed: {
+    //   ...mapState(["moviedata"]),
+}
+
+
+    //   currentItem() {
+    //       let result;
+          
+    //       for (let i = 0; i < this.moviedata.length; i++) {
+    //           for (let j=0; j < this.moviedata[i].length; j++) {
+    //             if (this.moviedata[i].[j].id === this.id) {
+    //               result = this.moviedata[i].[j];
+    //               break;
+    //             }
+    //         }   
+    //         return result;
+    //       }
+    //    }
+    //}
+//}    
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // data() {
     //   return {
-    //      movie: [],
-    //      movieImage: [],
     //      imageURL: 'https://image.tmdb.org/t/p/w300',
     //      similar: [],
     //      limit: 3,
@@ -78,9 +151,7 @@ export default {
     //                   })
     //     },
     // }
-}
 
-</script>
 
 
 

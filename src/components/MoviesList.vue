@@ -22,7 +22,9 @@
                   <h2>{{ movie.title }}</h2>
                   <p>Release date {{ movie.release_date }}</p>
                   <p>Popularity {{ movie.popularity }}</p>
-                  <button class="ghost"> View Item ></button>
+                  <router-link :to="`/movie/${movie.id}`" >
+                    <button class="ghost"> View Item ></button>
+                  </router-link>
               </div>
           </section>
 
@@ -76,6 +78,7 @@ export default {
     },
     mounted() {
       this.$store.dispatch('getMovieData');
+      this.$store.dispatch('getDetails');
     },
     
     data: () => ({
