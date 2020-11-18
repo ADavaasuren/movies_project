@@ -60,10 +60,6 @@
 </template>
 
 <script>
-// import { PRIVATE_KEY } from '../key';
-// import axios from 'axios';
-// import VueAxios from 'vue-axios';
-// import Vue from 'vue';
 import Header from './Header';
 import { mapState } from 'vuex';
 
@@ -78,7 +74,6 @@ export default {
     },
     mounted() {
       this.$store.dispatch('getMovieData');
-      this.$store.dispatch('getDetails');
     },
     
     data: () => ({

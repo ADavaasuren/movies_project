@@ -45,8 +45,6 @@
 </template>
 
 <script>
-// import { PRIVATE_KEY } from '../key';
-// import axios from 'axios';
 import { mapState } from "vuex";        
 
 export default {
@@ -56,23 +54,16 @@ export default {
 
     data() {
      return {
-            limit: 1,
+            // limit: 1,
         };
     },
     computed: {
       ...mapState(["details"]),
-         computedMovie(){
-            return this.limit ? this.details.slice(0,this.limit) : this.details
-        },
     },
   
-    // mounted() {
-    //   this.$store.dispatch('getShuffled');
-    // },
-
-    // },
-    // computed: {
-    //   ...mapState(["moviedata"]),
+    mounted() {
+       this.$store.dispatch('getDetails');
+    },
 }
 
 

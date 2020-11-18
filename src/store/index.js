@@ -99,9 +99,9 @@ export default new Vuex.Store({
     updateshuffled: (state, data) => {
       state.shuffled = data
     },
-    updatedetails: (state, data) => {
-      state.details = data
-    }
+    // updatedetails: (state, data) => {
+    //   state.details = data
+    // }
   },  
   actions: {
     async getMovieData ({ commit }) {
@@ -125,7 +125,9 @@ export default new Vuex.Store({
     },
     async getDetails ({ commit }) {
 
-        axios.get(`https://api.themoviedb.org/3/movie/${movie.id}?api_key=b33ac6661da0977b3c9d8014bf3e1d4d`)
+        var movId = this.$route.params.id 
+
+        axios.get(`https://api.themoviedb.org/3/movie/${movId}?api_key=b33ac6661da0977b3c9d8014bf3e1d4d`)
           .then(result => {
           console.log(result)
           commit('updatedetails', result)
