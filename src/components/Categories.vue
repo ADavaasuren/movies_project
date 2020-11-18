@@ -1,15 +1,19 @@
 <template>
-<v-container fluid>
+    <div >
 
-    <!-- <v-card v-for="item in items" :key="item.name">
-              <v-layout row wrap class="cards">
-                  <v-flex xs6 sm4 md2>
-                     <router-link :to="{ name: 'genres', params: {name: item.name}}">{{item.name}}</router-link>
-                  </v-flex>
-              </v-layout>
-            </v-card> -->
+        <div v-for="item in moviedata[0].results" :key="item.id">
+            {{ item.genre_ids }}        
+        </div>
 
-</v-container>    
+        <!-- <v-card >      -->
+                <!-- <v-layout row wrap class="cards">
+                    <v-flex xs6 sm4 md2>
+                        <router-link :to="{ name: 'genre', params: {id: item.name}}">{{item.name}}</router-link>
+                    </v-flex>
+                </v-layout>
+        </v-card> -->
+
+    </div>    
 </template>
 
 
@@ -21,10 +25,15 @@
 
 
 // Vue.use(VueAxios,axios)
+import { mapState } from 'vuex';
 
-// export default {
-//     name: 'categories',
+export default {
+    name: 'categories',
 
+    computed: {
+      ...mapState(["moviedata"]),
+    }
+}    
 //     data: () => ({
 //           items: [],
 //     }),
@@ -38,7 +47,7 @@
 //             console.log(response);
 //         })
 //     }
-// }
+
 
 
 

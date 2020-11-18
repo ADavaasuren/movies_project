@@ -1,7 +1,7 @@
 <template>
   <div>
-     <!-- Menu -->
-        <!-- <v-card elevation="24" rounded="10" shaped >
+    
+             <!-- <v-card elevation="24" rounded="10" shaped >
 
             <v-img width="300" :src="imageURL + movieImage" alt="">
             </v-img>

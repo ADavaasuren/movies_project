@@ -1,24 +1,15 @@
 <template>
   <div>
-      <!-- <Header /> -->
-      <h2>This is movieslist</h2>
-    <section class="restaurantinfo">
-      <div v-for="store in moviedata" :key="store.id">
-          <p>{{ store.total_results }}</p>
-      </div>
-      <div>
-          <div 
-          v-for="item in store.results"
-          :key="item.id"
-          :style="`background: url(${item.poster_path}) no-repeat center center`"
-          >
+    <Header />
 
-          </div>
-      </div>
-          <!-- <p>Release date {{ movie.release_date }}</p>
-          <p>Popularity {{ movie.popularity }}</p> -->
-
-    </section>
+      <section class="restaurantinfo">
+        <div v-for="movie in moviedata" :key="movie.id">
+            <h2>{{ movie.title }}</h2>
+            <p>Release date {{ movie.release_date }}</p>
+            <p>Popularity {{ movie.popularity }}</p>
+            <button class="ghost"> View Item ></button>
+        </div>
+      </section>
                  <!-- sorting buttons -->
             <!-- <v-layout id="icons" row class="mb-15">
               <v-btn x-large text color="grey" @click="sortByAZ('original_title')">
@@ -81,19 +72,24 @@
 // import axios from 'axios';
 // import VueAxios from 'vue-axios';
 // import Vue from 'vue';
-// import Header from './Header';
+import Header from './Header';
 import { mapState } from 'vuex';
 
 // Vue.use(VueAxios,axios)
 
 export default {
     name: 'movieslist',
-    // components: {
-    //     Header,
-    // },
+    components: {
+        Header,
+
+    },
     computed: {
       ...mapState(["moviedata"]),
     },
+    mounted() {
+      this.$store.dispatch('getMovieData');
+    }
+    
     // data: () => ({
     //       itemsPerPage: 10,
     //       items: [],

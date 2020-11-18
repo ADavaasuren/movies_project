@@ -1,14 +1,14 @@
 <template>
     <div>
 
-        <!-- <ul> -->
+        <ul>
             <!-- looping through mutated data -->
-            <!-- <li v-for="item in computedSim" :key="item.title">
+            <li v-for="item in moviedata" :key="item.id">
                 {{item.title}}
                 {{item.overview}}
-            </li> -->
+            </li>
             <!-- <img src="" alt="" >  -->
-        <!-- </ul> -->
+        </ul>
 
     <!-- <v-btn block v-on:click="getPopular">More random</v-btn> --> -->
 
@@ -20,6 +20,7 @@
 // import axios from 'axios';
 // import VueAxios from 'vue-axios';
 // import Vue from 'vue';
+import { mapState } from 'vuex';
 
 
 // Vue.use(VueAxios,axios)
@@ -27,6 +28,13 @@
 export default {
     name: 'random',
   
+    computed: {
+      ...mapState(["moviedata"]),
+    },
+
+    mounted() {
+      this.$store.dispatch('getMovieData');
+    }
     // data: () => ({
     //     items: [],
     //     limit: 1,

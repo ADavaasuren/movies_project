@@ -1,16 +1,17 @@
 <template>
     <nav>
-      <!-- <ul>
+      <ul>
         <li><router-link :to="{name:'home'}">
                 <v-btn class="btn" small >Home</v-btn>
         </router-link></li>
-        <li><router-link :to="{ name: 'random', params: {id: items.id}}" >
+        <li><router-link :to="{ name: 'random', params: {id: item.id}}">
                 <v-btn small>Random</v-btn>
         </router-link></li>
-        <li><router-link :to="{name:'categories', params: {id: items.id}}" >
+        <li><router-link :to="{name:'categories'}"> 
+        //params: {id: items.id}}"
                 <v-btn small>Categories</v-btn>
         </router-link></li>
-      </ul> -->
+      </ul>
     </nav>
 </template>
 
@@ -25,10 +26,20 @@
 
 // Vue.use(VueAxios,axios)
 
+import { mapState } from 'vuex';
+
+
 export default {
 
   name: 'menu',
 
+  computed: {
+      ...mapState(["moviedata"]),
+  },
+
+  mounted() {
+      this.$store.dispatch('getMovieData');
+  }
     // data: () => ({
     //   items: [],
     // }),

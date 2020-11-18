@@ -3,8 +3,8 @@
     <div class="content">
       <Menu />
       <router-view/>
-      <Footer />
     </div>
+    <Footer />
   </div>
 </template>
 
