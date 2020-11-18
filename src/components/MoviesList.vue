@@ -2,45 +2,35 @@
   <div>
     <Header />
 
-      <section class="restaurantinfo">
-        <div v-for="movie in moviedata" :key="movie.id">
-            <h2>{{ movie.title }}</h2>
-            <p>Release date {{ movie.release_date }}</p>
-            <p>Popularity {{ movie.popularity }}</p>
-            <button class="ghost"> View Item ></button>
-        </div>
-      </section>
-                 <!-- sorting buttons -->
-            <!-- <v-layout id="icons" row class="mb-15">
-              <v-btn x-large text color="grey" @click="sortByAZ('original_title')">
+          <v-layout id="icons" row class="mb-15">
+              <v-btn small color="grey" @click="sortByAZ('movie_title')">
                   <span class="text-lowercase">movie title</span>
               </v-btn>
-              <v-btn x-large text color="grey" @click="sortBy('release_date')">
-                <span class="text-lowercase">release date</span>
+              <v-btn small color="grey" @click="sortBy('release_date')">
+                  <span class="text-lowercase">release date</span>
               </v-btn>
-              <v-btn x-large text color="grey" @click="sortBy('popularity')">
-                <span class="text-lowercase">popularity</span>
+              <v-btn small color="grey" @click="sortBy('popularity')">
+                  <span class="text-lowercase">popularity</span>
               </v-btn>
-              <v-btn x-large text color="grey" @click="sortBy('vote_count')">
-                <span class="text-lowercase">votes</span>
+              <v-btn small color="grey" @click="sortBy('vote_count')">
+                  <span class="text-lowercase">votes</span>
               </v-btn>
-            </v-layout> -->
-        <!-- computing and displaying the relevant number of items -->
-        <!-- <v-data-iterator
-            :items="items"
-            :items-per-page.sync="itemsPerPage"
-            hide-default-footer
-        >
-          <template v-slot:default="props">
-              <v-col
-                v-for="item in props.items"
-                :key="item.name"
-                cols="18"
-                sm="18"
-                md="18"
-                lg=""
-              >
-                <v-card hover>
+          </v-layout>
+
+          <section class="row" >
+              <div v-for="movie in moviedata" :key="movie.id">
+                  <h2>{{ movie.title }}</h2>
+                  <p>Release date {{ movie.release_date }}</p>
+                  <p>Popularity {{ movie.popularity }}</p>
+                  <button class="ghost"> View Item ></button>
+              </div>
+          </section>
+
+                
+          
+        
+             
+                <!-- <v-card hover>
                   <v-layout row wrap id="cards">
                       <v-flex xs3 sm8 md4>
                           <v-btn id="movie_btn">
@@ -59,9 +49,9 @@
                   </v-layout>
                 </v-card>
               </v-col>
-          </template>   
-        </v-data-iterator>
-        <Footer /> -->
+          </template> -->
+        
+        <Footer />
 
 
   </div>
@@ -75,45 +65,45 @@
 import Header from './Header';
 import { mapState } from 'vuex';
 
-// Vue.use(VueAxios,axios)
 
 export default {
     name: 'movieslist',
     components: {
         Header,
-
     },
     computed: {
       ...mapState(["moviedata"]),
     },
     mounted() {
       this.$store.dispatch('getMovieData');
-    }
+    },
     
-    // data: () => ({
-    //       itemsPerPage: 10,
-    //       items: [],
-    // }),
-    // mounted() {
+    data: () => ({
+        moviedataPerPage: 10,   
+    }),
+    methods: {
+            sortBy(prop) {
+            this.moviedata.sort((b,a) => b[prop] < a[prop] ? 1 : -1)
+            },
+
+            sortByAZ(prop){
+            this.moviedata.sort((a,b) => a[prop] < b[prop] ? -1 : 1)
+            }  
+    }
+}    
+
+</script>
+
+// mounted() {
     //   Vue.axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${PRIVATE_KEY}`)
     //     .then(response => {
     //     this.items=response.data.results;
     //     console.log(response);
     //   })
     // },
-
-    // methods: {
-    //   sortBy(prop) {
-    //   this.items.sort((b,a) => b[prop] < a[prop] ? 1 : -1)
-    //   },
-
-    //   sortByAZ(prop){
-    //   this.items.sort((a,b) => a[prop] < b[prop] ? -1 : 1)
-    //   }
-    // },  
   
-}
-</script>
+
+
 
 
 

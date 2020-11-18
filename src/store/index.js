@@ -7,6 +7,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: { 
     moviedata: [],
+    shuffled: [],
     genre: [
       {
         "genres": [
@@ -93,8 +94,11 @@ export default new Vuex.Store({
   mutations: {
     updatemoviedata: (state, data) => {
       state.moviedata = data
-    }
-  },
+    },
+    updateshuffled: (state, data) => {
+      state.shuffled = data
+    },
+  },  
   actions: {
     async getMovieData ({ commit }) {
       
@@ -103,11 +107,19 @@ export default new Vuex.Store({
           console.log(response)
           commit('updatemoviedata', response.data.results)
         })
-      },
-      catch(err) {
-        console.log(err)
-      }      
-    }
+    },
+
+    async getShuffled ({ commit }) {
+      
+        axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=b33ac6661da0977b3c9d8014bf3e1d4d`)
+        .then(response => {
+          const _ = require('lodash');
+          console.log(response)
+          let shuffledmovie = _.shuffle(response.data.results);
+          commit('updateshuffled', shuffledmovie)
+        })
+    },
+  }
   // modules: {
   // }
 })

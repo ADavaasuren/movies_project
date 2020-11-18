@@ -1,10 +1,10 @@
 import VueRouter from 'vue-router';
 import Vue from 'vue'
-import Random from '../components/Random.vue'
+import RandomPage from '../views/RandomPage.vue'
 import Details from '../components/Details.vue'
 import Categories from '../components/Categories.vue'
 import DetailsByGenre from '../components/DetailsByGenre'
-import Home from '../views/Home.vue'
+import HomePage from '../views/HomePage.vue'
 
 
 Vue.use(VueRouter)
@@ -13,7 +13,7 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: Home
+    component: HomePage
   },
   {
     path: '/movie/:id',
@@ -21,9 +21,9 @@ const routes = [
     component: Details
   },
   {
-    path: '/random/:id',
+    path: '/random',
     name: 'random',
-    component: Random    
+    component: RandomPage    
   },
   {
     path: '/categories',
