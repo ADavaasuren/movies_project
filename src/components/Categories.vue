@@ -2,7 +2,7 @@
     <div >
 
         <section class="row" >
-              <div v-for="movie in moviedata" :key="movie.id">
+              <div v-for="movie in upcoming" :key="movie.id">
                   <img :src="`https://image.tmdb.org/t/p/w154/${movie.poster_path}`" />
                   <h2>{{ movie.title }}</h2>
                   <p>Release date {{ movie.release_date }}</p>
@@ -24,8 +24,11 @@ export default {
     name: 'categories',
 
     computed: {
-      ...mapState(["moviedata"]),
+      ...mapState(["upcoming"]),
      },
+    mounted() {
+      this.$store.dispatch('getUpcoming');
+    },
 }
 
 </script>

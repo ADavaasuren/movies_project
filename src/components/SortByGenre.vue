@@ -9,7 +9,7 @@
                 name="select"
             >
                 <option value>-- Please select a {{ select }}</option>
-                <option v-for="option in genre[0].genres" :key="option.id" :value="option">
+                <option v-for="option in genre[0].genres" :key="option.name" :value="option">
                     {{ option.name }}
                 </option>
             </select>

@@ -9,6 +9,7 @@ export default new Vuex.Store({
     moviedata: [],
     similar: [],
     shuffled: [],
+    upcoming: [],
     genre: [
       {
         "genres": [
@@ -102,8 +103,10 @@ export default new Vuex.Store({
     updatesimilar: (state, data) => {
       state.similar = data
     },
-
-  },  
+    updateupcoming: (state, data) => {
+      state.upcoming = data
+    }
+  },
   actions: {
     async getMovieData ({ commit }) {
       
@@ -134,7 +137,13 @@ export default new Vuex.Store({
              commit('updatesimilar', response.data.results)
              })
     },
+    async getUpcoming ({ commit }) {
+      
+            axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=b33ac6661da0977b3c9d8014bf3e1d4d&language=en-US&page=1`)
+              .then(response => {
+              console.log(response);
+              commit('updateupcoming', response.data.results);
+            })
+    }
   }
 })
-  // modules: {
-  // }
