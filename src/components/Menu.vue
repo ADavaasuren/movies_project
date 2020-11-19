@@ -4,10 +4,10 @@
         <li><router-link :to="{name: 'home'}">
                 <v-btn small >Home</v-btn>
         </router-link></li>
-        <li><router-link :to="`/random/${shuffled.id}`">
+        <li><router-link :to="{name: 'randompage', params: {id: shuffled.id}}">
                 <v-btn small>Random</v-btn>
         </router-link></li>
-        <li><router-link :to="{name:'categories'}"> 
+        <li><router-link :to="{name:'categoriespage'}"> 
                 <v-btn small>Categories</v-btn>
         </router-link></li>
       </ul>
@@ -35,12 +35,26 @@ export default {
   computed: {
       ...mapState(["moviedata"]),
       ...mapState(["shuffled"]),
+      shuffled() { return this.$store.state.shuffled }
   },
 
   mounted() {
       this.$store.dispatch('getMovieData');
       this.$store.dispatch('getShuffled');
   }
+}
+</script>
+
+
+
+
+<style lang="scss" scoped>
+
+</style>
+
+
+
+
     // data: () => ({
     //   items: [],
     // }),
@@ -62,11 +76,3 @@ export default {
     //               })
     //     }
     // }   
-}
-</script>
-
-
-<style lang="scss" scoped>
-
-
-</style>

@@ -36,7 +36,6 @@
 
 <script>
 import Header from './Header';
-// import { mapState } from 'vuex';
 
 
 export default {
@@ -45,7 +44,6 @@ export default {
         Header,
     },
     computed: {
-      // ...mapState(["moviedata"]),
       moviedata() { return this.$store.state.moviedata }
     },
     mounted() {
@@ -67,16 +65,6 @@ export default {
 }    
 
 </script>
-
-// mounted() {
-    //   Vue.axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${PRIVATE_KEY}`)
-    //     .then(response => {
-    //     this.items=response.data.results;
-    //     console.log(response);
-    //   })
-    // },
-  
-
 
 
 

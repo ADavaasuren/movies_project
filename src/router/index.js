@@ -3,7 +3,6 @@ import Vue from 'vue'
 import RandomPage from '../views/RandomPage.vue'
 import DetailsPage from '../views/DetailsPage.vue'
 import CategoriesPage from '../views/CategoriesPage.vue'
-import DetailsByGenre from '../components/DetailsByGenre'
 import HomePage from '../views/HomePage.vue'
 
 
@@ -21,7 +20,7 @@ const routes = [
     component: DetailsPage
   },
   {
-    path: '/random/:id',
+    path: '/random',
     name: 'randompage',
     component: RandomPage    
   },
@@ -30,12 +29,6 @@ const routes = [
     name: 'categoriespage',
     component: CategoriesPage    
   },
-  {
-    path: '/genre/:name',
-    name: 'genres',
-    component: DetailsByGenre
-  }
-
 ]
 
 const router = new VueRouter({

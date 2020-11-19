@@ -1,7 +1,6 @@
 <template>
   <div>
 
-    <h4>this details page</h4>
 
     <main class="container">
 
@@ -63,7 +62,9 @@ export default {
 
 
 
+<style scoped>
 
+</style>
 
 
 
@@ -108,6 +109,3 @@ export default {
 
 
 
-<style scoped>
-
-</style>

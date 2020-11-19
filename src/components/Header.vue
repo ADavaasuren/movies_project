@@ -4,9 +4,7 @@
     <h1>
         Popular Movies
     </h1>
-        <button>
-        Movies list
-        </button>
+        <button @click="'movieslist'">Movies list</button>
     </section>    
     </div>
 </template>

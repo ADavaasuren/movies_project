@@ -1,18 +1,51 @@
 <template>
-    <div>
+    <main class="container restaurant">
+                    <h4>This is MOVIE categories</h4>
+
+        <div class="restaurantheading">
+            
+           <SortByGenre @change="selectedMovie = $event" />
+        <pre>{{ $data }}</pre>
+        </div>
+
     <Categories />
-    </div>
+
+    </main>
 </template>
 
 <script>
 import Categories from '../components/Categories.vue';
+import SortByGenre from '../components/SortByGenre';
+import { mapState } from "vuex";
+
 
 export default {
+
     name: 'categoriespage',
     components: {
-        Categories
-    }        
-    }
+        Categories,
+        SortByGenre
+    },
+    
+    data() {
+        return {
+            selectedMovie: '',
+        };    
+    },
+    computed: {
+        ...mapState(["moviedata"]),
+        filteredGenres() {
+            if (this.selectedMovie) {
+                return this.moviedata.filter(el => {
+                    let name = el.name.toLowerCase()
+                    return name.includes(this.SelectedMovie);
+                });
+            }
+            return this.moviedata;
+        }
+    } 
+}
+
 </script>
 
 <style lang="scss" scoped>
