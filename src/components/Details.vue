@@ -3,49 +3,36 @@
 
     <h4>this details page</h4>
 
-    <main class="container" v-for="mov in moviedata" :key="mov.id">
+    <main class="container">
 
-        <!-- <section 
-            class="image"
-            :style="`background: url(https://image.tmdb.org/t/p/w300/${currentItem.poster_path} no repeat center center)`"
-        ></section> -->
-
-        <section class="details">
-            <h1>{{ movie.title }} </h1>
-
+        <section class="image" :style="`background: no-repeat center center`">
+                <img :src="`https://image.tmdb.org/t/p/w300/${moviedata.poster_path}`" />
         </section>
 
+        <section class="details">
+            <h1>{{ moviedata.title }} </h1>
+            <p>{{ moviedata.overview }}</p>
+        </section>
     </main>
-        
+
+    <main class="container" v-for="movie in similar" :key="movie.id" >
+
+        <section class="image" :style="`background: no-repeat center center`">
+                <img :src="`https://image.tmdb.org/t/p/w300/${similar.poster_path}`" />
+        </section>
+
+        <section class="details">
+            <h1>{{ similar.title }} </h1>
+            <p>{{ similar.overview }}</p>
+        </section>
+    </main>
 
 
-
-
-
-            <!-- <v-img width="300" :src="imageURL + movieImage" alt="">
-            </v-img>
-
-            <div >
-                {{mov.title}}
-                {{mov.overview}}
-            </div>
-
-        </v-card>
-
-        <ul>
-            <li v-for="sim in computedSim" :key="sim.title">
-                    {{sim.title}}
-                    {{sim.overview}}
-            </li> -->
-
-        
-<!-- Footer -->
   </div>    
 </template>
 
 <script>
 import { mapState } from "vuex";
-// import axios from 'axios'
 
 
 export default {
@@ -55,16 +42,18 @@ export default {
     data() {
      return {
       limit: 1,
+      id: this.$route.params.id
     }},
     computed: {
-      ...mapState(["moviedata"]),
-      movie() {
+      ...mapState(["similar"]),
+      moviedata() {
         return this.$store.state.moviedata.find(mov => mov.id == this.$route.params.id)
       }
     },
   
     mounted() {
       this.$store.dispatch('getMovieData');
+      this.$store.dispatch('getSimilar');
     },
 
 }
