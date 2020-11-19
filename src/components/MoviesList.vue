@@ -71,13 +71,15 @@ export default {
     },
     computed: {
       ...mapState(["moviedata"]),
+      movies() {
+        return this.$store.state.moviedata }
     },
     mounted() {
       this.$store.dispatch('getMovieData');
     },
     
     data: () => ({
-        moviedataPerPage: 10,   
+        // moviedataPerPage: 10,   
     }),
     methods: {
             sortBy(prop) {

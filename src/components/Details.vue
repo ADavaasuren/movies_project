@@ -1,10 +1,9 @@
 <template>
   <div>
-    <pre>{{ $data }}</pre>
 
     <h4>this details page</h4>
 
-    <main class="container" v-for="movie in computedMovie" :key="movie.title">
+    <main class="container" v-for="mov in moviedata" :key="mov.id">
 
         <!-- <section 
             class="image"
@@ -45,43 +44,31 @@
 </template>
 
 <script>
-import { mapState } from "vuex";        
+import { mapState } from "vuex";
+// import axios from 'axios'
+
 
 export default {
-    name: 'details',
 
-    props: ["id"],
+  name: 'details',
 
     data() {
      return {
-            // limit: 1,
-        };
-    },
+      limit: 1,
+    }},
     computed: {
-      ...mapState(["details"]),
+      ...mapState(["moviedata"]),
+      movie() {
+        return this.$store.state.moviedata.find(mov => mov.id == this.$route.params.id)
+      }
     },
   
     mounted() {
-       this.$store.dispatch('getDetails');
+      this.$store.dispatch('getMovieData');
     },
+
 }
 
-
-    //   currentItem() {
-    //       let result;
-          
-    //       for (let i = 0; i < this.moviedata.length; i++) {
-    //           for (let j=0; j < this.moviedata[i].length; j++) {
-    //             if (this.moviedata[i].[j].id === this.id) {
-    //               result = this.moviedata[i].[j];
-    //               break;
-    //             }
-    //         }   
-    //         return result;
-    //       }
-    //    }
-    //}
-//}    
 </script>
 
 
@@ -115,20 +102,6 @@ export default {
     //       return this.limit ? this.similar.slice(0,this.limit) : this.similar
     //   }
     // },
-    // methods: {
-
-    //     getDetails: function(){
-
-    //              var movieId = this.$route.params.id
-
-    //             axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${PRIVATE_KEY}`)
-            
-    //                 .then((result) => {
-    //                  console.log(result);
-    //                  this.movie = result; 
-    //                  this.movieImage = result.data.poster_path
-    //                 })
-    //     },
         
     //     getSimilar: function(){
 
