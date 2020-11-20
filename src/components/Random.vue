@@ -1,57 +1,64 @@
 <template>
     <div>
-<h4>This is random page</h4>
 
-<pre>{{ $data }}</pre>
+      <button block v-on:click="getMoreMovie">More random</button>
 
+      <main class="container" v-for="item in shuffledMovie" :key="item.title">
 
-<main class="container" >
+            <section class="image" >
+                <img :src="`https://image.tmdb.org/t/p/w500/${item.poster_path}`" />
+            </section>
 
-        <!-- <section class="image" :style="`background: no-repeat center center`">
-                <img :src="`https://image.tmdb.org/t/p/w300/${shuffled.poster_path}`" />
-        </section> -->
+            <section class="details">
+                <h1>{{ item.title }} </h1>
+                <p>Description: {{ item.overview }}</p>
+            </section>
 
-        <section class="details">
-            <h1>{{ shuffled.title }} </h1>
-            <p>{{ shuffled.overview }}</p>
-        </section>
-</main>
-
-        <!-- <ul>
-            <!looping through mutated data -->
-            <!-- <li v-for="item in computedShuffled" :key="item.id">
-                {{computedShuffled.title}}
-                {{item.overview}} -->
-            <!-- </li> -->
-        <!-- </ul> -->
-
-    <button block @click='getShuffled' >More random</button>
+      </main>
 
     </div>
 </template>
 
 <script>
-// import { mapState } from 'vuex';
+import { mapState } from 'vuex';
+import axios from 'axios';
+
 
 export default {
     name: 'random',
+
     data() {
+
         return {
-        id: this.$route.params.id
+            limit: 1,
         }
-        //  limit: 1,
     },
 
     computed: {
-    //   ...mapState(["shuffled"]),
-       shuffled() {
-            // return this.limit ? this.shuffled.slice(0,this.limit) : this.shuffled
-           return this.$store.state.shuffled.find(mov => mov.id == this.$route.params.id)
-        }
+      ...mapState(["items"]),
+      shuffledMovie() {
+            return this.limit ? this.items.slice(0,this.limit) : this.items
+        },
     },
+    
     mounted() {
-      this.$store.dispatch('getShuffled');
+        this.$store.dispatch('getShuffled');
+        this.getMoreMovie();
     },
+    
+    methods: {
+        getMoreMovie: function() {
+                 
+                axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=b33ac6661da0977b3c9d8014bf3e1d4d`)
+            
+                     .then((response) => {
+                         const _ = require('lodash');
+                         let shuffled = _.shuffle(response.data.results);
+                         console.log(shuffled);
+                         this.items = shuffled;
+                        })
+        }
+    }
 }
 
 </script>

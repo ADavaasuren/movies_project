@@ -7,8 +7,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: { 
     moviedata: [],
-    similar: [],
-    shuffled: [],
+    items: [],
     upcoming: [],
     genre: [
       {
@@ -97,11 +96,8 @@ export default new Vuex.Store({
     updatemoviedata: (state, data) => {
       state.moviedata = data
     },
-    updateshuffled: (state, data) => {
-      state.shuffled = data
-    },
-    updatesimilar: (state, data) => {
-      state.similar = data
+    updateitems: (state, data) => {
+      state.items = data
     },
     updateupcoming: (state, data) => {
       state.upcoming = data
@@ -119,23 +115,13 @@ export default new Vuex.Store({
 
     async getShuffled ({ commit }) {
       
-        axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=b33ac6661da0977b3c9d8014bf3e1d4d`)
+        axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=b33ac6661da0977b3c9d8014bf3e1d4d&language=en-US&page=20`)
         .then(response => {
           const _ = require('lodash');
           console.log(response)
           let shuffledmovie = _.shuffle(response.data.results);
-          commit('updateshuffled', shuffledmovie)
+          commit('updateitems', shuffledmovie)
         })
-    },
-    async getSimilar ({ commit }) {
-      
-            var movieId = this.$route.params.id
-
-            axios.get(`https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=b33ac6661da0977b3c9d8014bf3e1d4d`)
-           .then(response => {
-             console.log(response)
-             commit('updatesimilar', response.data.results)
-             })
     },
     async getUpcoming ({ commit }) {
       

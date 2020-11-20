@@ -9,7 +9,7 @@
 import MoviesList from '../components/MoviesList.vue';
 
 export default {
-    name: 'home',
+    name: 'homepage',
     components: {
        MoviesList
     },

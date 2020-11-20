@@ -7,6 +7,9 @@
                   <h2>{{ movie.title }}</h2>
                   <p>Release date {{ movie.release_date }}</p>
                   <p>Genre {{ movie.genre_ids }}</p>
+                  <router-link :to="{name: 'detailspage', params: {id: movie.id}}" >
+                  <button class="ghost"> View Item ></button>
+                  </router-link>
               </div>
         </section>
 

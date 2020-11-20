@@ -44,10 +44,13 @@ export default {
         Header,
     },
     computed: {
-      moviedata() { return this.$store.state.moviedata }
+      moviedata() { return this.$store.state.moviedata },
+      similar() { return this.$store.state.similar }
+
     },
     mounted() {
       this.$store.dispatch('getMovieData');
+      this.$store.dispatch('getSimilar');
     },
     
     data: () => ({
