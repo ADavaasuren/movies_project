@@ -16,16 +16,18 @@
     </main>
 
 
-    <!-- <main class="container"> -->
-        <!-- <section class="image" >
-                <img :src="`https://image.tmdb.org/t/p/w300/${upcoming.poster_path}`" />
+    <!-- <main class="container">
+
+        <section class="image" >
+                <img :src="`https://image.tmdb.org/t/p/w500/${upcoming.poster_path}`" />
         </section>
 
         <section class="details">
             <h1>{{ upcoming.title }} </h1>
             <p>{{ upcoming.overview }}</p>
-        </section> -->
-    <!-- </main> -->
+        </section>
+
+    </main> -->
 
     <h1>Similar movies</h1>
 
@@ -46,7 +48,6 @@
 </template>
 
 <script>
-// import { mapState } from "vuex";
 import axios from 'axios'
 
 
@@ -61,7 +62,6 @@ export default {
         id: this.$route.params.id
     }},
     computed: {
-      // ...mapState(["similar"]),
       moviedata() {
         return this.$store.state.moviedata.find(mov => mov.id == this.$route.params.id)
       },
@@ -103,38 +103,6 @@ export default {
 
 </style>
 
-
-
-
-
-
-
-
-
-
-    // mounted() {
-    //      this.getDetails()
-    //      this.getSimilar()
-    // },
-
-    // computed: {
-    //   computedSim(){
-    //       return this.limit ? this.similar.slice(0,this.limit) : this.similar
-    //   }
-    // },
-        
-    //     getSimilar: function(){
-
-    //               var movieId = this.$route.params.id
-
-    //               axios.get(`https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${PRIVATE_KEY}`)
-            
-    //                   .then((response) => {
-    //                   console.log(response);
-    //                   this.similar = response.data.results;
-    //                   })
-    //     },
-    // }
 
 
 

@@ -34,7 +34,6 @@ export default {
 
   mounted() {
       this.$store.dispatch('getMovieData');
-      // this.$store.dispatch('getShuffled');
   }
 }
 </script>

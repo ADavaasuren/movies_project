@@ -31,6 +31,7 @@ export default {
 
         return {
             limit: 1,
+            items: []
         }
     },
 

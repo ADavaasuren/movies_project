@@ -1,6 +1,5 @@
 <template>
     <main class="container restaurant">
-                    <h4>This is MOVIE categories</h4>
 
         <div class="restaurantheading">
             

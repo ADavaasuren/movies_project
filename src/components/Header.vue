@@ -1,11 +1,10 @@
 <template>
     <div>
-    <section class="masthead" role="img" aria-label="Image Description">
-    <h1>
-        Popular Movies
-    </h1>
-        <button @click="'movieslist'">Movies list</button>
-    </section>    
+        <section class="masthead" role="img" aria-label="Image Description">
+            <h1>
+                Popular Movies
+            </h1>
+        </section>
     </div>
 </template>
 

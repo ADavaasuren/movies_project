@@ -2,35 +2,46 @@
   <div>
     <Header />
 
-          <v-layout id="icons" row class="mb-15">
-              <v-btn small color="grey" @click="sortByAZ('title')">
+          <v-layout row class="mb-15">
+              <v-btn id="icons" small color="grey" @click="sortByAZ('title')">
                   <span class="text-lowercase">movie title</span>
               </v-btn>
-              <v-btn small color="grey" @click="sortBy('release_date')">
+              <v-btn id="icons" small color="grey" @click="sortBy('release_date')">
                   <span class="text-lowercase">release date</span>
               </v-btn>
-              <v-btn small color="grey" @click="sortBy('popularity')">
+              <v-btn id="icons" small color="grey" @click="sortBy('popularity')">
                   <span class="text-lowercase">popularity</span>
               </v-btn>
-              <v-btn small color="grey" @click="sortBy('vote_count')">
+              <v-btn id="icons" small color="grey" @click="sortBy('vote_count')">
                   <span class="text-lowercase">votes</span>
               </v-btn>
           </v-layout>
 
-          <section class="row" >
+          <section class="row_1" >
               <div v-for="movie in moviedata" :key="movie.id">
+            
+                  <img 
+                    :src="`https://image.tmdb.org/t/p/w342/${movie.poster_path}`" 
+                  />
                   <h2>{{ movie.title }}</h2>
+            
                   <p>Release date {{ movie.release_date }}</p>
+            
                   <p>Popularity {{ movie.popularity }}</p>
-                  <router-link :to="{name: 'detailspage', params: {id: movie.id}}" >
-                    <button class="ghost"> View Item ></button>
+            
+                  <router-link 
+                    :to="{name: 'detailspage',
+                     params: {id: movie.id}}"
+                  >
+                    <button class="ghost">
+                       View Details
+                    </button>                  
                   </router-link>
+
               </div>
           </section>         
                         
      <Footer />
-
-
   </div>
 </template>
 
@@ -97,7 +108,4 @@ export default {
   background: rgb(5, 71, 60);
 }
 
-#icons {
-  justify-content: space-evenly;
-}
 </style>
