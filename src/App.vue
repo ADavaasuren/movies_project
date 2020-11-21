@@ -1,10 +1,12 @@
 <template>
-  <div>
-    <div class="content">
+  <div class="app">
+    <v-app-bar dark fixed>
       <Menu />
-      <router-view/>
-    </div>
-    <Footer />
+    </v-app-bar>
+      <div>
+        <router-view/>
+      </div>
+  <Footer />
   </div>
 </template>
 
@@ -25,6 +27,14 @@ export default {
 
 
 <style>
+
+* {
+  margin: 0;
+}
+
+.app {
+  background-color: #111;
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Poppins:wght@600&display=swap');
 

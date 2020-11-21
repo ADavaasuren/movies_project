@@ -1,5 +1,5 @@
 <template>
-    <footer dark>
+    <footer>
          <strong>Footer</strong>
     </footer>     
 </template>

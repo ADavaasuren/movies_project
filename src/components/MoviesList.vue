@@ -18,17 +18,22 @@
           </v-layout>
 
           <section class="row_1" >
-              <div v-for="movie in moviedata" :key="movie.id">
+              <div v-for="movie in lessMovie" :key="movie.id" >
             
                   <img 
                     :src="`https://image.tmdb.org/t/p/w342/${movie.poster_path}`" 
                   />
-                  <h2>{{ movie.title }}</h2>
+                 
+                <section id="movie_details">
+ 
+                    <h2>{{ movie.title }}</h2>
+              
+                    <p>Release date {{ movie.release_date }}</p>
+              
+                    <p>Popularity {{ movie.popularity }}</p>
             
-                  <p>Release date {{ movie.release_date }}</p>
-            
-                  <p>Popularity {{ movie.popularity }}</p>
-            
+                </section>
+
                   <router-link 
                     :to="{name: 'detailspage',
                      params: {id: movie.id}}"
@@ -56,7 +61,10 @@ export default {
     },
     computed: {
       moviedata() { return this.$store.state.moviedata },
-      similar() { return this.$store.state.similar }
+      similar() { return this.$store.state.similar },
+      lessMovie() {
+          return this.limit ? this.moviedata.slice(0,this.limit) : this.moviedata
+        },
 
     },
     mounted() {
@@ -65,7 +73,7 @@ export default {
     },
     
     data: () => ({
-        // moviedataPerPage: 10,   
+        limit: 10
     }),
     methods: {
             sortBy(prop) {
@@ -89,12 +97,6 @@ export default {
   align-items: center;
 }
 
-.movie_titles {
-  font-weight: 300;
-  color: #000;
-  text-decoration: none;
-  font-family: "Mulish", Arial, Helvetica, sans-serif;
-}
 
 #movie_btn {
   display: inline-block;
@@ -106,6 +108,14 @@ export default {
 }
 #movie_btn:hover {
   background: rgb(5, 71, 60);
+}
+
+p {
+  font-weight: 200;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-family: "Mulish", Arial, Helvetica, sans-serif;
+
 }
 
 </style>

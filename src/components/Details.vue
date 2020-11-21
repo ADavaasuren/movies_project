@@ -8,9 +8,11 @@
                 <img :src="`https://image.tmdb.org/t/p/w500/${moviedata.poster_path}`" />
         </section>
 
-        <section class="details">
+        <section id="movie_details">
+
             <h1>{{ moviedata.title }} </h1>
             <p>{{ moviedata.overview }}</p>
+
         </section>
 
     </main>
@@ -24,10 +26,13 @@
                 <img :src="`https://image.tmdb.org/t/p/w300/${movie.poster_path}`" />
         </section>
 
-        <section class="details">
+        <section id="movie_details">
+
             <h1>{{ movie.title }} </h1>
             <p>{{ movie.overview }}</p>
+        
         </section>
+    
     </main>
 
 
@@ -84,6 +89,14 @@ export default {
 
 
 <style scoped>
+
+h1 {
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-family: "Mulish", Arial, Helvetica, sans-serif;
+}
+
 </style>
 
 

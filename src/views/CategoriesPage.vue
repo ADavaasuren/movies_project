@@ -1,12 +1,6 @@
 <template>
     <main class="container">
 
-        <div class="restaurantheading">
-                  
-           <!-- <SortByGenre @change="selectedMovie = $event" /> -->
-        <!-- <pre>{{ $data }}</pre> -->
-        </div>
-
     <Categories />
 
     </main>
@@ -14,7 +8,6 @@
 
 <script>
 import Categories from '../components/Categories.vue';
-// import SortByGenre from '../components/SortByGenre';
 import { mapState } from "vuex";
 
 
@@ -23,7 +16,6 @@ export default {
     name: 'categoriespage',
     components: {
         Categories,
-        // SortByGenre
     },
     
     data() {
@@ -47,6 +39,7 @@ export default {
 
 </script>
 
-<style lang="scss" scoped>
 
+
+<style lang="scss" scoped>
 </style>

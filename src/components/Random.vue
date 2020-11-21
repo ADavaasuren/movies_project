@@ -9,9 +9,11 @@
                 <img :src="`https://image.tmdb.org/t/p/w500/${item.poster_path}`" />
             </section>
 
-            <section class="details">
+            <section id="movie_details">
+
                 <h1>{{ item.title }} </h1>
                 <p>Description: {{ item.overview }}</p>
+
             </section>
 
       </main>
@@ -70,5 +72,4 @@ export default {
 
 
 <style scoped>
-
 </style>

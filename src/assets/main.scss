@@ -18,7 +18,7 @@ footer {
 
 // nav
 
-nav {
+.nav {
   padding: 5px 60px;
   background: #082c40;
   color: white;
@@ -64,6 +64,13 @@ nav {
   grid-template-rows: 1fr;
   grid-column-gap: 30px;
   grid-row-gap: 50px;
+}
+
+#movie_details {
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-family: "Mulish", Arial, Helvetica, sans-serif;
 }
 
 // buttons
@@ -133,54 +140,12 @@ button:focus {
   transition: all 0.2s;
 }
 
-// form elements
-
-input[type="number"] {
-  width: 50px;
-  margin-right: 10px;
-}
-
-.quantity {
-  display: flex;
-  margin: 20px 0 40px;
-}
-
-fieldset {
-  margin: 20px 0;
-  border: 1px solid #ddd;
-}
-
-.label {
-  margin: 15px 0;
-  line-height: 1.6;
-
-  span {
-    font-size: 14px;
-    padding: 8px 12px;
-    border-radius: 1000px;
-    background: #d50813;
-    color: white;
-    font-weight: bold;
-  }
-}
-
-select {
-  padding: 3px;
-}
-
 footer {
   background: black;
   width: 100%;
   padding: 10px 30px;
   color: white;
   text-align: center;
-
-  a,
-  a:visited,
-  a:active {
-    color: #c4c3ec;
-    font-weight: bold;
-  }
 }
 
 // comma separated lists

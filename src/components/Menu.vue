@@ -1,13 +1,11 @@
 <template>
-
-    <nav>
-      <ul>
-          <li><router-link exact to="/home"><v-btn small >Home</v-btn></router-link></li>
-          <li><router-link :to="{name: 'randompage', params: {id: shuffledMovie.id}}"><v-btn small>Random</v-btn></router-link></li>
-          <li><router-link :to="{name:'categoriespage'}"><v-btn small>Categories</v-btn></router-link></li>
-      </ul>
+    <nav class="nav">
+        <ul>
+            <li><router-link exact to="/home"><v-btn small >Home</v-btn></router-link></li>
+            <li><router-link :to="{name: 'randompage', params: {id: shuffledMovie.id}}"><v-btn small>Random</v-btn></router-link></li>
+            <li><router-link :to="{name:'categoriespage'}"><v-btn small>Categories</v-btn></router-link></li>
+        </ul>
     </nav>
-
 </template>
 
 

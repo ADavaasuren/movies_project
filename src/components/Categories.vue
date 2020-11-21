@@ -8,11 +8,13 @@
                   <img 
                   :src="`https://image.tmdb.org/t/p/w154/${movie.poster_path}`" 
                   />
-                  
-                  <h4>{{ movie.title }}</h4>
-                  
+
+            <section id="movie_details">
+
+                  <h4>{{ movie.title }}</h4>      
                   <p>Release date {{ movie.release_date }}</p>
-                                    
+
+            </section>
               </div>
         </section>
 
@@ -23,11 +25,12 @@
                   <img 
                   :src="`https://image.tmdb.org/t/p/w154/${movie.poster_path}`" 
                   />
-                  
+
+                <section id="movie_details">  
                   <h4>{{ movie.title }}</h4>
-                  
                   <p>Release date {{ movie.release_date }}</p>
-                                    
+                </section>                                    
+
               </div>
         </section>
         
@@ -38,11 +41,12 @@
                   <img 
                   :src="`https://image.tmdb.org/t/p/w154/${movie.poster_path}`" 
                   />
-                  
-                  <h4>{{ movie.title }}</h4>
-                  
-                  <p>Release date {{ movie.release_date }}</p>
-                                    
+
+                <section id="movie_details">
+                    <h4>{{ movie.title }}</h4>                    
+                    <p>Release date {{ movie.release_date }}</p>
+                </section>
+
               </div>
         </section>
 
@@ -78,5 +82,12 @@ export default {
 
 
 <style scoped>
-</style>
 
+h1 {
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-family: "Mulish", Arial, Helvetica, sans-serif;
+}
+
+</style>

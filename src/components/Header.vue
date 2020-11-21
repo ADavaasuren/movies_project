@@ -24,12 +24,15 @@ export default {
 <style scoped>
 .masthead {
   width: 100%;
-  height: 80vh; 
-  padding: 40px;
+  /* height: 40vh; */
+  padding: 60px;
   overflow: hidden;
   background-size: cover !important;
-  background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 72%, rgba(0,0,0,0.65) 100%), url(https://image.tmdb.org/t/p/w1280/sWgBv7LV2PRoQgkxwlibdGXKz1S.jpg) no-repeat center center scroll;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 72%, rgba(0,0,0,0.65) 90%), url(https://image.tmdb.org/t/p/w1280/sWgBv7LV2PRoQgkxwlibdGXKz1S.jpg) no-repeat center center scroll;
+  color: white;
+  object-fit: contain;
 }
+
 
 h1 {
   font-style: normal;
