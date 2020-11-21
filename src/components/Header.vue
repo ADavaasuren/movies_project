@@ -1,17 +1,54 @@
 <template>
     <div>
+
         <section class="masthead" role="img" aria-label="Image Description">
             <h1>
                 Popular Movies
             </h1>
         </section>
+
     </div>
 </template>
 
 <script>
-    export default {
-        name: 'header'
-    }
+// import axios from 'axios';
+
+
+export default {
+    name: 'header',
+
+    // data() {
+
+    //     return {
+    //         limit: 1,
+    //         images: []
+    //     }
+    // },
+
+    // computed: {
+    //   shuffledImages() {
+    //         return this.limit ? this.images.slice(0,this.limit) : this.images
+    //     },
+    // },
+    
+    // mounted() {
+    //     this.getImages();
+    // },
+    
+    // methods: {
+    //     getImages: function() {
+
+    //             axios.get(`https://image.tmdb.org/t/p/w342/${movie.poster_path}`)
+    //                  .then((response) => {
+    //                      const _ = require('lodash');
+    //                      let shuffled = _.shuffle(response.data.results);
+    //                      console.log(shuffled);
+    //                      this.items = shuffled;
+    //                     })
+    //     }
+    // }
+}
+
 </script>
 
 

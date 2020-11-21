@@ -1,28 +1,19 @@
 <template>
     <div >
+
+        <h1>Action</h1> 
+
         <section class="row-2" >
               <div v-for="movie in upcoming" :key="movie.id">
-
+                
                   <img 
                   :src="`https://image.tmdb.org/t/p/w154/${movie.poster_path}`" 
                   />
                   
-                  <h2>{{ movie.title }}</h2>
+                  <h4>{{ movie.title }}</h4>
                   
                   <p>Release date {{ movie.release_date }}</p>
-                  
-                  <p>Genre {{ movie.genre_ids }}</p>
-                  
-                  <router-link
-                   :to="{name: 'detailspage',
-                    params: {id: movie.id}}" 
-                  >
-                  
-                    <button class="ghost">
-                        View Item >
-                    </button>
-
-                  </router-link>
+                                    
               </div>
         </section>
     </div>    
