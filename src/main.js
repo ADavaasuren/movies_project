@@ -5,6 +5,8 @@ import vuetify from './plugins/vuetify';
 import './assets/main.scss';
 import store from './store'
 
+
+
 new Vue({
   router,
   vuetify,

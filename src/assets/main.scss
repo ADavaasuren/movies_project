@@ -56,14 +56,14 @@ nav {
   grid-row-gap: 60px;
 }
 
-.row-2 {
+.row_2 {
   margin: 40px 0 70px;
   width: 100%;
-  display: flex;
-  grid-template-columns: repeat(2, 1fr);
+  display: grid;
+  grid-template-columns: repeat(7, 2fr);
   grid-template-rows: 1fr;
-  grid-column-gap: 50px;
-  grid-row-gap: 60px;
+  grid-column-gap: 30px;
+  grid-row-gap: 50px;
 }
 
 // buttons

@@ -1,9 +1,8 @@
 <template>
     <div >
 
-        <h1>Action</h1> 
-
-        <section class="row-2" >
+        <h1>Upcoming</h1> 
+        <section class="row_2" >
               <div v-for="movie in upcoming" :key="movie.id">
                 
                   <img 
@@ -16,6 +15,38 @@
                                     
               </div>
         </section>
+
+        <h1>Top Rated</h1> 
+        <section class="row_2" >
+              <div v-for="movie in toprated" :key="movie.id">
+                
+                  <img 
+                  :src="`https://image.tmdb.org/t/p/w154/${movie.poster_path}`" 
+                  />
+                  
+                  <h4>{{ movie.title }}</h4>
+                  
+                  <p>Release date {{ movie.release_date }}</p>
+                                    
+              </div>
+        </section>
+        
+        <h1>Now Playing</h1> 
+        <section class="row_2" >
+              <div v-for="movie in nowplaying" :key="movie.id">
+                
+                  <img 
+                  :src="`https://image.tmdb.org/t/p/w154/${movie.poster_path}`" 
+                  />
+                  
+                  <h4>{{ movie.title }}</h4>
+                  
+                  <p>Release date {{ movie.release_date }}</p>
+                                    
+              </div>
+        </section>
+
+
     </div>    
 </template>
 
@@ -29,12 +60,14 @@ export default {
 
     computed: {
       ...mapState(["upcoming"]),
-      moviedata() { return this.$store.state.upcoming },
-      similar() { return this.$store.state.similar }
-     },
+      ...mapState(["toprated"]),
+      ...mapState(["nowplaying"]),
+    },
+
     mounted() {
-      this.$store.dispatch('getUpcoming');
-      this.$store.dispatch('getSimilar');
+        this.$store.dispatch('getUpcoming');
+        this.$store.dispatch('getTopRated');
+        this.$store.dispatch('getNowPlaying');
     },
 }
 
@@ -45,6 +78,5 @@ export default {
 
 
 <style scoped>
-
 </style>
 

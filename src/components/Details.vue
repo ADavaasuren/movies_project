@@ -16,19 +16,6 @@
     </main>
 
 
-    <!-- <main class="container">
-
-        <section class="image" >
-                <img :src="`https://image.tmdb.org/t/p/w500/${upcoming.poster_path}`" />
-        </section>
-
-        <section class="details">
-            <h1>{{ upcoming.title }} </h1>
-            <p>{{ upcoming.overview }}</p>
-        </section>
-
-    </main> -->
-
     <h1>Similar movies</h1>
 
     <main class="container" v-for="movie in similarMovies" :key="movie.id" >
@@ -65,9 +52,7 @@ export default {
       moviedata() {
         return this.$store.state.moviedata.find(mov => mov.id == this.$route.params.id)
       },
-      // upcoming() {
-      //   return this.$store.state.upcoming.find(mov => mov.id == this.$route.params.id)
-      // },
+
       similarMovies() {
         return this.limit ? this.similar.slice(0,this.limit) : this.similar
       },
@@ -75,7 +60,6 @@ export default {
   
     mounted() {
       this.$store.dispatch('getMovieData');
-      // this.$store.dispatch('getUpcoming');
       this.getSimilar()
     },
     methods: {
@@ -100,7 +84,6 @@ export default {
 
 
 <style scoped>
-
 </style>
 
 
