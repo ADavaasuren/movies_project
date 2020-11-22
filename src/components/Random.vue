@@ -1,28 +1,23 @@
 <template>
     <div >
-
         <main id="movie_info" v-for="item in shuffledMovie" :key="item.title">
-
             <section>
                 <img :src="`https://image.tmdb.org/t/p/w500/${item.poster_path}`" />
             </section>
-
             <section id="movie_desc">
                 <h1>{{ item.title }} </h1>
                 <h2>Description:</h2>
                 <p>{{ item.overview }}</p>
             </section>
-                    
         </main>
-
-            <button block v-on:click="getMoreMovie">
-                More random
-            </button>
-
+        <button block v-on:click="getMoreMovie">
+            More random
+        </button>
     </div>
 </template>
 
 <script>
+
 import { mapState } from 'vuex';
 import axios from 'axios';
 
@@ -31,7 +26,6 @@ export default {
     name: 'random',
 
     data() {
-
         return {
             limit: 1,
             items: []
@@ -51,6 +45,8 @@ export default {
     },
     
     methods: {
+        // a specific function for this page to initiate more data fetching
+        // also includes javascript shuffle function
         getMoreMovie: function() {
                  
                 axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=b33ac6661da0977b3c9d8014bf3e1d4d`)
@@ -75,7 +71,7 @@ export default {
 <style scoped>
 
 #movie_info {
-  margin: 60px 100px 100px;
+  margin: 50px 100px 100px;
   display: flex;
   align-items: center;
   margin-bottom: 20px;

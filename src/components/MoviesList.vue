@@ -1,7 +1,6 @@
 <template>
   <div>
     <Header />
-
           <v-layout row class="sort_icons">
               <v-btn id="icons" small color="grey" @click="sortByAZ('title')">
                   <span class="text-lowercase">movie title</span>
@@ -16,18 +15,18 @@
                   <span class="text-lowercase">votes</span>
               </v-btn>
           </v-layout>
-
           <section class="row_1" >
-              <div v-for="movie in lessMovie" :key="movie.id" >
-            
+              <div v-for="movie in lessMovie" :key="movie.id" >            
                   <img 
                     :src="`https://image.tmdb.org/t/p/w342/${movie.poster_path}`" 
                   />
-                 
                 <section id="movie_details">
-                     <h2>{{ movie.title }}</h2>                   
+                     <h2>{{ movie.title }}</h2>
+                     <h3>Release date:</h3>
+                     <p> {{ movie.release_date }}</p>
+                     <h3>Popularity:</h3>
+                     <p>{{ movie.popularity }}</p>                   
                 </section>
-
                   <router-link 
                     :to="{name: 'detailspage',
                      params: {id: movie.id}}"
@@ -36,15 +35,14 @@
                        View Details
                     </button>                  
                   </router-link>
-
               </div>
-          </section>         
-                        
+          </section>                                 
      <Footer />
   </div>
 </template>
 
 <script>
+
 import Header from './Header';
 
 
@@ -56,6 +54,7 @@ export default {
     computed: {
       moviedata() { return this.$store.state.moviedata },
       similar() { return this.$store.state.similar },
+      // mutating an array to reduce the numbers to display
       lessMovie() {
           return this.limit ? this.moviedata.slice(0,this.limit) : this.moviedata
         },

@@ -12,9 +12,9 @@ export default {
         components: {
             Random
         }
-    }
+}
 </script>
 
-<style scoped>
 
+<style scoped>
 </style>

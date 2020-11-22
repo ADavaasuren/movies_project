@@ -1,11 +1,9 @@
 <template>
   <div >
-
     <main class="movie_detail">
         <section>
                 <img :src="`https://image.tmdb.org/t/p/w500/${moviedata.poster_path}`" />
         </section>
-
         <section class="movieitems">
             <h1>{{ moviedata.title }} </h1>
             <h3>Overview:</h3>
@@ -16,16 +14,12 @@
             <p>{{ moviedata.popularity }}</p>
         </section>
     </main>
-
-
     <h2>Similar movies</h2>
-
     <main id="similar_info">
       <div v-for="movie in similarMovies" :key="movie.id" >
               <section id="image_info">
                       <img :src="`https://image.tmdb.org/t/p/w300/${movie.poster_path}`" />
               </section>
-
               <section id="similarMovie_info">
                   <h1>{{ movie.title }} </h1>
                   <h3>Release date:</h3>
@@ -33,8 +27,6 @@
               </section>
       </div>        
     </main>
-
-
   </div>    
 </template>
 
@@ -52,20 +44,22 @@ export default {
         limit: 3,
         id: this.$route.params.id
     }},
+    // dynamically matching selected item to display
     computed: {
       moviedata() {
         return this.$store.state.moviedata.find(mov => mov.id == this.$route.params.id)
       },
-
+      // mutating an array to display limited number of items
       similarMovies() {
         return this.limit ? this.similar.slice(0,this.limit) : this.similar
       },
     },
-  
+    // calling relevant functions from Vuex store  
     mounted() {
       this.$store.dispatch('getMovieData');
       this.getSimilar()
     },
+    // a specific function to fetch similar items
     methods: {
       
       getSimilar: function(){

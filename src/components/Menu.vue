@@ -16,6 +16,7 @@
 
 
 <script>
+
 import { mapState } from 'vuex';
 
 
@@ -27,17 +28,18 @@ export default {
 
         shuffledMovie: []
   }),
-
+  // accessing mutated data from store
   computed: {
       ...mapState(["moviedata"]),
       ...mapState(["items"]),
       shuffled() { return this.$store.state.items }
   },
-
+  // calling relevant function from store
   mounted() {
       this.$store.dispatch('getMovieData');
   }
 }
+
 </script>
 
 
