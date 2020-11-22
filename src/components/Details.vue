@@ -8,13 +8,17 @@
 
         <section class="movieitems">
             <h1>{{ moviedata.title }} </h1>
-            <h5>Overview:</h5>
+            <h3>Overview:</h3>
             <p>{{ moviedata.overview }}</p>
+            <h3>Release date:</h3>
+            <p> {{ moviedata.release_date }}</p>
+            <h3>Popularity:</h3>
+            <p>{{ moviedata.popularity }}</p>
         </section>
     </main>
 
 
-    <h1>Similar movies</h1>
+    <h2>Similar movies</h2>
 
     <main id="similar_info">
       <div v-for="movie in similarMovies" :key="movie.id" >
@@ -22,9 +26,10 @@
                       <img :src="`https://image.tmdb.org/t/p/w300/${movie.poster_path}`" />
               </section>
 
-              <section id="movie_info">
-                  <h2>{{ movie.title }} </h2>
-                  <p>Release date {{ movie.release_date }}</p>
+              <section id="similarMovie_info">
+                  <h1>{{ movie.title }} </h1>
+                  <h3>Release date:</h3>
+                  <p>{{ movie.release_date }}</p>
               </section>
       </div>        
     </main>
@@ -84,27 +89,55 @@ export default {
 
 <style scoped>
 
-h2,h1 {
-  font-size: 50px;
+h3 {
+  font-size: 30px;
   font-weight: 500;
+  margin-bottom: 20px;
   color: rgb(255, 255, 255);
   text-decoration: none;
   font-family: "Mulish", Arial, Helvetica, sans-serif;
 }
 
-#movie_info {
+h1 {
+  font-size: 60px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-family: "Mulish", Arial, Helvetica, sans-serif;
+}
+
+h2 {
+  font-size: 50px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-family: "Mulish", Arial, Helvetica, sans-serif;
+}
+
+p {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-family: "Mulish", Arial, Helvetica, sans-serif;
+}
+
+#similarMovie_info {
   margin: 30px 0px 0px;
-  margin-bottom: 100px;
+  margin-bottom: 70px;
 }
 
 #similar_info {
-  margin: 100px 50px 0;
+  margin: 20px 50px 0;
   display: flex;
   margin-left: 100px;
 }
 
 #image_info {
-  margin-right: 400px;
+  margin-right: 300px;
 }
 
 </style>

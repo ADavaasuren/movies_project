@@ -1,8 +1,8 @@
 <template>
     <div >
 
-        <h1>Upcoming</h1> 
         <section class="row_2" >
+        <h1>Upcoming</h1> 
               <div v-for="movie in upcoming" :key="movie.id">
                 
                   <img 
@@ -10,8 +10,9 @@
                   />
 
                   <section id="movie_details">
-                        <h4>{{ movie.title }}</h4>      
-                        <p>Release date {{ movie.release_date }}</p>
+                        <h2>{{ movie.title }}</h2>
+                        <h3>Release date:</h3>
+                        <p>{{ movie.release_date }}</p>
                   </section>
 
               </div>
@@ -85,6 +86,22 @@ export default {
 h1 {
   font-weight: 500;
   color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-family: "Mulish", Arial, Helvetica, sans-serif;
+}
+
+h2 {
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  margin-bottom: 10px;
+  text-decoration: none;
+  font-family: "Mulish", Arial, Helvetica, sans-serif;
+}
+
+h3 {
+  font-weight: 400;
+  color: rgb(255, 255, 255);
+  margin-bottom: 10px;
   text-decoration: none;
   font-family: "Mulish", Arial, Helvetica, sans-serif;
 }

@@ -2,7 +2,7 @@
   <div>
     <Header />
 
-          <v-layout row class="mb-15">
+          <v-layout row class="sort_icons">
               <v-btn id="icons" small color="grey" @click="sortByAZ('title')">
                   <span class="text-lowercase">movie title</span>
               </v-btn>
@@ -25,13 +25,7 @@
                   />
                  
                 <section id="movie_details">
- 
-                    <h2>{{ movie.title }}</h2>
-              
-                    <p>Release date {{ movie.release_date }}</p>
-              
-                    <p>Popularity {{ movie.popularity }}</p>
-            
+                     <h2>{{ movie.title }}</h2>                   
                 </section>
 
                   <router-link 
@@ -93,25 +87,36 @@ export default {
 
 <style scoped>
 
-#cards {
-  align-items: center;
+.sort_icons {
+  margin: 20px 400px 20px;
 }
 
-
-#movie_btn {
+button {
   display: inline-block;
   border: none;
+  margin: 50px 10px 10px;
   background: rgb(21, 149, 235);
   color: rgb(255, 255, 255);
-  padding: 20px 10px;
+  padding: 10px 80px;
   cursor: pointer;
 }
-#movie_btn:hover {
-  background: rgb(5, 71, 60);
+button:hover {
+  color: #000;
+  background-color: #e6e6e6;
+  transition: all 0.2s;
 }
 
 p {
   font-weight: 200;
+  margin-bottom: 10px;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-family: "Mulish", Arial, Helvetica, sans-serif;
+}
+
+h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
   color: rgb(255, 255, 255);
   text-decoration: none;
   font-family: "Mulish", Arial, Helvetica, sans-serif;
