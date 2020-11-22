@@ -20,7 +20,6 @@ footer {
 
 .nav {
   padding: 5px 60px;
-  background: #082c40;
   color: white;
   position: relative;
   align-items: center;
@@ -37,10 +36,10 @@ footer {
     align-items: center;
     list-style: none;
     padding: 0;
+  }
 
-    li {
-      padding-right: 40px;
-    }
+  li {
+    padding-right: 40px;
   }
 }
 
@@ -57,7 +56,7 @@ footer {
 }
 
 .row_2 {
-  margin: 40px 0 70px;
+  margin: 90px 0 80px;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(7, 2fr);
@@ -102,20 +101,25 @@ button:focus {
 }
 
 .ghost {
-  font-size: 0.9rem;
-  padding: 0.5rem 1rem;
-  background: rgb(190, 77, 235);
-  border: 1px solid #555;
-  color: black;
+  cursor: pointer;
+  color: #fff;
+  outline: none;
+  border: none;
+  margin: 30px;
+  font-weight: 800;
+  border-radius: 0.2vw;
+  padding-left: 2rem;
+  padding-right: 3rem;
+  margin-right: 2rem;
+  padding-top: 0.5rem;
+  background-color: rgba(51, 51, 51, 0.5);
+  padding-bottom: 0.5rem;
 }
 
 .ghost:hover {
-  background: #eee;
-}
-
-.primary {
-  font-size: 0.9rem;
-  padding: 0.5rem 1rem;
+  color: #000;
+  background-color: #e6e6e6;
+  transition: all 0.2s;
 }
 
 #icons {

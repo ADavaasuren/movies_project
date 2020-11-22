@@ -1,22 +1,22 @@
 <template>
-    <div>
+    <div class="section.restaurantinfo">
 
-      <button block v-on:click="getMoreMovie">More random</button>
-
-      <main class="container" v-for="item in shuffledMovie" :key="item.title">
+        <main class="items" v-for="item in shuffledMovie" :key="item.title">
 
             <section class="image" >
                 <img :src="`https://image.tmdb.org/t/p/w500/${item.poster_path}`" />
             </section>
 
             <section id="movie_details">
-
                 <h1>{{ item.title }} </h1>
                 <p>Description: {{ item.overview }}</p>
-
             </section>
-
-      </main>
+            
+            <button block v-on:click="getMoreMovie">
+                More random
+            </button>
+        
+        </main>
 
     </div>
 </template>

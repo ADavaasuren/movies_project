@@ -9,12 +9,11 @@
                   :src="`https://image.tmdb.org/t/p/w154/${movie.poster_path}`" 
                   />
 
-            <section id="movie_details">
+                  <section id="movie_details">
+                        <h4>{{ movie.title }}</h4>      
+                        <p>Release date {{ movie.release_date }}</p>
+                  </section>
 
-                  <h4>{{ movie.title }}</h4>      
-                  <p>Release date {{ movie.release_date }}</p>
-
-            </section>
               </div>
         </section>
 
