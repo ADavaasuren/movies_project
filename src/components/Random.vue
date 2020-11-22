@@ -1,22 +1,23 @@
 <template>
-    <div class="section.restaurantinfo">
+    <div >
 
-        <main class="items" v-for="item in shuffledMovie" :key="item.title">
+        <main id="movie_info" v-for="item in shuffledMovie" :key="item.title">
 
-            <section class="image" >
+            <section>
                 <img :src="`https://image.tmdb.org/t/p/w500/${item.poster_path}`" />
             </section>
 
-            <section id="movie_details">
+            <section id="movie_desc">
                 <h1>{{ item.title }} </h1>
-                <p>Description: {{ item.overview }}</p>
+                <h2>Description:</h2>
+                <p>{{ item.overview }}</p>
             </section>
-            
+                    
+        </main>
+
             <button block v-on:click="getMoreMovie">
                 More random
             </button>
-        
-        </main>
 
     </div>
 </template>
@@ -72,4 +73,58 @@ export default {
 
 
 <style scoped>
+
+#movie_info {
+  margin: 60px 100px 100px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 50px;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-family: "Mulish", Arial, Helvetica, sans-serif;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: 50;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-family: "Mulish", Arial, Helvetica, sans-serif;
+}
+
+#movie_desc {
+    margin: 60px 100px 100px;
+}
+
+button {
+  cursor: pointer;
+  color: #fff;
+  outline: none;
+  border: none;
+  margin: 4px;
+  margin-left: 200px;
+  margin-bottom: 40px;
+  font-weight: 800;
+  border-radius: 0.2vw;
+  padding-left: 2rem;
+  padding-right: 3rem;
+  margin-right: 2rem;
+  padding-top: 0.5rem;
+  background-color: rgba(153, 2, 2, 0.5);
+  padding-bottom: 0.5rem;
+}
+
+button:hover {
+  color: #000;
+  background-color: #e6e6e6;
+  transition: all 0.2s;
+}
+
 </style>

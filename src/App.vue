@@ -1,12 +1,14 @@
 <template>
-  <div class="app">
-    <v-app-bar dark fixed>
-      <Menu />
-    </v-app-bar>
-      <div>
-        <router-view/>
-      </div>
-  <Footer />
+  <div>
+    <div class="app">
+      <v-app-bar dark fixed>
+        <Menu />
+      </v-app-bar>
+        <div>
+          <router-view/>
+        </div>
+    </div>
+      <Footer />
   </div>
 </template>
 
