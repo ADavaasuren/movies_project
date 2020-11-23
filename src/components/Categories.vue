@@ -115,4 +115,11 @@ h4 {
   grid-row-gap: 50px;
 }
 
+#movie_details {
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-family: "Mulish", Arial, Helvetica, sans-serif;
+}
+
 </style>

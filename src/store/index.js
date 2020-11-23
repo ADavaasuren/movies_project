@@ -4,6 +4,9 @@ import axios from 'axios'
 
 Vue.use(Vuex)
 
+import { PRIVATE_KEY } from '../key'
+
+
 export default new Vuex.Store({
   state: { 
     moviedata: [],
@@ -34,7 +37,7 @@ export default new Vuex.Store({
   actions: {
     async getMovieData ({ commit }) {
       
-        axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=b33ac6661da0977b3c9d8014bf3e1d4d`)
+        axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${PRIVATE_KEY}`)
         .then(response => {
           console.log(response)
           commit('updatemoviedata', response.data.results)
@@ -43,7 +46,7 @@ export default new Vuex.Store({
 
     async getShuffled ({ commit }) {
       
-        axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=b33ac6661da0977b3c9d8014bf3e1d4d&language=en-US&page=20`)
+        axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${PRIVATE_KEY}&language=en-US&page=20`)
         .then(response => {
           const _ = require('lodash');
           console.log(response)
@@ -53,7 +56,7 @@ export default new Vuex.Store({
     },
     async getUpcoming ({ commit }) {
       
-            axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=b33ac6661da0977b3c9d8014bf3e1d4d&language=en-US&page=1`)
+            axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${PRIVATE_KEY}&language=en-US&page=1`)
               .then(response => {
               console.log(response);
               commit('updateupcoming', response.data.results);
@@ -61,7 +64,7 @@ export default new Vuex.Store({
     },
     async getTopRated ({ commit }) {
       
-      axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=b33ac6661da0977b3c9d8014bf3e1d4d&language=en-US&page=20`)
+      axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${PRIVATE_KEY}&language=en-US&page=20`)
         .then(response => {
         console.log(response);
         commit('updatetoprated', response.data.results);
@@ -70,7 +73,7 @@ export default new Vuex.Store({
   
     async getNowPlaying ({ commit }) {
       
-      axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=b33ac6661da0977b3c9d8014bf3e1d4d&language=en-US&page=50`)
+      axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${PRIVATE_KEY}&language=en-US&page=50`)
         .then(response => {
         console.log(response);
         commit('updatenowplaying', response.data.results);

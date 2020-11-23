@@ -7,7 +7,7 @@ node_modules
 .env.local
 .env.*.local
 .env
-.key
+key.js
 
 # Log files
 npm-debug.log*

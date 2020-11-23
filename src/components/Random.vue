@@ -16,11 +16,13 @@
     </div>
 </template>
 
+
+
 <script>
 
 import { mapState } from 'vuex';
 import axios from 'axios';
-
+import { PRIVATE_KEY } from '../key'
 
 export default {
     name: 'random',
@@ -49,7 +51,7 @@ export default {
         // also includes javascript shuffle function
         getMoreMovie: function() {
                  
-                axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=b33ac6661da0977b3c9d8014bf3e1d4d`)
+                axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${PRIVATE_KEY}`)
             
                      .then((response) => {
                          const _ = require('lodash');

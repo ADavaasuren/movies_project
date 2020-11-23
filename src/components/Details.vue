@@ -32,6 +32,7 @@
 
 <script>
 import axios from 'axios'
+import { PRIVATE_KEY } from '../key'
 
 
 export default {
@@ -66,7 +67,7 @@ export default {
 
                   var movieId = this.$route.params.id
 
-                  axios.get(`https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=b33ac6661da0977b3c9d8014bf3e1d4d`)
+                  axios.get(`https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${PRIVATE_KEY}`)
             
                       .then((response) => {
                       console.log(response);

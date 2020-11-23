@@ -153,4 +153,14 @@ h3 {
   transition: all 0.2s;
 }
 
+.row_1 {
+  margin: 60px 10px 60px;
+  width: 70%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 30px;
+  grid-row-gap: 60px;
+}
+
 </style>
