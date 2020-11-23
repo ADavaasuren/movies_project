@@ -1,7 +1,3 @@
-const SitemapPlugin = require('sitemap-webpack-plugin').default;
-
-
-
 module.exports = {
   "transpileDependencies": [
     "vuetify"
@@ -16,17 +12,5 @@ module.exports = {
         'http://localhost:8080/#/categories',
 			]
 		}
-  },
-  plugins: [
-    new SitemapPlugin({
-      base: 'http://localhost:8080/#/',
-      paths,
-      options: {
-        filename: 'sitemap.xml',
-        lastmod: true,
-        changefreq: 'monthly',
-        priority: '0.4'
-      }
-    })
-  ]
+  }
 }
