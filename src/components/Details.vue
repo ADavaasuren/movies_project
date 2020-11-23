@@ -2,7 +2,7 @@
   <div >
     <main class="movie_detail">
         <section>
-                <img :src="`https://image.tmdb.org/t/p/w500/${moviedata.poster_path}`" />
+                <img :src="`https://image.tmdb.org/t/p/w342/${moviedata.poster_path}`" />
         </section>
         <section class="movieitems">
             <h1>{{ moviedata.title }} </h1>
@@ -18,11 +18,11 @@
     <main id="similar_info">
       <div v-for="movie in similarMovies" :key="movie.id" >
               <section id="image_info">
-                      <img :src="`https://image.tmdb.org/t/p/w300/${movie.poster_path}`" />
+                      <img :src="`https://image.tmdb.org/t/p/w185/${movie.poster_path}`" />
               </section>
               <section id="similarMovie_info">
-                  <h1>{{ movie.title }} </h1>
-                  <h3>Release date:</h3>
+                  <h2>{{ movie.title }} </h2>
+                  <h4>Release date:</h4>
                   <p>{{ movie.release_date }}</p>
               </section>
       </div>        
@@ -83,17 +83,8 @@ export default {
 
 <style scoped>
 
-h3 {
-  font-size: 30px;
-  font-weight: 500;
-  margin-bottom: 20px;
-  color: rgb(255, 255, 255);
-  text-decoration: none;
-  font-family: "Mulish", Arial, Helvetica, sans-serif;
-}
-
 h1 {
-  font-size: 60px;
+  font-size: 50px;
   font-weight: 500;
   margin-bottom: 10px;
   color: rgb(255, 255, 255);
@@ -102,7 +93,7 @@ h1 {
 }
 
 h2 {
-  font-size: 50px;
+  font-size: 30px;
   font-weight: 500;
   margin-bottom: 20px;
   color: rgb(255, 255, 255);
@@ -110,8 +101,26 @@ h2 {
   font-family: "Mulish", Arial, Helvetica, sans-serif;
 }
 
-p {
+h3 {
+  font-size: 30px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-family: "Mulish", Arial, Helvetica, sans-serif;
+}
+
+h4 {
   font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-family: "Mulish", Arial, Helvetica, sans-serif;
+}
+
+p {
+  font-size: 16px;
   font-weight: 500;
   margin-bottom: 20px;
   color: rgb(255, 255, 255);
@@ -120,18 +129,33 @@ p {
 }
 
 #similarMovie_info {
-  margin: 30px 0px 0px;
-  margin-bottom: 70px;
+  margin: 40px 0px 0px;
+  margin-bottom: 50px;
 }
 
 #similar_info {
-  margin: 20px 50px 0;
+  margin: 10px 50px 0;
   display: flex;
-  margin-left: 100px;
+  margin-left: 200px;
 }
 
 #image_info {
   margin-right: 300px;
+}
+
+.movie_detail {
+  margin: 20px 0 0 200px;
+  display: flex;
+  align-items: center;
+}
+
+.movieitems {
+  margin: 100px 70px 200px;
+  font-size: 30px;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-family: "Mulish", Arial, Helvetica, sans-serif;
 }
 
 </style>

@@ -53,11 +53,11 @@ button {
   border-radius: 5px;
   display: inline-block;
   border: none;
-  padding: 0.75rem 1.5rem;
+  padding: 0.50rem 1rem;
   margin: 10px;
   text-decoration: none;
   color: #ffffff;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   cursor: pointer;
   text-align: left;
   -webkit-appearance: none;

@@ -1,14 +1,14 @@
 <template>
-    <div >
-        <section class="row_2" >
-        <h1>Upcoming</h1> 
+    <div>
+        <h1>Upcoming</h1>
+        <section class="row_2" >        
               <div v-for="movie in upcoming" :key="movie.id">                
                   <img 
                   :src="`https://image.tmdb.org/t/p/w154/${movie.poster_path}`" 
                   />
                   <section id="movie_details">
-                        <h2>{{ movie.title }}</h2>
-                        <h3>Release date:</h3>
+                        <h3>{{ movie.title }}</h3>
+                        <h4>Release date:</h4>
                         <p>{{ movie.release_date }}</p>
                   </section>
               </div>
@@ -20,8 +20,9 @@
                   :src="`https://image.tmdb.org/t/p/w154/${movie.poster_path}`" 
                   />
                 <section id="movie_details">  
-                  <h4>{{ movie.title }}</h4>
-                  <p>Release date {{ movie.release_date }}</p>
+                  <h3>{{ movie.title }}</h3>
+                  <h4>Release date:</h4>
+                  <p>{{ movie.release_date }}</p>
                 </section>                                    
               </div>
         </section>        
@@ -32,8 +33,9 @@
                   :src="`https://image.tmdb.org/t/p/w154/${movie.poster_path}`" 
                   />
                 <section id="movie_details">
-                    <h4>{{ movie.title }}</h4>                    
-                    <p>Release date {{ movie.release_date }}</p>
+                    <h3>{{ movie.title }}</h3>
+                    <h4>Release date:</h4>
+                    <p>{{ movie.release_date }}</p>
                 </section>
               </div>
         </section>
@@ -70,6 +72,7 @@ export default {
 <style scoped>
 h1 {
   font-weight: 500;
+  margin: 100px 0px;
   color: rgb(255, 255, 255);
   text-decoration: none;
   font-family: "Mulish", Arial, Helvetica, sans-serif;
@@ -85,9 +88,31 @@ h2 {
 
 h3 {
   font-weight: 400;
+  font-size: 20px;
   color: rgb(255, 255, 255);
   margin-bottom: 10px;
   text-decoration: none;
   font-family: "Mulish", Arial, Helvetica, sans-serif;
 }
+
+h4 {
+  font-weight: 400;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  margin-bottom: 10px;
+  text-decoration: none;
+  font-family: "Mulish", Arial, Helvetica, sans-serif;
+}
+
+.row_2 {
+  margin: 100px 0px;
+  width: 100%;
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: repeat(6, 2fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 50px;
+  grid-row-gap: 50px;
+}
+
 </style>

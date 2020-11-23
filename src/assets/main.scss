@@ -32,21 +32,10 @@ footer {
   margin: 60px 10px 60px;
   width: 70%;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 40px;
-  grid-row-gap: 60px;
-}
-
-.row_2 {
-  margin: 100px 80px;
-  width: 100%;
-  margin-top: 100px;
-  display: grid;
-  grid-template-columns: repeat(7, 2fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr;
   grid-column-gap: 30px;
-  grid-row-gap: 50px;
+  grid-row-gap: 60px;
 }
 
 #movie_details {
@@ -89,40 +78,18 @@ button:focus {
   color: #fff;
   outline: none;
   border: none;
-  margin: 30px;
-  font-weight: 800;
+  margin: 10px;
+  font-weight: 500;
   border-radius: 0.2vw;
-  padding-left: 2rem;
+  padding-left: 1rem;
   padding-right: 3rem;
   margin-right: 2rem;
-  padding-top: 0.5rem;
+  padding-top: 0.8rem;
   background-color: rgba(153, 2, 2, 0.5);
-  padding-bottom: 0.5rem;
+  padding-bottom: 1rem;
 }
 
 .ghost:hover {
-  color: #000;
-  background-color: #e6e6e6;
-  transition: all 0.2s;
-}
-
-#icons {
-  cursor: pointer;
-  color: #fff;
-  outline: none;
-  border: none;
-  margin: 30px;
-  font-weight: 800;
-  border-radius: 0.2vw;
-  padding-left: 2rem;
-  padding-right: 3rem;
-  margin-right: 2rem;
-  padding-top: 0.5rem;
-  background-color: rgba(153, 2, 2, 0.5);
-  padding-bottom: 0.5rem;
-}
-
-#icons:hover {
   color: #000;
   background-color: #e6e6e6;
   transition: all 0.2s;
@@ -157,32 +124,8 @@ footer {
 
 /* Page-specific styles */
 
-.movie_detail {
-  margin: 0 0 0 100px;
-  display: flex;
-  align-items: center;
-}
-
-.movieitems {
-  margin: 100px 80px 400px;
-  font-size: 30px;
-  font-weight: 500;
-  color: rgb(255, 255, 255);
-  text-decoration: none;
-  font-family: "Mulish", Arial, Helvetica, sans-serif;
-}
-
 .movieitem {
   margin: 10px 0px;
-  font-size: 20px;
-  font-weight: 400;
-  color: rgb(255, 255, 255);
-  text-decoration: none;
-  font-family: "Mulish", Arial, Helvetica, sans-serif;
-}
-
-p {
-  margin-right: 40px;
   font-size: 20px;
   font-weight: 400;
   color: rgb(255, 255, 255);

@@ -31,7 +31,7 @@
                     :to="{name: 'detailspage',
                      params: {id: movie.id}}"
                   >
-                    <button class="ghost">
+                    <button>
                        View Details
                     </button>                  
                   </router-link>
@@ -87,16 +87,16 @@ export default {
 <style scoped>
 
 .sort_icons {
-  margin: 20px 400px 20px;
+  margin: 20px 300px 20px;
 }
 
 button {
   display: inline-block;
   border: none;
-  margin: 50px 10px 10px;
+  margin: 20px 0px 10px;
   background: rgb(21, 149, 235);
   color: rgb(255, 255, 255);
-  padding: 10px 80px;
+  padding: 10px 50px;
   cursor: pointer;
 }
 button:hover {
@@ -106,7 +106,7 @@ button:hover {
 }
 
 p {
-  font-weight: 200;
+  font-size: 13px;
   margin-bottom: 10px;
   color: rgb(255, 255, 255);
   text-decoration: none;
@@ -114,12 +114,43 @@ p {
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 25px;
   margin-bottom: 10px;
   color: rgb(255, 255, 255);
   text-decoration: none;
   font-family: "Mulish", Arial, Helvetica, sans-serif;
 
+}
+
+h3 {
+  font-size: 15px;
+  margin-bottom: 10px;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-family: "Mulish", Arial, Helvetica, sans-serif;
+
+}
+
+#icons {
+  cursor: pointer;
+  color: #fff;
+  outline: none;
+  border: none;
+  margin: 30px;
+  font-weight: 800;
+  border-radius: 0.2vw;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-right: 2rem;
+  padding-top: 0.5rem;
+  background-color: rgba(153, 2, 2, 0.5);
+  padding-bottom: 0.5rem;
+}
+
+#icons:hover {
+  color: #000;
+  background-color: #e6e6e6;
+  transition: all 0.2s;
 }
 
 </style>

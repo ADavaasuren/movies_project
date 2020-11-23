@@ -2,7 +2,7 @@
     <div >
         <main id="movie_info" v-for="item in shuffledMovie" :key="item.title">
             <section>
-                <img :src="`https://image.tmdb.org/t/p/w500/${item.poster_path}`" />
+                <img :src="`https://image.tmdb.org/t/p/w342/${item.poster_path}`" />
             </section>
             <section id="movie_desc">
                 <h1>{{ item.title }} </h1>
@@ -71,14 +71,14 @@ export default {
 <style scoped>
 
 #movie_info {
-  margin: 50px 100px 100px;
+  margin: 60px 120px 150px;
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 2px;
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 500;
   color: rgb(255, 255, 255);
   text-decoration: none;
@@ -87,7 +87,7 @@ h1 {
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 50;
   color: rgb(255, 255, 255);
   text-decoration: none;
@@ -121,6 +121,15 @@ button:hover {
   color: #000;
   background-color: #e6e6e6;
   transition: all 0.2s;
+}
+
+p {
+  margin-right: 40px;
+  font-size: 18px;
+  font-weight: 400;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-family: "Mulish", Arial, Helvetica, sans-serif;
 }
 
 </style>
