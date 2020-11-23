@@ -53,7 +53,7 @@ export default {
     position: absolute;
     bottom: 100px;
     font-size: 100px;
-    margin: 20px 50px 20px
+    margin: 50px 300px 200px;
 }
 
 h1 {

@@ -87,7 +87,7 @@ export default {
 <style scoped>
 
 #sort_icons {
-  margin: 20px 300px 20px;
+  margin: 20px 470px 10px;
 }
 
 button {
@@ -155,7 +155,7 @@ h3 {
 
 .row_1 {
   margin: 60px 10px 60px;
-  width: 70%;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr;
