@@ -32,7 +32,7 @@ export default {
     },
     mounted()
     {
-        Vue.axios.get('https://api.themoviedb.org/3/trending/movie/day?api_key=b33ac6661da0977b3c9d8014bf3e1d4d')
+        Vue.axios.get('https://api.themoviedb.org/3/trending/movie/day?api_key=')
         .then((resp) =>{
             this.list=resp.data.results;
             console.warn(resp.data.results)
