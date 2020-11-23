@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header />
-          <v-layout row class="sort_icons">
+          <v-layout row id="sort_icons">
               <v-btn id="icons" small color="grey" @click="sortByAZ('title')">
                   <span class="text-lowercase">movie title</span>
               </v-btn>
@@ -86,7 +86,7 @@ export default {
 
 <style scoped>
 
-.sort_icons {
+#sort_icons {
   margin: 20px 300px 20px;
 }
 
@@ -162,5 +162,7 @@ h3 {
   grid-column-gap: 30px;
   grid-row-gap: 60px;
 }
+
+
 
 </style>

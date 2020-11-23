@@ -31,7 +31,7 @@ export default new Vuex.Store({
     },
     updatenowplaying: (state, data) => {
       state.nowplaying = data
-    }
+    },
   },
 
   actions: {
@@ -79,5 +79,5 @@ export default new Vuex.Store({
         commit('updatenowplaying', response.data.results);
       })
     },
-  }  
+  }    
 })
