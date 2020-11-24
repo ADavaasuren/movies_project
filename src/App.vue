@@ -1,12 +1,12 @@
 <template>
     <div class="app">
-      <v-app-bar dark fixed>
+      <v-app-bar height="40" dark fixed>
         <Menu />
       </v-app-bar>
       <div>
         <router-view/>
       </div>
-      <v-footer dark>
+      <v-footer height="40" dark app >
         <Footer />
       </v-footer>
     </div>

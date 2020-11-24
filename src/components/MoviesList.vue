@@ -17,18 +17,18 @@
           </v-layout>
           <!-- looping through mutated data -->
           <section class="row_1" >
-              <div v-for="movie in lessMovie" :key="movie.id" >            
-                  <img 
+              <div v-for="movie in lessMovie" :key="movie.id" >
+                  <img
                     :src="`https://image.tmdb.org/t/p/w342/${movie.poster_path}`" 
                   />
-                <section id="movie_details">
+                <section id="movie_details" >
                      <h2>{{ movie.title }}</h2>
                      <h3>Release date:</h3>
                      <p> {{ movie.release_date }}</p>
                      <h3>Popularity:</h3>
-                     <p>{{ movie.popularity }}</p>                   
+                     <p>{{ movie.popularity }}</p>
                 </section>
-                  <router-link 
+                  <router-link
                     :to="{name: 'detailspage',
                      params: {id: movie.id}}"
                   >
@@ -72,12 +72,11 @@ export default {
             sortBy(prop) {
             this.moviedata.sort((b,a) => b[prop] < a[prop] ? 1 : -1)
             },
-
             sortByAZ(prop){
             this.moviedata.sort((a,b) => a[prop] < b[prop] ? -1 : 1)
             }  
     }
-}    
+}
 
 </script>
 
@@ -87,7 +86,7 @@ export default {
 <style scoped>
 
 #sort_icons {
-  margin: 20px 470px 10px;
+  margin: 50px 520px 20px;
 }
 
 button {
@@ -99,6 +98,7 @@ button {
   padding: 10px 50px;
   cursor: pointer;
 }
+
 button:hover {
   color: #000;
   background-color: #e6e6e6;
@@ -106,7 +106,7 @@ button:hover {
 }
 
 p {
-  font-size: 13px;
+  font-size: 15px;
   margin-bottom: 10px;
   color: rgb(255, 255, 255);
   text-decoration: none;
@@ -114,16 +114,16 @@ p {
 }
 
 h2 {
-  font-size: 25px;
+  font-size: 30px;
   margin-bottom: 10px;
+  margin-top: 20px;
   color: rgb(255, 255, 255);
   text-decoration: none;
   font-family: "Mulish", Arial, Helvetica, sans-serif;
-
 }
 
 h3 {
-  font-size: 15px;
+  font-size: 18px;
   margin-bottom: 10px;
   color: rgb(255, 255, 255);
   text-decoration: none;
@@ -154,7 +154,7 @@ h3 {
 }
 
 .row_1 {
-  margin: 60px 10px 60px;
+  margin: 60px 60px 60px;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -162,7 +162,6 @@ h3 {
   grid-column-gap: 30px;
   grid-row-gap: 60px;
 }
-
 
 
 </style>

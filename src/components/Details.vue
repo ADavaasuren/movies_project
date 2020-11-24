@@ -2,7 +2,7 @@
   <div >
     <main class="movie_detail">
         <section>
-                <img :src="`https://image.tmdb.org/t/p/w342/${moviedata.poster_path}`" />
+            <img :src="`https://image.tmdb.org/t/p/w500/${moviedata.poster_path}`" />
         </section>
         <section class="movieitems">
             <h1>{{ moviedata.title }} </h1>
@@ -14,19 +14,19 @@
             <p>{{ moviedata.popularity }}</p>
         </section>
     </main>
-    <h2>Similar movies</h2>
+    <h1>Similar movies</h1>
     <main id="similar_info">
       <!-- looping through mutated data -->
       <div v-for="movie in similarMovies" :key="movie.id" >
-              <section id="image_info">
-                      <img :src="`https://image.tmdb.org/t/p/w185/${movie.poster_path}`" />
-              </section>
-              <section id="similarMovie_info">
-                  <h2>{{ movie.title }} </h2>
-                  <h4>Release date:</h4>
-                  <p>{{ movie.release_date }}</p>
-              </section>
-      </div>        
+          <section id="image_info">
+              <img :src="`https://image.tmdb.org/t/p/w185/${movie.poster_path}`" />
+          </section>
+          <section id="similarMovie_info">
+              <h2>{{ movie.title }} </h2>
+              <h4>Release date:</h4>
+              <p>{{ movie.release_date }}</p>
+          </section>
+      </div>
     </main>
   </div>    
 </template>
@@ -88,18 +88,19 @@ export default {
 h1 {
   font-size: 50px;
   font-weight: 500;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
   color: rgb(255, 255, 255);
   text-decoration: none;
   font-family: "Mulish", Arial, Helvetica, sans-serif;
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 500;
+  margin: 10px 0px;
   margin-bottom: 20px;
+  max-width:fit-content;
   color: rgb(255, 255, 255);
-  text-decoration: none;
   font-family: "Mulish", Arial, Helvetica, sans-serif;
 }
 
@@ -114,7 +115,7 @@ h3 {
 
 h4 {
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 200;
   margin-bottom: 10px;
   color: rgb(255, 255, 255);
   text-decoration: none;
@@ -122,11 +123,10 @@ h4 {
 }
 
 p {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
   margin-bottom: 20px;
   color: rgb(255, 255, 255);
-  text-decoration: none;
   font-family: "Mulish", Arial, Helvetica, sans-serif;
 }
 
@@ -136,23 +136,23 @@ p {
 }
 
 #similar_info {
-  margin: 10px 50px 0;
+  margin: 60px 50px 20px;
   display: flex;
   margin-left: 200px;
 }
 
 #image_info {
-  margin-right: 300px;
+  margin-right: 400px;
 }
 
 .movie_detail {
-  margin: 20px 0 160px 200px;
+  margin: 60px 150px 100px 210px;
   display: flex;
   align-items: center;
 }
 
 .movieitems {
-  margin: 100px 70px 200px;
+  margin: 140px 70px 280px;
   font-size: 30px;
   font-weight: 500;
   color: rgb(255, 255, 255);
