@@ -1,9 +1,13 @@
 <template>
     <footer>
-         <strong>Copyright @2020</strong>        
-         <div class="sitemap">
-             <h2>Sitemap</h2>
-           </div>
+      <v-flex class="row">
+            <h4>Copyright @2020</h4>
+            <a href="http://localhost:8080/home" target="_blank">Home</a>
+            <a href="http://localhost:8080/random" target="_blank">Random</a>
+            <a href="http://localhost:8080/categories" target="_blank">Categories</a>
+            <a href="./sitemap.xml" target="_blank">Sitemap</a>
+            <a href="https://www.themoviedb.org/" target="_blank">TMDB</a>
+      </v-flex>
     </footer>
 </template>
 
@@ -11,8 +15,7 @@
 <script>
 
 export default {
-    name: 'Footer',
- 
+    name: 'Footer', 
 }
 
 </script>
@@ -20,10 +23,9 @@ export default {
 
 <style scoped>
 
-.sitemap {
-  margin: 10px;
-  margin-left: 300px;
-  margin-bottom: 50px;
+.row {
+   align-items: center;
+   justify-content: space-evenly;
 }
 
 

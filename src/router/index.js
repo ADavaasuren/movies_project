@@ -33,7 +33,7 @@ const routes = [
     path: '/categories',
     name: 'categoriespage',
     component: CategoriesPage    
-  },
+  }
 ]
 
 const router = new VueRouter({
