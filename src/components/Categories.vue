@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <main class="container">
         <h1>Upcoming</h1>
         <section class="row_2" >        
               <div v-for="movie in upcoming" :key="movie.id">                
@@ -39,7 +39,7 @@
                 </section>
               </div>
         </section>
-    </div>    
+    </main>    
 </template>
 
 
@@ -105,7 +105,7 @@ h4 {
 }
 
 .row_2 {
-  margin: 100px 0px;
+  margin: 100px 50px;
   width: 100%;
   margin-top: 100px;
   display: grid;

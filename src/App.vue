@@ -1,16 +1,18 @@
 <template>
-  <div>
     <div class="app">
       <v-app-bar dark fixed>
         <Menu />
       </v-app-bar>
-        <div>
-          <router-view/>
-        </div>
+      <div>
+        <router-view/>
+      </div>
+      <v-footer dark>
+        <Footer />
+      </v-footer>
     </div>
-      <Footer />
-  </div>
 </template>
+
+
 
 <script>
 import Menu from './components/Menu.vue';
@@ -25,7 +27,6 @@ export default {
   }
 }
 </script>
-
 
 
 <style>

@@ -1,7 +1,7 @@
 <template>
-    <main class="container">
+    <div>
         <Categories />
-    </main>
+    </div>
 </template>
 
 <script>

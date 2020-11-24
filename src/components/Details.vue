@@ -146,7 +146,7 @@ p {
 }
 
 .movie_detail {
-  margin: 20px 0 0 200px;
+  margin: 20px 0 160px 200px;
   display: flex;
   align-items: center;
 }

@@ -1,13 +1,11 @@
 <template>
-    <footer>
       <v-flex class="row">
             <h4>Copyright @2020</h4>
-            <a href="http://localhost:8080/home" target="_blank">Home</a>
-            <a href="http://localhost:8080/random" target="_blank">Random</a>
-            <a href="http://localhost:8080/categories" target="_blank">Categories</a>
+            <a href="trending-movies-499ba.firebaseapp.com/home" target="_blank">Home</a>
+            <a href="trending-movies-499ba.firebaseapp.com/random" target="_blank">Random</a>
+            <a href="trending-movies-499ba.firebaseapp.com/categories" target="_blank">Categories</a>
             <a href="https://www.themoviedb.org/" target="_blank">TMDB</a>
       </v-flex>
-    </footer>
 </template>
 
 
@@ -24,11 +22,14 @@ export default {
 
 .row {
    align-items: center;
+   display: flex;
    justify-content: space-evenly;
+   margin-bottom: 0px;
 }
 
 a {
   text-decoration: none;
+  color: rgb(140, 164, 190);
 }
 
 </style>
