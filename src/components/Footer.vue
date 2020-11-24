@@ -5,7 +5,6 @@
             <a href="http://localhost:8080/home" target="_blank">Home</a>
             <a href="http://localhost:8080/random" target="_blank">Random</a>
             <a href="http://localhost:8080/categories" target="_blank">Categories</a>
-            <a href="./sitemap.xml" target="_blank">Sitemap</a>
             <a href="https://www.themoviedb.org/" target="_blank">TMDB</a>
       </v-flex>
     </footer>
@@ -28,5 +27,8 @@ export default {
    justify-content: space-evenly;
 }
 
+a {
+  text-decoration: none;
+}
 
 </style>
