@@ -16,6 +16,7 @@
     </main>
     <h2>Similar movies</h2>
     <main id="similar_info">
+      <!-- looping through mutated data -->
       <div v-for="movie in similarMovies" :key="movie.id" >
               <section id="image_info">
                       <img :src="`https://image.tmdb.org/t/p/w185/${movie.poster_path}`" />

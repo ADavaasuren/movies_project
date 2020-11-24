@@ -6,6 +6,7 @@
         interval="6000"
         hide-delimiters
     >
+        <!-- looping through data for a specific image -->
         <v-carousel-item
             v-for="image in moviedata"
             :key="image.id"
@@ -28,11 +29,10 @@ import { mapState } from 'vuex';
 
 export default {
     name: 'header',
-
     computed: {
       ...mapState(["moviedata"]),
     },
-
+    // calling a specific function for a raw data
     mounted() {
       this.$store.dispatch('getMovieData');
     }

@@ -15,6 +15,7 @@
                   <span class="text-lowercase">votes</span>
               </v-btn>
           </v-layout>
+          <!-- looping through mutated data -->
           <section class="row_1" >
               <div v-for="movie in lessMovie" :key="movie.id" >            
                   <img 
@@ -54,20 +55,19 @@ export default {
     computed: {
       moviedata() { return this.$store.state.moviedata },
       similar() { return this.$store.state.similar },
-      // mutating an array to reduce the numbers to display
+      // mutating an array to reduce the number of items to display
       lessMovie() {
           return this.limit ? this.moviedata.slice(0,this.limit) : this.moviedata
         },
-
     },
     mounted() {
       this.$store.dispatch('getMovieData');
       this.$store.dispatch('getSimilar');
     },
-    
     data: () => ({
         limit: 10
     }),
+    // sorting functions for the click event
     methods: {
             sortBy(prop) {
             this.moviedata.sort((b,a) => b[prop] < a[prop] ? 1 : -1)

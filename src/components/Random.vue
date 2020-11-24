@@ -1,5 +1,6 @@
 <template>
     <div >
+        <!-- looping through mutated data -->
         <main id="movie_info" v-for="item in shuffledMovie" :key="item.title">
             <section>
                 <img :src="`https://image.tmdb.org/t/p/w500/${item.poster_path}`" />
@@ -33,19 +34,19 @@ export default {
             items: []
         }
     },
-
     computed: {
       ...mapState(["items"]),
+      // mutating an array to display less number of movies
       shuffledMovie() {
             return this.limit ? this.items.slice(0,this.limit) : this.items
         },
     },
-    
     mounted() {
+        // triggering first random item
         this.$store.dispatch('getShuffled');
+        // calling second shuffle function
         this.getMoreMovie();
     },
-    
     methods: {
         // a specific function for this page to initiate more data fetching
         // also includes javascript shuffle function
