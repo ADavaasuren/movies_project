@@ -74,10 +74,10 @@ export default {
 <style scoped>
 
 #movie_info {
-  margin: 60px 120px 100px;
+  margin: 40px 120px;
   display: flex;
   align-items: center;
-  margin-bottom: 5px;
+  margin-bottom: 35px;
 }
 
 h1 {
@@ -107,10 +107,10 @@ button {
   color: #fff;
   outline: none;
   border: none;
-  margin: 10px;
-  margin-left: 200px;
+  margin: 0px;
+  margin-left: 420px;
   margin-bottom: 13px;
-  font-weight: 900;
+  font-weight: 700;
   font-size: 20px;
   border-radius: 0.2vw;
   padding-left: 2rem;
