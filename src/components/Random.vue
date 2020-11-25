@@ -77,8 +77,8 @@ export default {
   align-items: center;
   margin-bottom: 35px;
   margin-top: 0;
-  padding-top: 80px;
-  padding-bottom: 70px;
+  padding-top: 200px;
+  padding-bottom: 185px;
 }
 
 h1 {

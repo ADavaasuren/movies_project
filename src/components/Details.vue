@@ -132,7 +132,7 @@ p {
 
 #similarMovie_info {
   margin: 40px 0px 0px;
-  margin-bottom: 50px;
+  margin-bottom: 80px;
 }
 
 #similar_info {
@@ -146,7 +146,7 @@ p {
 }
 
 .movie_detail {
-  margin: 60px 150px 100px 210px;
+  margin: 30px 160px 100px 210px;
   display: flex;
   align-items: center;
 }
