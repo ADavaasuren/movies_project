@@ -33,6 +33,7 @@ export default {
         }
     },
     computed: {
+      // fetching the original shuffled data from the store
       ...mapState(["items"]),
       // mutating an array to display less number of movies
       shuffledMovie() {

@@ -1,9 +1,11 @@
 <template>
+    <!-- navigation menu -->
     <nav class="nav">
             <button>
                 <router-link exact to="/home">Home</router-link>
             </button>
             <button>
+              <!-- dynamically linking it to mutated data from the store -->
                 <router-link :to="{name: 'randompage', params: {id: shuffledMovie.id}}">Random</router-link>
             </button>
             <button>
@@ -24,7 +26,6 @@ export default {
 
   name: 'menu',
   data: () => ({
-
         shuffledMovie: []
   }),
   // accessing mutated data from store

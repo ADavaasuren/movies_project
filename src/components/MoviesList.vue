@@ -1,6 +1,7 @@
 <template>
   <div>
     <Header />
+          <!-- sorting buttons area -->
           <v-layout row id="sort_icons">
               <v-btn id="icons" small color="grey" @click="sortByAZ('title')">
                   <span class="text-lowercase">movie title</span>
@@ -21,13 +22,13 @@
                   <img
                     :src="`https://image.tmdb.org/t/p/w342/${movie.poster_path}`" 
                   />
-                <section id="movie_details" >
-                     <h2>{{ movie.title }}</h2>
-                     <h3>Release date:</h3>
-                     <p> {{ movie.release_date }}</p>
-                     <h3>Popularity:</h3>
-                     <p>{{ movie.popularity }}</p>
-                </section>
+                  <section id="movie_details" >
+                      <h2>{{ movie.title }}</h2>
+                      <h3>Release date:</h3>
+                      <p> {{ movie.release_date }}</p>
+                      <h3>Popularity:</h3>
+                      <p>{{ movie.popularity }}</p>
+                  </section>
                   <router-link
                     :to="{name: 'detailspage',
                      params: {id: movie.id}}"
@@ -53,6 +54,7 @@ export default {
         Header,
     },
     computed: {
+      // fetching the relevant raw data from the store
       moviedata() { return this.$store.state.moviedata },
       similar() { return this.$store.state.similar },
       // mutating an array to reduce the number of items to display
@@ -61,6 +63,7 @@ export default {
         },
     },
     mounted() {
+      // calling relevant functions from the store
       this.$store.dispatch('getMovieData');
       this.$store.dispatch('getSimilar');
     },
