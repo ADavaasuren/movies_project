@@ -1,7 +1,9 @@
 <template>
-    <main class="container">
+    <main 
+    class="container"
+    >
         <h1>Upcoming</h1>
-        <section class="row_2" >        
+        <section class="row_2" >
               <div v-for="movie in upcoming" :key="movie.id">                
                   <img 
                   :src="`https://image.tmdb.org/t/p/w154/${movie.poster_path}`" 
@@ -123,7 +125,15 @@ h4 {
 }
 
 .container {
-  margin-top: 0;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 </style>
+
+
+    width: auto;
+    height: 5500px;
+    padding-top: 10px;

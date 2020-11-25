@@ -3,17 +3,15 @@
         <!-- looping through mutated data -->
         <main id="movie_info" v-for="item in shuffledMovie" :key="item.title">
             <section>
-                <img :src="`https://image.tmdb.org/t/p/w500/${item.poster_path}`" />
+                <img :src="`https://image.tmdb.org/t/p/w342/${item.poster_path}`" />
             </section>
             <section id="movie_desc">
                 <h1>{{ item.title }} </h1>
                 <h2>Description:</h2>
                 <p>{{ item.overview }}</p>
+                <button block v-on:click="getMoreMovie" >More random</button>
             </section>
         </main>
-        <button block v-on:click="getMoreMovie">
-            More random
-        </button>
     </div>
 </template>
 
@@ -78,6 +76,9 @@ export default {
   display: flex;
   align-items: center;
   margin-bottom: 35px;
+  margin-top: 0;
+  padding-top: 80px;
+  padding-bottom: 70px;
 }
 
 h1 {
@@ -108,15 +109,14 @@ button {
   outline: none;
   border: none;
   margin: 0px;
-  margin-left: 420px;
-  margin-bottom: 13px;
+  margin-left: 300px;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 15px;
   border-radius: 0.2vw;
   padding-left: 2rem;
-  padding-right: 3rem;
+  padding-right: 2rem;
   margin-right: 2rem;
-  padding-top: 1rem;
+  padding-top: 0.5rem;
   background-color: rgba(153, 2, 2, 0.5);
   padding-bottom: 1rem;
 }
@@ -129,6 +129,7 @@ button:hover {
 
 p {
   margin-right: 40px;
+  margin-bottom: 40px;
   font-size: 18px;
   font-weight: 400;
   color: rgb(255, 255, 255);
