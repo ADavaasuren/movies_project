@@ -132,8 +132,3 @@ h4 {
 }
 
 </style>
-
-
-    width: auto;
-    height: 5500px;
-    padding-top: 10px;
