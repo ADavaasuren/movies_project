@@ -6,7 +6,7 @@
         <div>
           <router-view/>
         </div>
-        <v-footer height="100" dark >
+        <v-footer height="100" dark>
           <Footer />
         </v-footer>
     </div>
