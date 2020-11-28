@@ -79,7 +79,7 @@ export default {
   margin-bottom: 35px;
   margin-top: 0;
   padding-top: 200px;
-  padding-bottom: 185px;
+  padding-bottom: 87px;
 }
 
 h1 {

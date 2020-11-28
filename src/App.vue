@@ -1,14 +1,14 @@
 <template>
     <div class="app">
-      <v-app-bar height="40" dark fixed>
-        <Menu />
-      </v-app-bar>
-      <div>
-        <router-view/>
-      </div>
-      <v-footer height="70" dark app >
-        <Footer />
-      </v-footer>
+        <v-app-bar height="40" dark fixed>
+          <Menu />
+        </v-app-bar>
+        <div>
+          <router-view/>
+        </div>
+        <v-footer height="100" dark >
+          <Footer />
+        </v-footer>
     </div>
 </template>
 
